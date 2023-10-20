@@ -34,8 +34,8 @@ public class GameScreen implements Screen {
         this.game = gam;
 
         // load the images for the droplet and the bucket, 64x64 pixels each
-        dropImage = new Texture(Gdx.files.internal("C:\\Users\\lei.zhou\\Software\\DerbyCode\\FXGL\\test\\core\\src\\com\\mygdx\\game\\advance\\res\\droplet.png"));
-        bucketImage = new Texture(Gdx.files.internal("C:\\Users\\lei.zhou\\Software\\DerbyCode\\FXGL\\test\\core\\src\\com\\mygdx\\game\\advance\\res\\bucket.png"));
+        dropImage = new Texture(Gdx.files.internal("droplet.png"));
+        bucketImage = new Texture(Gdx.files.internal("bucket.png"));
 
         // load the drop sound effect and the rain background "music"
         //dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));

@@ -30,8 +30,8 @@ public class Drop extends ApplicationAdapter {
     @Override
     public void create() {
         // load the images for the droplet and the bucket, 64x64 pixels each
-        dropImage = new Texture(Gdx.files.internal("C:\\Users\\lei.zhou\\Software\\DerbyCode\\FXGL\\test\\core\\src\\com\\mygdx\\game\\res\\droplet.png"));
-        bucketImage = new Texture(Gdx.files.internal("C:\\Users\\lei.zhou\\Software\\DerbyCode\\FXGL\\test\\core\\src\\com\\mygdx\\game\\res\\bucket.png"));
+        dropImage = new Texture(Gdx.files.internal("..\\res\\droplet.png"));
+        bucketImage = new Texture(Gdx.files.internal("..\\res\\bucket.png"));
 
         // load the drop sound effect and the rain background "music"
         //dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
