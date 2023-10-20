@@ -1,4 +1,4 @@
-package com.mygdx.game.basic.Sptite;
+package com.mygdx.game.basic.sptite;
 
 import java.util.Iterator;
 

@@ -4,15 +4,14 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.advance.Drop;
-import com.mygdx.game.ball.BallGame;
+import com.mygdx.game.physics.B2dModel;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-		initialize(new Drop(), config);
+		initialize(new B2dModel(), config);
 	}
 }
