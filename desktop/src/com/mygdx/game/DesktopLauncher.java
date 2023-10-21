@@ -2,11 +2,8 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.mygdx.game.MyGdxGame;
-import com.mygdx.game.advance.Drop;
-import com.mygdx.game.ball.BallGame;
-import com.mygdx.game.physics.B2dModel;
-import com.mygdx.game.physics.MyWorld;
+import com.mygdx.game.physics.MyBox2DImgWorld;
+import com.mygdx.game.physics.MyBox2DWorld;
 
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
 public class DesktopLauncher {
@@ -15,6 +12,6 @@ public class DesktopLauncher {
 		config.setForegroundFPS(60);
 		config.setTitle("My GDX Game");
 
-		new Lwjgl3Application(new MyWorld(), config);
+		new Lwjgl3Application(new MyBox2DImgWorld(), config);
 	}
 }

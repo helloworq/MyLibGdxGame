@@ -14,12 +14,12 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class MyWorld extends ApplicationAdapter {
+public class MyBox2DWorld extends ApplicationAdapter {
 
-    World world;
-    Box2DDebugRenderer box2DDebugRenderer;
-    Body body;
-    OrthographicCamera camera;
+    private World world;
+    private Box2DDebugRenderer box2DDebugRenderer;
+    private Body body;
+    private OrthographicCamera camera;
 
     private static final float SCENE_WIDTH = 30f; // 13 metres wide
     private static final float SCENE_HEIGHT = 10f; // 7 metres high
