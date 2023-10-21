@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -29,6 +30,8 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
     // 在正常像素下物体重力现象不明显，需要对纹理进行缩小100++倍才有比较明显的物理效果
     private static final float reduce = 100f;// 缩小100 倍易于观察到物理现象
     private boolean isJump;
+    float stateTime = 0L;
+    Animation<TextureRegion> walkAnimation; // Must declare frame type (TextureRegion)
 
     @Override
     public void create() {
@@ -37,6 +40,7 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         img = ImageResources.BAD_LOGIC;
         world = WorldResources.WORLD;
         debugRenderer = new Box2DDebugRenderer();
+        walkAnimation = ImageResources.playerAnimation();
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth() / 64f, Gdx.graphics.getHeight() / 64f);
@@ -58,6 +62,7 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
     @Override
     public void render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        stateTime += Gdx.graphics.getDeltaTime(); // Accumulate elapsed animation time
 
         // 获取 物体的位置
         Vector2 position = dogBody.getPosition();
@@ -67,10 +72,11 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         camera.update();
 
         // 将绘制与相机投影绑定 关键 关键
+        TextureRegion currentFrame = walkAnimation.getKeyFrame(stateTime, true);
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         batch.draw(img, 10 - 1.28f, 10, 0, 0, 256, 256, 0.01f, 0.01f, 0);
-        batch.draw(dog, position.x - 50 / 2 / reduce, position.y - 50 / 2 / reduce, // 设置位置 减少 50/2/reduce 是为了和物体的形状重合
+        batch.draw(currentFrame, position.x - 50 / 2 / reduce, position.y - 50 / 2 / reduce, // 设置位置 减少 50/2/reduce 是为了和物体的形状重合
                 0, 0, 50, 50, // 绘制图片的一部分，这里就是全部了
                 1 / reduce, 1 / reduce, // 缩小100倍
                 0 // 不旋转
