@@ -3,22 +3,20 @@ package com.mygdx.game.physics;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.util.BodyDefUtil;
+import com.mygdx.game.util.ImageResources;
+import com.mygdx.game.util.SpriteUtil;
+import com.mygdx.game.util.WorldResources;
 
 public class MyBox2DImgWorld extends ApplicationAdapter {
     private SpriteBatch batch;
@@ -29,65 +27,32 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
     private Box2DDebugRenderer debugRenderer;
     private Body dogBody;
     // 在正常像素下物体重力现象不明显，需要对纹理进行缩小100++倍才有比较明显的物理效果
-    private float reduce = 100;// 缩小100 倍易于观察到物理现象
+    private static final float reduce = 100f;// 缩小100 倍易于观察到物理现象
     private boolean isJump;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
-        // 创建一个相机， 这里缩小64倍，因为要观察的物体需要缩小100倍
-        camera = new OrthographicCamera();
-        camera.setToOrtho(false, Gdx.graphics.getWidth() / 64, Gdx.graphics.getHeight() / 64);
-
-        // 图片一： 50*50 缩小100倍就是 0.5*0.5 在绘制时缩小的
-        dog = new TextureRegion(new Texture("bucket.png"), 50, 50);
-        // 图片二： 256*256 ...
-        img = new TextureRegion(new Texture("badlogic.jpg"), 256, 256);
-
-        // 创建一个世界，里面的重力加速度为 10
-        world = new World(new Vector2(0, -10), true);
-        // 试调渲染，可以使用这个渲染观察到我们用Box2D绘制的物体图形
+        dog = ImageResources.BUCKET;
+        img = ImageResources.BAD_LOGIC;
+        world = WorldResources.WORLD;
         debugRenderer = new Box2DDebugRenderer();
 
-        // 创建一个地面，其实是一个静态物体，这里我们叫它地面，玩家可以走在上面
-        BodyDef groundBodyDef = new BodyDef();
-        groundBodyDef.type = BodyDef.BodyType.StaticBody;// 静态的质量为0
-        groundBodyDef.position.x = 0;// 位置
-        groundBodyDef.position.y = 0;
-        // 创建这个地面的身体，我们对这个物体
-        Body groundBody = world.createBody(groundBodyDef);
-        PolygonShape groundBox = new PolygonShape();// 物体的形状，这样创建是矩形的
-        groundBox.setAsBox(Gdx.graphics.getWidth(), 10);// 物体的宽高
-        groundBody.createFixture(groundBox, 0); // 静态物体的质量应该设为0
+        camera = new OrthographicCamera();
+        camera.setToOrtho(false, Gdx.graphics.getWidth() / 64f, Gdx.graphics.getHeight() / 64f);
 
-        // 创建一个静态物体，我们当他是障碍物即可
-        BodyDef badlogicBodyDef = new BodyDef();
-        badlogicBodyDef.type = BodyDef.BodyType.StaticBody;
-        badlogicBodyDef.position.x = 10;
-        badlogicBodyDef.position.y = 10 + 1.28f; // + 1.28是因为图片由中心绘制的 也可以写成 + 256/2/100
-        Body badlogicBody = world.createBody(badlogicBodyDef);
-        PolygonShape badlogicBox = new PolygonShape();
-        badlogicBox.setAsBox(256 / 2 / reduce, 256 / 2 / reduce);// 图形绘制是由中心绘制的，所以要除一半
-        badlogicBody.createFixture(badlogicBox, 0); // 静态物体的质量应该设为0
+        PolygonShape groundBox = SpriteUtil.createBox(world, 0, 0,Gdx.graphics.getWidth(), 10);
 
-        // 再添加一个动态物体，可以把他看成玩家
-        BodyDef dogBodyDef = new BodyDef();
-        dogBodyDef.type = BodyDef.BodyType.DynamicBody;
-        dogBodyDef.position.x = 10;
-        dogBodyDef.position.y = 20;
+        PolygonShape badlogicBox = SpriteUtil.createBox(world, 10, 10 + 1.28f, 256.0f / 2.0f / reduce, 256f / 2f / reduce);
+
+        BodyDef dogBodyDef = BodyDefUtil.createDynamic(10, 20);
         dogBody = world.createBody(dogBodyDef);
-        PolygonShape dynamicBox = new PolygonShape();
-        dynamicBox.setAsBox(50 / 2 / reduce, 50 / 2 / reduce);
-
-        // 给物体添加一些属性
-        FixtureDef fixtureDef = new FixtureDef();
-        fixtureDef.shape = dynamicBox;// 形状
-        fixtureDef.restitution = 0.2f; // 设置这个值后，物体掉落到地面就会弹起一点高度...
-        dogBody.createFixture(fixtureDef).setUserData(this);//设置自定义数据可以从这个物体获取这个数据对象
+        PolygonShape dynamicBox = SpriteUtil.createPlayer(dogBody, 50f / 2f / reduce, 50f / 2f / reduce);
 
         // 上面的图形要处理掉
         groundBox.dispose();
         dynamicBox.dispose();
+        badlogicBox.dispose();
     }
 
     @Override
