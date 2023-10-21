@@ -5,12 +5,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Align;
 
 public class TouchpadTest extends ApplicationAdapter {
     Stage stage;
@@ -28,6 +30,7 @@ public class TouchpadTest extends ApplicationAdapter {
         touchpad.setBounds(15, 15, 100, 100);
         stage.addListener(new InputListener() {
             final Rectangle b = new Rectangle();
+            Vector2 p = new Vector2();
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -41,6 +44,11 @@ public class TouchpadTest extends ApplicationAdapter {
                     touchpad.fire(event);
                 }
                 return true;
+            }
+
+            @Override
+            public void touchDragged(InputEvent event, float x, float y, int pointer) {
+                System.out.println(x+"  "+y);
             }
 
             @Override

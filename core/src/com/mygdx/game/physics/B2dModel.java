@@ -120,7 +120,5 @@ public class B2dModel extends ApplicationAdapter {
         groundBody.createFixture(groundBox, 1.0f);
         // Free resources
         groundBox.dispose();
-
     }
-
 }
