@@ -62,7 +62,7 @@ public class B2dModel extends ApplicationAdapter {
          **/
         fixtureDef.shape = shape;
         fixtureDef.density = 2;
-        fixtureDef.restitution = 0.5f;  // 恢复系数，物理受到反作用力的运动情况，值越大反向运动速度越快
+        fixtureDef.restitution = 1f;  // 恢复系数，物理受到反作用力的运动情况，值越大反向运动速度越快
 
         body.createFixture(fixtureDef);
         shape.dispose();
