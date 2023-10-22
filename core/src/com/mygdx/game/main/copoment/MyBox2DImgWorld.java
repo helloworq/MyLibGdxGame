@@ -50,6 +50,8 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
     private Touchpad touchpad;
     private Player player;
     private StaticObj box;
+    private KinematicObj movingObj;
+    private StaticObj ground;
 
     @Override
     public void create() {
@@ -62,8 +64,8 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
 
         createTouchpad();
 
-        KinematicObj movingObj = new KinematicObj(world, 12, 12, 1.28f, 1.28f);
-        StaticObj ground = new StaticObj(world, 0, 0, Gdx.graphics.getWidth(), 10, ImageResources.BAD_LOGIC);
+        movingObj = new KinematicObj(world, 12, 12, 1.28f, 1.28f);
+        ground = new StaticObj(world, 0, 0, Gdx.graphics.getWidth(), 10, ImageResources.BAD_LOGIC);
         box = new StaticObj(world, 10, 10 + 1.28f, 1.28f, 1.28f, ImageResources.BAD_LOGIC);
         player = new Player(world, 10, 20, 0.25f, 0.25f);
     }
@@ -167,6 +169,11 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
                 box.getPy() - box.getHeight(),
                 box.getWidth() * 2,
                 box.getHeight() * 2);
+        batch.draw(ground.getSurface(),
+                ground.getPx(),
+                ground.getPy(),
+                ground.getWidth(),
+                ground.getHeight());
         batch.draw(currentFrame,
                 player.getBody().getPosition().x - 0.5f / 2,
                 player.getBody().getPosition().y - 0.5f / 2,
@@ -182,10 +189,10 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         // 获取五星的线速度
         Vector2 linearVelocity = player.getBody().getLinearVelocity();
         if (isPressing && player.isMoveRight() && linearVelocity.x <= 2) {
-            player.getBody().applyLinearImpulse(new Vector2(0.1f, 0), player.getBody().getWorldCenter(), true);
+            player.getBody().applyLinearImpulse(new Vector2(1f, 0), player.getBody().getWorldCenter(), true);
         }
         if (isPressing && player.isMoveLeft() && linearVelocity.x >= -2) {
-            player.getBody().applyLinearImpulse(new Vector2(-0.1f, 0), player.getBody().getWorldCenter(), true);
+            player.getBody().applyLinearImpulse(new Vector2(-1f, 0), player.getBody().getWorldCenter(), true);
         }
 
         // 跳起来的逻辑，比较简单。但是时候这个演示
