@@ -9,9 +9,11 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
-import com.mygdx.game.util.ImageResources;
+import com.mygdx.game.resources.ImageResources;
+import com.mygdx.game.resources.player.PlayerResources;
 
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Player {
     private float px;
@@ -19,21 +21,12 @@ public class Player {
     private float width;
     private float height;
     private Body body;
-    private Animation<TextureRegion> walkAnimation = ImageResources.playerAnimation();
+    private Animation<TextureRegion> walkAnimation = PlayerResources.IDLE_RIGHT;
     private boolean isJump;
     private Texture surface;
     private boolean moveLeft;
     private boolean moveRight;
-
-    public ArrayList<Body> getBullets() {
-        return bullets;
-    }
-
-    public void setBullets(ArrayList<Body> bullets) {
-        this.bullets = bullets;
-    }
-
-    private ArrayList<Body> bullets = new ArrayList<>();
+    private CopyOnWriteArrayList<Body> bullets = new CopyOnWriteArrayList<>();
 
     private Player() {
     }
@@ -56,6 +49,7 @@ public class Player {
         //物理属性
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;// 形状
+        fixtureDef.friction = 1f;
         fixtureDef.restitution = 0f; // 回弹系数
 
         body.createFixture(fixtureDef);//设置自定义数据可以从这个物体获取这个数据对象
@@ -76,6 +70,10 @@ public class Player {
 
     public Vector2 getPxy() {
         return new Vector2(px, py);
+    }
+
+    public void setWalkAnimation(Animation<TextureRegion> walkAnimation) {
+        this.walkAnimation = walkAnimation;
     }
 
     public Animation<TextureRegion> getWalkAnimation() {
@@ -104,5 +102,13 @@ public class Player {
 
     public void setMoveRight(boolean moveRight) {
         this.moveRight = moveRight;
+    }
+
+    public CopyOnWriteArrayList<Body> getBullets() {
+        return bullets;
+    }
+
+    public void setBullets(CopyOnWriteArrayList<Body> bullets) {
+        this.bullets = bullets;
     }
 }

@@ -1,5 +1,7 @@
 package com.mygdx.game.main.entity;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -8,18 +10,21 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.Shape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.main.contants.EntityEnum;
+import com.mygdx.game.resources.player.PlayerResources;
 
-public class DynamicObj {
+public class BulletObj {
     private Body body;
+    private Animation<TextureRegion> hitAnimation = PlayerResources.BULLET_HIT;
 
-    private DynamicObj() {
+    private BulletObj() {
     }
 
-    public DynamicObj(World world,
-                      float px,
-                      float py,
-                      float radius,
-                      Vector2 initVelocity) {
+    public BulletObj(World world,
+                     float px,
+                     float py,
+                     float radius,
+                     Vector2 initVelocity) {
         BodyDef tempBodyDef = new BodyDef();
         tempBodyDef.type = BodyDef.BodyType.DynamicBody;
         tempBodyDef.position.x = px;
@@ -27,6 +32,7 @@ public class DynamicObj {
         tempBodyDef.linearVelocity.set(initVelocity);
 
         body = world.createBody(tempBodyDef);
+        body.setUserData(EntityEnum.BULLET);
         // 再添加一个动态物体，可以把他看成玩家
         CircleShape dynamicShape = new CircleShape();
         dynamicShape.setRadius(radius);
@@ -38,11 +44,11 @@ public class DynamicObj {
         body.createFixture(fixtureDef);//设置自定义数据可以从这个物体获取这个数据对象
     }
 
-    public DynamicObj(World world,
-                      float px,
-                      float py,
-                      float width,
-                      float height) {
+    public BulletObj(World world,
+                     float px,
+                     float py,
+                     float width,
+                     float height) {
         //body定义
         BodyDef playerDef = new BodyDef();
         playerDef.type = BodyDef.BodyType.DynamicBody;

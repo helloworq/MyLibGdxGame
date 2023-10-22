@@ -26,9 +26,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.mygdx.game.ball.Ball;
-import com.mygdx.game.util.ImageResources;
-import com.mygdx.game.util.WorldResources;
+import com.mygdx.game.resources.ImageResources;
+import com.mygdx.game.resources.WorldResources;
 
 import java.util.ArrayList;
 import java.util.Random;

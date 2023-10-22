@@ -4,19 +4,11 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -25,16 +17,19 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.mygdx.game.main.entity.DynamicObj;
+import com.mygdx.game.main.contants.EntityEnum;
+import com.mygdx.game.main.entity.BulletObj;
 import com.mygdx.game.main.entity.KinematicObj;
 import com.mygdx.game.main.entity.StaticObj;
 import com.mygdx.game.main.entity.Player;
-import com.mygdx.game.util.ImageResources;
-import com.mygdx.game.util.StyleResources;
-import com.mygdx.game.util.WorldResources;
+import com.mygdx.game.resources.ImageResources;
+import com.mygdx.game.resources.StyleResources;
+import com.mygdx.game.resources.WorldResources;
+import com.mygdx.game.resources.player.PlayerResources;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class MyBox2DImgWorld extends ApplicationAdapter {
     private SpriteBatch batch;
@@ -52,6 +47,9 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
     private StaticObj box;
     private KinematicObj movingObj;
     private StaticObj ground;
+
+    private CopyOnWriteArrayList<Vector2> TRASH_LIST = new CopyOnWriteArrayList<>();
+    private ConcurrentHashMap<Float, Vector2> TRASH_MAP = new ConcurrentHashMap<>();
 
     @Override
     public void create() {
@@ -105,9 +103,11 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
                 isPressing = true;
                 if (touchpad.getKnobX() > 50) {
+                    player.setWalkAnimation(PlayerResources.RUN_RIGHT);
                     player.setMoveRight(true);
                     player.setMoveLeft(false);
                 } else if (touchpad.getKnobX() <= 50) {
+                    player.setWalkAnimation(PlayerResources.RUN_LEFT);
                     player.setMoveLeft(true);
                     player.setMoveRight(false);
                 }
@@ -139,12 +139,7 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         buttonShoot.addListener(new ClickListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                DynamicObj tempObj = new DynamicObj(
-                        world,
-                        player.getBody().getPosition().x + 0.1f,
-                        player.getBody().getPosition().y,
-                        0.1f,
-                        new Vector2(20f, 10f));
+                BulletObj tempObj = new BulletObj(world, player.getBody().getPosition().x + 1f, player.getBody().getPosition().y, 0.1f, new Vector2(3f, 10f));
                 player.getBullets().add(tempObj.getBody());
                 return true;
             }
@@ -161,30 +156,32 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         camera.update();
 
         // 将绘制与相机投影绑定 关键 关键
-        TextureRegion currentFrame = player.getWalkAnimation().getKeyFrame(stateTime, true);
+        TextureRegion playerAnimation = player.getWalkAnimation().getKeyFrame(stateTime, true);
+        TextureRegion bulletAnimation = PlayerResources.BULLET_HIT.getKeyFrame(stateTime, true);
+
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(box.getSurface(),
-                box.getPx() - box.getWidth(),
-                box.getPy() - box.getHeight(),
-                box.getWidth() * 2,
-                box.getHeight() * 2);
-        batch.draw(ground.getSurface(),
-                ground.getPx(),
-                ground.getPy(),
-                ground.getWidth(),
-                ground.getHeight());
-        batch.draw(currentFrame,
-                player.getBody().getPosition().x - 0.5f / 2,
-                player.getBody().getPosition().y - 0.5f / 2,
-                0, 0, 50, 50, // 绘制图片的一部分，这里就是全部了
-                0.01f, 0.01f, // 缩小100倍
-                0 // 不旋转
-        );
+        batch.draw(box.getSurface(), box.getPx() - box.getWidth(), box.getPy() - box.getHeight(), box.getWidth() * 2, box.getHeight() * 2);
+        batch.draw(ground.getSurface(), ground.getPx(), ground.getPy(), ground.getWidth(), ground.getHeight());
+        batch.draw(playerAnimation, player.getBody().getPosition().x - 0.5f / 2, player.getBody().getPosition().y - 0.5f / 2, 0, 0, 50, 50, 0.01f, 0.01f, 0);
+
         for (Body ball : player.getBullets()) {
             batch.draw(img, ball.getPosition().x - 0.1f, ball.getPosition().y - 0.1f, 0, 0, 20, 20, 0.01f, 0.01f, 0);
+            if (EntityEnum.TRASH.equals(ball.getUserData())) {
+                TRASH_MAP.put(stateTime, new Vector2(ball.getPosition().x - 0.2f, ball.getPosition().y - 0.2f));
+                player.getBullets().remove(ball);
+                world.destroyBody(ball);
+            }
+        }
+
+        for (Map.Entry<Float, Vector2> entry : TRASH_MAP.entrySet()) {
+            batch.draw(bulletAnimation, entry.getValue().x, entry.getValue().y, 0, 0, 50, 50, 0.01f, 0.01f, 0);
+            if (stateTime - entry.getKey() > 0.1) {
+                TRASH_MAP.remove(entry.getKey());
+            }
         }
         batch.end();
+
 
         // 获取五星的线速度
         Vector2 linearVelocity = player.getBody().getLinearVelocity();
@@ -201,6 +198,9 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         }
         if (linearVelocity.y == 0) {
             player.setJump(false);
+        }
+        if (linearVelocity.x == 0) {
+            player.setWalkAnimation(player.isMoveRight() ? PlayerResources.IDLE_RIGHT : PlayerResources.IDLE_LEFT);
         }
     }
 

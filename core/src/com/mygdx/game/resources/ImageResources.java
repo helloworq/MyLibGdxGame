@@ -1,4 +1,4 @@
-package com.mygdx.game.util;
+package com.mygdx.game.resources;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -14,10 +14,10 @@ public class ImageResources {
     public static final Texture Y_BUTTON = new Texture("touchpad/y_button.png");
     public static final Texture Z_BUTTON = new Texture("touchpad/z_button.png");
 
+
     public static Animation<TextureRegion> playerAnimation() {
         int FRAME_COLS = 23, FRAME_ROWS = 4;
         Texture walkSheet = PALYER;
-        Animation<TextureRegion> walkAnimation; // Must declare frame type (TextureRegion)
 
         TextureRegion[][] tmp = TextureRegion.split(walkSheet,
                 walkSheet.getWidth() / FRAME_COLS,
