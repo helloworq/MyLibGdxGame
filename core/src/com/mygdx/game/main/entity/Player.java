@@ -11,6 +11,8 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.util.ImageResources;
 
+import java.util.ArrayList;
+
 public class Player {
     private float px;
     private float py;
@@ -22,6 +24,16 @@ public class Player {
     private Texture surface;
     private boolean moveLeft;
     private boolean moveRight;
+
+    public ArrayList<Body> getBullets() {
+        return bullets;
+    }
+
+    public void setBullets(ArrayList<Body> bullets) {
+        this.bullets = bullets;
+    }
+
+    private ArrayList<Body> bullets = new ArrayList<>();
 
     private Player() {
     }

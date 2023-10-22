@@ -43,19 +43,13 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
     private World world;
     private Box2DDebugRenderer debugRenderer;
 
-    // 在正常像素下物体重力现象不明显，需要对纹理进行缩小100++倍才有比较明显的物理效果
     private boolean isPressing;
     float stateTime = 0L;
 
     private Stage stage;
     private Touchpad touchpad;
-
-    private ArrayList<Body> balls = new ArrayList<>();
-
-    ////////////////////////////
     private Player player;
     private StaticObj box;
-    ////////////////////////////
 
     @Override
     public void create() {
@@ -72,6 +66,22 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         StaticObj ground = new StaticObj(world, 0, 0, Gdx.graphics.getWidth(), 10, ImageResources.BAD_LOGIC);
         box = new StaticObj(world, 10, 10 + 1.28f, 1.28f, 1.28f, ImageResources.BAD_LOGIC);
         player = new Player(world, 10, 20, 0.25f, 0.25f);
+    }
+
+    @Override
+    public void render() {
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        stateTime = stateTime + Gdx.graphics.getDeltaTime(); // Accumulate elapsed animation time
+
+        handleTouchEvent();
+
+        stage.act(Gdx.graphics.getDeltaTime());
+        stage.draw();
+        // 给Box2D世界里的物体绘制轮廓，让我们看得更清楚，正式游戏需要注释掉这个渲染
+        debugRenderer.render(world, camera.combined);
+
+        // 更新世界里的关系 这个要放在绘制之后，最好放最后面
+        world.step(1 / 60f, 6, 2);
     }
 
     private void createTouchpad() {
@@ -133,7 +143,7 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
                         player.getBody().getPosition().y,
                         0.1f,
                         new Vector2(20f, 10f));
-                balls.add(tempObj.getBody());
+                player.getBullets().add(tempObj.getBody());
                 return true;
             }
         });
@@ -141,22 +151,6 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         stage.addActor(buttonShoot);
         stage.addActor(buttonJump);
         stage.addActor(touchpad);
-    }
-
-    @Override
-    public void render() {
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        stateTime = stateTime + Gdx.graphics.getDeltaTime(); // Accumulate elapsed animation time
-
-        handleTouchEvent();
-
-        stage.act(Gdx.graphics.getDeltaTime());
-        stage.draw();
-        // 给Box2D世界里的物体绘制轮廓，让我们看得更清楚，正式游戏需要注释掉这个渲染
-        debugRenderer.render(world, camera.combined);
-
-        // 更新世界里的关系 这个要放在绘制之后，最好放最后面
-        world.step(1 / 60f, 6, 2);
     }
 
     private void handleTouchEvent() {
@@ -180,7 +174,7 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
                 0.01f, 0.01f, // 缩小100倍
                 0 // 不旋转
         );
-        for (Body ball : balls) {
+        for (Body ball : player.getBullets()) {
             batch.draw(img, ball.getPosition().x - 0.1f, ball.getPosition().y - 0.1f, 0, 0, 20, 20, 0.01f, 0.01f, 0);
         }
         batch.end();
