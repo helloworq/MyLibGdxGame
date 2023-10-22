@@ -166,8 +166,8 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
 
                 Body temp = world.createBody(tempBodyDef);
                 // 再添加一个动态物体，可以把他看成玩家
-                PolygonShape dynamicShape = new PolygonShape();
-                dynamicShape.setAsBox(50f / 2f / reduce, 50f / 2f / reduce);
+                CircleShape dynamicShape = new CircleShape();
+                dynamicShape.setRadius(0.1f);
 
                 // 给物体添加一些属性
                 FixtureDef fixtureDef = new FixtureDef();
