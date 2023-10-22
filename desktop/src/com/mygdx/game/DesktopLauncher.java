@@ -3,7 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.mygdx.game.animation.Animator;
-import com.mygdx.game.physics.MyBox2DImgWorld;
+import com.mygdx.game.main.copoment.MyBox2DImgWorld;
 import com.mygdx.game.physics.MyBox2DWorld;
 import com.mygdx.game.touch.TouchpadTest;
 
