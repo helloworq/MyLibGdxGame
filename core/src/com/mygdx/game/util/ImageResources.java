@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class ImageResources {
     public static final TextureRegion BUCKET = new TextureRegion(new Texture("bucket.png"), 50, 50);
-    public static final TextureRegion BAD_LOGIC = new TextureRegion(new Texture("badlogic.jpg"), 256, 256);
+    public static final TextureRegion BAD_LOGIC = new TextureRegion(new Texture("badlogic.jpg"));
     public static final Texture PALYER = new Texture("characters.png");
     public static final Texture PAD = new Texture("touchpad/analog_stick_bg_1.png");
     public static final Texture BLANK_BUTTON = new Texture("touchpad/blank_button.png");
