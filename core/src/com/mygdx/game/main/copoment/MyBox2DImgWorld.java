@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -46,10 +47,8 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
     private Player player;
     private StaticObj box;
     private KinematicObj movingObj;
+    private KinematicObj movingObj2;
     private StaticObj ground;
-
-    private CopyOnWriteArrayList<Vector2> TRASH_LIST = new CopyOnWriteArrayList<>();
-    private ConcurrentHashMap<Float, Vector2> TRASH_MAP = new ConcurrentHashMap<>();
 
     @Override
     public void create() {
@@ -62,7 +61,8 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
 
         createTouchpad();
 
-        movingObj = new KinematicObj(world, 12, 12, 1.28f, 1.28f);
+        movingObj = new KinematicObj(world, 13, 13, 1.28f, 1.28f, ImageResources.BAD_LOGIC);
+        movingObj2 = new KinematicObj(world, 16, 16, 1.28f, 1.28f, ImageResources.BAD_LOGIC);
         ground = new StaticObj(world, 0, 0, Gdx.graphics.getWidth(), 10, ImageResources.BAD_LOGIC);
         box = new StaticObj(world, 10, 10 + 1.28f, 1.28f, 1.28f, ImageResources.BAD_LOGIC);
         player = new Player(world, 10, 20, 0.25f, 0.25f);
@@ -139,7 +139,10 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         buttonShoot.addListener(new ClickListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                BulletObj tempObj = new BulletObj(world, player.getBody().getPosition().x + 1f, player.getBody().getPosition().y, 0.1f, new Vector2(3f, 10f));
+                float direction = player.isMoveRight() ? 1f : -1f;
+                BulletObj tempObj = new BulletObj(world,
+                        player.getBody().getPosition().x + direction * 0.5f, player.getBody().getPosition().y + 0.3f, 0.1f,
+                        new Vector2(direction * 3f, 5f));
                 player.getBullets().add(tempObj.getBody());
                 return true;
             }
@@ -157,27 +160,29 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
 
         // 将绘制与相机投影绑定 关键 关键
         TextureRegion playerAnimation = player.getWalkAnimation().getKeyFrame(stateTime, true);
-        TextureRegion bulletAnimation = PlayerResources.BULLET_HIT.getKeyFrame(stateTime, false);//子弹动画不循环
+        TextureRegion bulletRunAnimation = PlayerResources.BULLET_RUN.getKeyFrame(stateTime, true);
+        TextureRegion bulletHitAnimation = PlayerResources.BULLET_HIT.getKeyFrame(stateTime, false);//子弹动画不循环
 
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
+        batch.draw(movingObj.getSurface(), movingObj.getPx()-movingObj.getWidth(), movingObj.getPy()-movingObj.getWidth(), movingObj.getWidth(), movingObj.getWidth(),
+                movingObj.getWidth() * 2, movingObj.getHeight() * 2, 1f, 1f
+                , MathUtils.radiansToDegrees * movingObj.getBody().getAngle());//弧度转角度
+        batch.draw(movingObj2.getSurface(), movingObj2.getPx()-movingObj2.getWidth(), movingObj2.getPy()-movingObj2.getWidth(), movingObj2.getWidth(), movingObj2.getWidth(),
+                movingObj2.getWidth() * 2, movingObj2.getHeight() * 2, 1f, 1f
+                , MathUtils.radiansToDegrees * movingObj.getBody().getAngle());//弧度转角度
+
         batch.draw(box.getSurface(), box.getPx() - box.getWidth(), box.getPy() - box.getHeight(), box.getWidth() * 2, box.getHeight() * 2);
         batch.draw(ground.getSurface(), ground.getPx(), ground.getPy(), ground.getWidth(), ground.getHeight());
         batch.draw(playerAnimation, player.getBody().getPosition().x - 0.5f / 2, player.getBody().getPosition().y - 0.5f / 2, 0, 0, 50, 50, 0.01f, 0.01f, 0);
 
         for (Body ball : player.getBullets()) {
-            batch.draw(img, ball.getPosition().x - 0.1f, ball.getPosition().y - 0.1f, 0, 0, 20, 20, 0.01f, 0.01f, 0);
+            //子弹运行动画
+            batch.draw(bulletRunAnimation, ball.getPosition().x - 0.3f, ball.getPosition().y - 0.1f, 0, 0, 60, 60, 0.01f, 0.01f, 0);
             if (EntityEnum.TRASH.equals(ball.getUserData())) {
-                TRASH_MAP.put(stateTime, new Vector2(ball.getPosition().x - 0.2f, ball.getPosition().y - 0.2f));
+                batch.draw(bulletHitAnimation, ball.getPosition().x - 0.2f, ball.getPosition().y - 0.2f, 0, 0, 50, 50, 0.01f, 0.01f, 0);
                 player.getBullets().remove(ball);
                 world.destroyBody(ball);
-            }
-        }
-
-        for (Map.Entry<Float, Vector2> entry : TRASH_MAP.entrySet()) {
-            batch.draw(bulletAnimation, entry.getValue().x, entry.getValue().y, 0, 0, 50, 50, 0.01f, 0.01f, 0);
-            if (stateTime - entry.getKey() > 0.1) {//0.1s内将动画播放完成
-                TRASH_MAP.remove(entry.getKey());
             }
         }
         batch.end();

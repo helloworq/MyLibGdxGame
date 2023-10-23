@@ -23,6 +23,7 @@ public class PlayerResources {
     public static final Animation<TextureRegion> IDLE_RIGHT = playerIdleRightAnimation();
     public static final Animation<TextureRegion> IDLE_LEFT = playerIdleLeftAnimation();
     public static final Animation<TextureRegion> BULLET_HIT = bulletHitAnimation();
+    public static final Animation<TextureRegion> BULLET_RUN = bulletRunAnimation();
 
     private static Animation<TextureRegion> playerRunRightAnimation() {
         TextureRegion[][] tmp = TextureRegion.split(PLAYER_FRAME, unitPx, unitPx);
@@ -111,6 +112,25 @@ public class PlayerResources {
         bulletHitFrames[index++] = tmp[8][11];
         bulletHitFrames[index++] = tmp[7][11];
         bulletHitFrames[index++] = tmp[6][11];
-        return new Animation<>(1f / 3, bulletHitFrames);
+        return new Animation<>(1f, bulletHitFrames);
+    }
+
+    private static Animation<TextureRegion> bulletRunAnimation() {
+        TextureRegion[][] tmp = TextureRegion.split(PLAYER_FRAME, unitPx, unitPx);
+        //第4行第9列为目标帧,
+        int targetRow = 16;
+        int targetColumn = 8;
+
+        TextureRegion[] walkFrames = new TextureRegion[targetColumn + 1];
+        int index = 0;
+        for (int i = 0; i < rowGrid; i++) {
+            for (int j = 0; j < columnGrid; j++) {
+                TextureRegion current = tmp[i][j];
+                if (i == targetRow && j <= targetColumn) {
+                    walkFrames[index++] = current;
+                }
+            }
+        }
+        return new Animation<>(1f / (targetColumn + 1), walkFrames);
     }
 }
