@@ -17,7 +17,6 @@ public class PlayerResources {
     private static final int rowGrid = 20;
     private static final int columnGrid = 12;
     private static final int unitPx = 48;
-    private static final float duration = 0.1f;
 
     public static final Animation<TextureRegion> RUN_RIGHT = playerRunRightAnimation();
     public static final Animation<TextureRegion> RUN_LEFT = playerRunLeftAnimation();
@@ -41,7 +40,7 @@ public class PlayerResources {
                 }
             }
         }
-        return new Animation<>(duration, walkFrames);
+        return new Animation<>(1f / (targetColumn + 1), walkFrames);
     }
 
     private static Animation<TextureRegion> playerRunLeftAnimation() {
@@ -61,7 +60,7 @@ public class PlayerResources {
                 }
             }
         }
-        return new Animation<>(duration, walkFrames);
+        return new Animation<>(1f / (targetColumn + 1), walkFrames);
     }
 
     private static Animation<TextureRegion> playerIdleRightAnimation() {
@@ -80,7 +79,8 @@ public class PlayerResources {
                 }
             }
         }
-        return new Animation<>(duration, walkFrames);
+        //帧间隔1/10代表一秒内每一帧的间隔时间，也就是每一秒播放10次，代表十帧
+        return new Animation<>(1f / (targetColumn + 1), walkFrames);
     }
 
     private static Animation<TextureRegion> playerIdleLeftAnimation() {
@@ -100,7 +100,7 @@ public class PlayerResources {
                 }
             }
         }
-        return new Animation<>(duration, walkFrames);
+        return new Animation<>(1f / (targetColumn + 1), walkFrames);
     }
 
     private static Animation<TextureRegion> bulletHitAnimation() {
@@ -111,6 +111,6 @@ public class PlayerResources {
         bulletHitFrames[index++] = tmp[8][11];
         bulletHitFrames[index++] = tmp[7][11];
         bulletHitFrames[index++] = tmp[6][11];
-        return new Animation<>(0.1f, bulletHitFrames);
+        return new Animation<>(1f / 3, bulletHitFrames);
     }
 }

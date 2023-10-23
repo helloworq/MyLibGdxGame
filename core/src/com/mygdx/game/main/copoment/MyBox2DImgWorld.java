@@ -157,7 +157,7 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
 
         // 将绘制与相机投影绑定 关键 关键
         TextureRegion playerAnimation = player.getWalkAnimation().getKeyFrame(stateTime, true);
-        TextureRegion bulletAnimation = PlayerResources.BULLET_HIT.getKeyFrame(stateTime, true);
+        TextureRegion bulletAnimation = PlayerResources.BULLET_HIT.getKeyFrame(stateTime, false);//子弹动画不循环
 
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
@@ -176,7 +176,7 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
 
         for (Map.Entry<Float, Vector2> entry : TRASH_MAP.entrySet()) {
             batch.draw(bulletAnimation, entry.getValue().x, entry.getValue().y, 0, 0, 50, 50, 0.01f, 0.01f, 0);
-            if (stateTime - entry.getKey() > 0.1) {
+            if (stateTime - entry.getKey() > 0.1) {//0.1s内将动画播放完成
                 TRASH_MAP.remove(entry.getKey());
             }
         }

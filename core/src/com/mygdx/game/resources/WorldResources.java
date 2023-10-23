@@ -10,7 +10,7 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.mygdx.game.main.contants.EntityEnum;
 
-import jdk.nashorn.internal.parser.JSONParser;
+
 
 public class WorldResources {
     public static final float GRAVITY = 9.8f;
