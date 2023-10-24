@@ -1,0 +1,2218 @@
+
+texture.png
+size: 1017,1041
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+PNG/Mage/Death/death9.png
+  rotate: false
+  xy: 0,0
+  size: 126,74
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Rogue/Death/death9.png
+  rotate: false
+  xy: 0,74
+  size: 126,74
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Death/death9.png
+  rotate: false
+  xy: 126,0
+  size: 126,74
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Rogue/Death/death10.png
+  rotate: false
+  xy: 126,74
+  size: 108,81
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Mage/Death/death10.png
+  rotate: false
+  xy: 0,148
+  size: 108,81
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Death/death10.png
+  rotate: false
+  xy: 0,229
+  size: 108,81
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack_Extra/attack_extra6.png
+  rotate: false
+  xy: 108,155
+  size: 94,90
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack_Extra/attack_extra7.png
+  rotate: false
+  xy: 202,155
+  size: 98,82
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Death/death6.png
+  rotate: false
+  xy: 234,74
+  size: 106,75
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Death/death5.png
+  rotate: false
+  xy: 202,237
+  size: 104,73
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Mage/Death/death6.png
+  rotate: false
+  xy: 0,310
+  size: 97,75
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Death/death8.png
+  rotate: false
+  xy: 97,310
+  size: 113,62
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Mage/Death/death8.png
+  rotate: false
+  xy: 210,310
+  size: 113,62
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Rogue/Death/death8.png
+  rotate: false
+  xy: 300,149
+  size: 113,62
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Mage/Death/death5.png
+  rotate: false
+  xy: 306,211
+  size: 95,73
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Death/death4.png
+  rotate: false
+  xy: 323,284
+  size: 93,69
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack/attack2.png
+  rotate: false
+  xy: 252,0
+  size: 86,74
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Death/death7.png
+  rotate: false
+  xy: 338,0
+  size: 102,60
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Death/death7.png
+  rotate: false
+  xy: 340,60
+  size: 102,60
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack_Extra/attack_extra8.png
+  rotate: false
+  xy: 323,353
+  size: 101,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Death/death6.png
+  rotate: false
+  xy: 97,372
+  size: 84,72
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Rogue/Death/death5.png
+  rotate: false
+  xy: 181,372
+  size: 81,70
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Rogue/Death/death7.png
+  rotate: false
+  xy: 0,385
+  size: 93,60
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack/attack3.png
+  rotate: false
+  xy: 262,413
+  size: 77,71
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run_Attack/run_attack5.png
+  rotate: false
+  xy: 181,442
+  size: 77,65
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Death/death4.png
+  rotate: false
+  xy: 108,245
+  size: 90,55
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Mage/Run_Attack/run_attack5.png
+  rotate: false
+  xy: 93,444
+  size: 79,61
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run_Attack/run_attack6.png
+  rotate: false
+  xy: 0,445
+  size: 73,64
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Walk_Attack/walk_attack4.png
+  rotate: false
+  xy: 339,413
+  size: 71,65
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack_Extra/attack_extra5.png
+  rotate: false
+  xy: 401,211
+  size: 73,63
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Hurt/hurt2.png
+  rotate: false
+  xy: 440,0
+  size: 75,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Death/death3.png
+  rotate: false
+  xy: 416,274
+  size: 69,65
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack_Extra/attack_extra3.png
+  rotate: false
+  xy: 413,120
+  size: 62,72
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Jump/jump6.png
+  rotate: false
+  xy: 410,413
+  size: 73,61
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack/attack5.png
+  rotate: false
+  xy: 442,60
+  size: 78,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Death/death4.png
+  rotate: false
+  xy: 424,339
+  size: 81,54
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack/attack4.png
+  rotate: false
+  xy: 73,505
+  size: 69,62
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Walk_Attack/walk_attack5.png
+  rotate: false
+  xy: 410,474
+  size: 79,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/High_Jump/high_jump2.png
+  rotate: false
+  xy: 0,509
+  size: 69,61
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run_Attack/run_attack4.png
+  rotate: false
+  xy: 474,192
+  size: 61,69
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Jump/jump2.png
+  rotate: false
+  xy: 339,478
+  size: 69,61
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run_Attack/run_attack4.png
+  rotate: false
+  xy: 258,484
+  size: 76,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack/attack4.png
+  rotate: false
+  xy: 142,507
+  size: 77,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Walk_Attack/walk_attack4.png
+  rotate: false
+  xy: 515,0
+  size: 75,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Hurt/hurt4.png
+  rotate: false
+  xy: 485,261
+  size: 63,65
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Hurt/hurt4.png
+  rotate: false
+  xy: 475,117
+  size: 63,65
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Hurt/hurt4.png
+  rotate: false
+  xy: 535,182
+  size: 63,65
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Death/death3.png
+  rotate: false
+  xy: 520,55
+  size: 67,61
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Mage/Walk_Attack/walk_attack6.png
+  rotate: false
+  xy: 538,116
+  size: 71,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Hurt/hurt3.png
+  rotate: false
+  xy: 483,393
+  size: 63,64
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Walk_Attack/walk_attack5.png
+  rotate: false
+  xy: 505,326
+  size: 68,59
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run_Attack/run_attack8.png
+  rotate: false
+  xy: 489,457
+  size: 70,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Death/death3.png
+  rotate: false
+  xy: 546,385
+  size: 64,62
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Death/death2.png
+  rotate: false
+  xy: 548,247
+  size: 61,65
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack_Extra/attack_extra9.png
+  rotate: false
+  xy: 489,514
+  size: 66,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack/attack6.png
+  rotate: false
+  xy: 408,528
+  size: 72,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack/attack2.png
+  rotate: false
+  xy: 219,539
+  size: 57,68
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack_Extra/attack_extra4.png
+  rotate: false
+  xy: 142,561
+  size: 60,64
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/High_Jump/high_jump5.png
+  rotate: false
+  xy: 69,567
+  size: 64,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Jump/jump5.png
+  rotate: false
+  xy: 0,570
+  size: 64,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/High_Jump/high_jump11.png
+  rotate: false
+  xy: 276,539
+  size: 64,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/High_Jump/high_jump6.png
+  rotate: false
+  xy: 480,574
+  size: 80,47
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack/attack3.png
+  rotate: false
+  xy: 340,539
+  size: 50,75
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Climb/climb2.png
+  rotate: false
+  xy: 587,55
+  size: 64,58
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Climb/climb4.png
+  rotate: false
+  xy: 598,173
+  size: 64,58
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/High_Jump/high_jump6.png
+  rotate: false
+  xy: 590,0
+  size: 71,51
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Walk_Attack/walk_attack6.png
+  rotate: false
+  xy: 555,514
+  size: 67,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Jump/jump6.png
+  rotate: false
+  xy: 609,113
+  size: 60,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack_Extra/attack_extra4.png
+  rotate: false
+  xy: 573,312
+  size: 59,61
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Hurt/hurt3.png
+  rotate: false
+  xy: 609,231
+  size: 58,62
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Hurt/hurt3.png
+  rotate: false
+  xy: 560,568
+  size: 58,62
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Death/death2.png
+  rotate: false
+  xy: 559,447
+  size: 58,62
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Mage/Run_Attack/run_attack6.png
+  rotate: false
+  xy: 610,373
+  size: 63,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/High_Jump/high_jump7.png
+  rotate: false
+  xy: 390,583
+  size: 83,43
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/High_Jump/high_jump10.png
+  rotate: false
+  xy: 473,621
+  size: 66,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Jump/jump7.png
+  rotate: false
+  xy: 539,630
+  size: 77,46
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/High_Jump/high_jump12.png
+  rotate: false
+  xy: 202,607
+  size: 77,46
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack_Extra/attack_extra10.png
+  rotate: false
+  xy: 133,625
+  size: 61,58
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack_Extra/attack_extra3.png
+  rotate: false
+  xy: 617,430
+  size: 58,61
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/High_Jump/high_jump10.png
+  rotate: false
+  xy: 64,627
+  size: 62,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/High_Jump/high_jump5.png
+  rotate: false
+  xy: 279,599
+  size: 57,61
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Jump/jump5.png
+  rotate: false
+  xy: 618,568
+  size: 57,61
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/High_Jump/high_jump11.png
+  rotate: false
+  xy: 336,626
+  size: 57,61
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack/attack7.png
+  rotate: false
+  xy: 0,630
+  size: 61,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Idle/idle1.png
+  rotate: false
+  xy: 393,626
+  size: 61,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Idle/idle7.png
+  rotate: false
+  xy: 662,173
+  size: 61,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Jump/jump3.png
+  rotate: false
+  xy: 632,293
+  size: 54,63
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Idle/idle8.png
+  rotate: false
+  xy: 667,229
+  size: 63,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Idle/idle9.png
+  rotate: false
+  xy: 673,356
+  size: 63,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/High_Jump/high_jump3.png
+  rotate: false
+  xy: 661,0
+  size: 54,63
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Idle/idle12.png
+  rotate: false
+  xy: 616,630
+  size: 63,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Idle/idle11.png
+  rotate: false
+  xy: 669,63
+  size: 63,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Idle/idle4.png
+  rotate: false
+  xy: 622,491
+  size: 44,77
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Climb/climb3.png
+  rotate: false
+  xy: 669,117
+  size: 65,52
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Idle/idle6.png
+  rotate: false
+  xy: 666,491
+  size: 52,64
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Idle/idle2.png
+  rotate: false
+  xy: 675,555
+  size: 52,64
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Jump/jump2.png
+  rotate: false
+  xy: 679,619
+  size: 52,64
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/High_Jump/high_jump2.png
+  rotate: false
+  xy: 675,410
+  size: 52,64
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Walk_Attack/walk_attack2.png
+  rotate: false
+  xy: 679,683
+  size: 57,58
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/knight.png
+  rotate: false
+  xy: 454,675
+  size: 59,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Idle/idle3.png
+  rotate: false
+  xy: 194,653
+  size: 44,75
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Idle/idle5.png
+  rotate: false
+  xy: 238,660
+  size: 44,75
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Idle/idle10.png
+  rotate: false
+  xy: 393,682
+  size: 61,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Jump/jump1.png
+  rotate: false
+  xy: 282,687
+  size: 71,46
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/High_Jump/high_jump1.png
+  rotate: false
+  xy: 513,676
+  size: 71,46
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/High_Jump/high_jump3.png
+  rotate: false
+  xy: 686,283
+  size: 50,65
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Jump/jump3.png
+  rotate: false
+  xy: 718,474
+  size: 50,65
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run_Attack/run_attack7.png
+  rotate: false
+  xy: 715,0
+  size: 69,47
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Death/death2.png
+  rotate: false
+  xy: 727,410
+  size: 54,60
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Rogue/Hurt/hurt2.png
+  rotate: false
+  xy: 723,169
+  size: 54,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Hurt/hurt2.png
+  rotate: false
+  xy: 732,47
+  size: 54,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle6.png
+  rotate: false
+  xy: 126,683
+  size: 58,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle4.png
+  rotate: false
+  xy: 61,684
+  size: 58,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack_Extra/attack_extra5.png
+  rotate: false
+  xy: 0,687
+  size: 58,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run_Attack/run_attack5.png
+  rotate: false
+  xy: 727,539
+  size: 58,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack_Extra/attack_extra1.png
+  rotate: false
+  xy: 584,684
+  size: 60,53
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack_Extra/attack_extra2.png
+  rotate: false
+  xy: 513,722
+  size: 62,51
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle11.png
+  rotate: false
+  xy: 454,731
+  size: 57,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle2.png
+  rotate: false
+  xy: 575,737
+  size: 57,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle5.png
+  rotate: false
+  xy: 282,733
+  size: 57,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle12.png
+  rotate: false
+  xy: 184,735
+  size: 57,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle13.png
+  rotate: false
+  xy: 119,738
+  size: 57,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle7.png
+  rotate: false
+  xy: 58,739
+  size: 57,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle8.png
+  rotate: false
+  xy: 339,736
+  size: 57,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle9.png
+  rotate: false
+  xy: 396,736
+  size: 57,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/High_Jump/high_jump4.png
+  rotate: false
+  xy: 731,594
+  size: 55,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle3.png
+  rotate: false
+  xy: 632,741
+  size: 57,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle10.png
+  rotate: false
+  xy: 689,741
+  size: 57,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Jump/jump4.png
+  rotate: false
+  xy: 768,470
+  size: 55,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack_Extra/attack_extra8.png
+  rotate: false
+  xy: 785,527
+  size: 55,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire_Extra/fire_extra6.png
+  rotate: false
+  xy: 736,651
+  size: 47,66
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run/run5.png
+  rotate: false
+  xy: 734,107
+  size: 56,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run/run6.png
+  rotate: false
+  xy: 746,717
+  size: 56,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack_Extra/attack_extra6.png
+  rotate: false
+  xy: 783,651
+  size: 56,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Jump/jump4.png
+  rotate: false
+  xy: 786,584
+  size: 54,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/High_Jump/high_jump4.png
+  rotate: false
+  xy: 786,0
+  size: 54,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Jump/jump7.png
+  rotate: false
+  xy: 730,229
+  size: 64,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/High_Jump/high_jump12.png
+  rotate: false
+  xy: 777,162
+  size: 64,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack/attack1.png
+  rotate: false
+  xy: 790,57
+  size: 51,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Climb/climb1.png
+  rotate: false
+  xy: 781,277
+  size: 54,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run/run5.png
+  rotate: false
+  xy: 736,333
+  size: 53,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Death/death1.png
+  rotate: false
+  xy: 781,390
+  size: 52,58
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Mage/High_Jump/high_jump1.png
+  rotate: false
+  xy: 511,773
+  size: 61,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Jump/jump1.png
+  rotate: false
+  xy: 241,788
+  size: 61,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack_Extra/attack_extra2.png
+  rotate: false
+  xy: 453,786
+  size: 53,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/High_Jump/high_jump8.png
+  rotate: false
+  xy: 115,793
+  size: 74,40
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Hurt/hurt1.png
+  rotate: false
+  xy: 0,742
+  size: 51,58
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Climb/climb4.png
+  rotate: false
+  xy: 746,772
+  size: 49,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Hurt/hurt1.png
+  rotate: false
+  xy: 302,791
+  size: 54,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Death/death1.png
+  rotate: false
+  xy: 356,791
+  size: 54,54
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack/attack1.png
+  rotate: false
+  xy: 795,772
+  size: 41,71
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Climb/climb1.png
+  rotate: false
+  xy: 823,448
+  size: 50,58
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack/Attack2.png
+  rotate: false
+  xy: 572,792
+  size: 58,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/High_Jump/high_jump9.png
+  rotate: false
+  xy: 790,117
+  size: 72,40
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Climb/climb2.png
+  rotate: false
+  xy: 841,0
+  size: 48,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run_Attack/run_attack3.png
+  rotate: false
+  xy: 833,333
+  size: 42,68
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/mage.png
+  rotate: false
+  xy: 802,706
+  size: 51,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack_Extra/attack_extra5.png
+  rotate: false
+  xy: 51,794
+  size: 56,51
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Attack/attack0.png
+  rotate: false
+  xy: 836,762
+  size: 43,66
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/High_Jump/high_jump5.png
+  rotate: false
+  xy: 189,790
+  size: 52,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/High_Jump/high_jump11.png
+  rotate: false
+  xy: 839,641
+  size: 52,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Jump/jump5.png
+  rotate: false
+  xy: 794,210
+  size: 52,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack_Extra/attack_extra3.png
+  rotate: false
+  xy: 835,264
+  size: 54,52
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle14.png
+  rotate: false
+  xy: 841,60
+  size: 50,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Idle/idle1.png
+  rotate: false
+  xy: 840,506
+  size: 50,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack_Extra/attack_extra4.png
+  rotate: false
+  xy: 241,837
+  size: 56,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack/Attack3.png
+  rotate: false
+  xy: 506,822
+  size: 59,47
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/High_Jump/high_jump7.png
+  rotate: false
+  xy: 107,833
+  size: 66,42
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Jump/jump6.png
+  rotate: false
+  xy: 173,844
+  size: 54,51
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Walk/walk1.png
+  rotate: false
+  xy: 836,828
+  size: 51,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack_Extra/attack_extra6.png
+  rotate: false
+  xy: 840,562
+  size: 50,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run_Attack/run_attack2.png
+  rotate: false
+  xy: 0,800
+  size: 49,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run/run5.png
+  rotate: false
+  xy: 410,842
+  size: 53,51
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run_Attack/run_attack3.png
+  rotate: false
+  xy: 630,832
+  size: 53,51
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack_Extra/attack_extra1.png
+  rotate: false
+  xy: 683,796
+  size: 50,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Walk_Attack/walk_attack1.png
+  rotate: false
+  xy: 733,832
+  size: 50,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Climb/climb3.png
+  rotate: false
+  xy: 889,0
+  size: 50,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/High_Jump/high_jump7.png
+  rotate: false
+  xy: 565,842
+  size: 64,42
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Jump/jump4.png
+  rotate: false
+  xy: 783,843
+  size: 51,52
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/High_Jump/high_jump4.png
+  rotate: false
+  xy: 841,157
+  size: 51,52
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack/Attack1.png
+  rotate: false
+  xy: 49,845
+  size: 53,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Walk/walk1.png
+  rotate: false
+  xy: 891,54
+  size: 47,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/High_Jump/high_jump9.png
+  rotate: false
+  xy: 862,116
+  size: 67,39
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run/run4.png
+  rotate: false
+  xy: 846,209
+  size: 47,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Attack_Extra/attack_extra0.png
+  rotate: false
+  xy: 853,695
+  size: 47,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Walk_Attack/walk_attack3.png
+  rotate: false
+  xy: 879,750
+  size: 39,66
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Jump/jump2.png
+  rotate: false
+  xy: 887,816
+  size: 45,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/High_Jump/high_jump2.png
+  rotate: false
+  xy: 873,401
+  size: 45,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Death/death1.png
+  rotate: false
+  xy: 892,155
+  size: 47,54
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/Rogue/Hurt/hurt1.png
+  rotate: false
+  xy: 875,316
+  size: 47,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Walk_Attack/walk_attack3.png
+  rotate: false
+  xy: 736,277
+  size: 45,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Walk_Attack/walk_attack1.png
+  rotate: false
+  xy: 893,209
+  size: 45,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run_Attack/run_attack6.png
+  rotate: false
+  xy: 889,265
+  size: 50,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Walk_Attack/walk_attack3.png
+  rotate: false
+  xy: 297,845
+  size: 50,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack/Attack5.png
+  rotate: false
+  xy: 347,845
+  size: 50,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Walk_Attack/walk_attack2.png
+  rotate: false
+  xy: 890,458
+  size: 39,64
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Walk_Attack/walk_attack6.png
+  rotate: false
+  xy: 887,873
+  size: 52,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Walk/walk2.png
+  rotate: false
+  xy: 834,882
+  size: 43,58
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run_Attack/run_attack2.png
+  rotate: false
+  xy: 0,856
+  size: 36,69
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/High_Jump/high_jump8.png
+  rotate: false
+  xy: 227,887
+  size: 62,40
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run/run6.png
+  rotate: false
+  xy: 789,333
+  size: 43,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Walk_Attack/walk_attack2.png
+  rotate: false
+  xy: 683,850
+  size: 50,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run/run8.png
+  rotate: false
+  xy: 629,883
+  size: 41,59
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run_Attack/run_attack8.png
+  rotate: false
+  xy: 463,842
+  size: 41,59
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Walk_Attack/walk_attack5.png
+  rotate: false
+  xy: 733,886
+  size: 50,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run_Attack/run_attack1.png
+  rotate: false
+  xy: 783,895
+  size: 50,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Walk/walk4.png
+  rotate: false
+  xy: 504,869
+  size: 42,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run/run1.png
+  rotate: false
+  xy: 102,875
+  size: 46,52
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack/Attack4.png
+  rotate: false
+  xy: 670,899
+  size: 55,43
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run/run1.png
+  rotate: false
+  xy: 36,895
+  size: 49,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run_Attack/run_attack1.png
+  rotate: false
+  xy: 546,884
+  size: 42,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run_Attack/run_attack2.png
+  rotate: false
+  xy: 397,893
+  size: 47,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/rogue.png
+  rotate: false
+  xy: 890,522
+  size: 46,51
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Walk/walk3.png
+  rotate: false
+  xy: 588,884
+  size: 41,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack_Extra/attack_extra11.png
+  rotate: false
+  xy: 890,573
+  size: 43,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire_Extra/fire_extra5.png
+  rotate: false
+  xy: 891,627
+  size: 40,58
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/High_Jump/high_jump3.png
+  rotate: false
+  xy: 900,685
+  size: 40,58
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Jump/jump3.png
+  rotate: false
+  xy: 931,627
+  size: 40,58
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Push/push3.png
+  rotate: false
+  xy: 938,209
+  size: 42,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run_Attack/run_attack4.png
+  rotate: false
+  xy: 933,573
+  size: 47,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle1.png
+  rotate: false
+  xy: 918,743
+  size: 46,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run/run2.png
+  rotate: false
+  xy: 940,685
+  size: 41,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/High_Jump/high_jump6.png
+  rotate: false
+  xy: 929,110
+  size: 51,45
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run/run1.png
+  rotate: false
+  xy: 939,155
+  size: 42,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run_Attack/run_attack1.png
+  rotate: false
+  xy: 938,54
+  size: 42,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run/run4.png
+  rotate: false
+  xy: 939,0
+  size: 42,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Push/push2.png
+  rotate: false
+  xy: 932,793
+  size: 41,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Walk/walk5.png
+  rotate: false
+  xy: 939,848
+  size: 41,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Walk_Attack/walk_attack4.png
+  rotate: false
+  xy: 918,370
+  size: 45,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/High_Jump/high_jump10.png
+  rotate: false
+  xy: 922,315
+  size: 45,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run/run3.png
+  rotate: false
+  xy: 410,791
+  size: 43,51
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Jump/jump1.png
+  rotate: false
+  xy: 148,895
+  size: 51,43
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/High_Jump/high_jump1.png
+  rotate: false
+  xy: 289,895
+  size: 51,43
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Push/push1.png
+  rotate: false
+  xy: 241,735
+  size: 41,53
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run_Attack/run_attack7.png
+  rotate: false
+  xy: 340,895
+  size: 45,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Walk/walk6.png
+  rotate: false
+  xy: 929,420
+  size: 40,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle14.png
+  rotate: false
+  xy: 936,474
+  size: 43,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle13.png
+  rotate: false
+  xy: 725,934
+  size: 43,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle12.png
+  rotate: false
+  xy: 85,927
+  size: 43,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle15.png
+  rotate: false
+  xy: 0,943
+  size: 43,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle18.png
+  rotate: false
+  xy: 444,901
+  size: 43,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle17.png
+  rotate: false
+  xy: 487,926
+  size: 43,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle16.png
+  rotate: false
+  xy: 530,940
+  size: 43,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack_Extra/attack_extra1.png
+  rotate: false
+  xy: 573,941
+  size: 43,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Jump/jump7.png
+  rotate: false
+  xy: 262,372
+  size: 52,41
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/High_Jump/high_jump12.png
+  rotate: false
+  xy: 616,942
+  size: 52,41
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Push/push4.png
+  rotate: false
+  xy: 939,903
+  size: 41,52
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run_Attack/run_attack3.png
+  rotate: false
+  xy: 668,942
+  size: 47,45
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run/run6.png
+  rotate: false
+  xy: 43,943
+  size: 42,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Climb/climb2.png
+  rotate: false
+  xy: 877,921
+  size: 38,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Climb/climb4.png
+  rotate: false
+  xy: 199,927
+  size: 38,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run/run8.png
+  rotate: false
+  xy: 833,940
+  size: 40,52
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run_Attack/run_attack7.png
+  rotate: false
+  xy: 237,927
+  size: 40,52
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Run/run7.png
+  rotate: false
+  xy: 277,938
+  size: 40,52
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Push/push1.png
+  rotate: false
+  xy: 128,938
+  size: 39,53
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack_Extra/attack_extra7.png
+  rotate: false
+  xy: 971,622
+  size: 36,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Push/push3.png
+  rotate: false
+  xy: 963,364
+  size: 37,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Push/push2.png
+  rotate: false
+  xy: 969,419
+  size: 37,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Walk/walk6.png
+  rotate: false
+  xy: 980,54
+  size: 37,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run/run8.png
+  rotate: false
+  xy: 979,474
+  size: 35,58
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack_Extra/attack_extra2.png
+  rotate: false
+  xy: 964,741
+  size: 45,45
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Walk/walk6.png
+  rotate: false
+  xy: 936,524
+  size: 42,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Walk/walk2.png
+  rotate: false
+  xy: 981,679
+  size: 36,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Walk_Attack/walk_attack1.png
+  rotate: false
+  xy: 973,786
+  size: 41,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Walk/walk2.png
+  rotate: false
+  xy: 768,943
+  size: 41,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Walk/walk1.png
+  rotate: false
+  xy: 939,264
+  size: 41,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle7.png
+  rotate: false
+  xy: 967,313
+  size: 41,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle5.png
+  rotate: false
+  xy: 317,943
+  size: 41,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle8.png
+  rotate: false
+  xy: 358,943
+  size: 41,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle4.png
+  rotate: false
+  xy: 399,943
+  size: 41,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Climb/climb3.png
+  rotate: false
+  xy: 353,687
+  size: 40,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Walk/walk4.png
+  rotate: false
+  xy: 644,684
+  size: 35,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle10.png
+  rotate: false
+  xy: 237,979
+  size: 39,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle2.png
+  rotate: false
+  xy: 276,990
+  size: 39,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run/run7.png
+  rotate: false
+  xy: 85,977
+  size: 39,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Walk/walk3.png
+  rotate: false
+  xy: 616,983
+  size: 34,57
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run_Attack/run_attack8.png
+  rotate: false
+  xy: 715,984
+  size: 37,52
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Push/push4.png
+  rotate: false
+  xy: 980,532
+  size: 37,52
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle9.png
+  rotate: false
+  xy: 650,987
+  size: 40,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle6.png
+  rotate: false
+  xy: 0,993
+  size: 40,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Idle/idle3.png
+  rotate: false
+  xy: 40,993
+  size: 40,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run/run4.png
+  rotate: false
+  xy: 167,982
+  size: 39,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run/run2.png
+  rotate: false
+  xy: 124,991
+  size: 38,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Walk/walk5.png
+  rotate: false
+  xy: 980,209
+  size: 34,55
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run/run2.png
+  rotate: false
+  xy: 981,109
+  size: 33,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack/Attack6.png
+  rotate: false
+  xy: 981,0
+  size: 36,51
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Walk/walk3.png
+  rotate: false
+  xy: 440,951
+  size: 36,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/High_Jump/high_jump9.png
+  rotate: false
+  xy: 476,976
+  size: 43,41
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Walk/walk5.png
+  rotate: false
+  xy: 980,264
+  size: 36,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Push/push1.png
+  rotate: false
+  xy: 833,401
+  size: 36,47
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Attack/Attack7.png
+  rotate: false
+  xy: 519,990
+  size: 33,51
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire_Extra/fire_extra9.png
+  rotate: false
+  xy: 552,991
+  size: 40,42
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run/run7.png
+  rotate: false
+  xy: 315,991
+  size: 38,44
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Push/push3.png
+  rotate: false
+  xy: 353,991
+  size: 34,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Push/push2.png
+  rotate: false
+  xy: 387,991
+  size: 34,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/High_Jump/high_jump8.png
+  rotate: false
+  xy: 630,796
+  size: 46,36
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire_Extra/fire_extra4.png
+  rotate: false
+  xy: 980,835
+  size: 36,46
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Walk/walk4.png
+  rotate: false
+  xy: 980,881
+  size: 33,50
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Knight/Run/run3.png
+  rotate: false
+  xy: 980,931
+  size: 33,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Climb/climb1.png
+  rotate: false
+  xy: 206,982
+  size: 31,51
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Run/run3.png
+  rotate: false
+  xy: 915,955
+  size: 35,45
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Rogue/Push/push4.png
+  rotate: false
+  xy: 873,976
+  size: 34,46
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire_Extra/fire_extra8.png
+  rotate: false
+  xy: 421,1001
+  size: 39,39
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire_Extra/fire_extra7.png
+  rotate: false
+  xy: 950,980
+  size: 38,39
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire_Extra/fire_extra3.png
+  rotate: false
+  xy: 690,987
+  size: 25,39
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire_Extra/fire_extra1.png
+  rotate: false
+  xy: 167,938
+  size: 25,39
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire_Extra/fire_extra2.png
+  rotate: false
+  xy: 592,991
+  size: 23,38
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire/fire8.png
+  rotate: false
+  xy: 199,895
+  size: 28,28
+  orig: 32,32
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire/fire9.png
+  rotate: false
+  xy: 219,507
+  size: 27,26
+  orig: 32,32
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire/fire7.png
+  rotate: false
+  xy: 915,921
+  size: 24,29
+  orig: 32,32
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire/fire6.png
+  rotate: false
+  xy: 875,370
+  size: 22,28
+  orig: 32,32
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire/fire5.png
+  rotate: false
+  xy: 897,370
+  size: 18,22
+  orig: 32,32
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire/fire4.png
+  rotate: false
+  xy: 853,750
+  size: 24,10
+  orig: 32,32
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire/fire2.png
+  rotate: false
+  xy: 584,676
+  size: 28,8
+  orig: 32,32
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire/fire1.png
+  rotate: false
+  xy: 238,653
+  size: 30,7
+  orig: 32,32
+  offset: 0,0
+  index: -1
+PNG/Mage/Fire/fire3.png
+  rotate: false
+  xy: 734,162
+  size: 27,7
+  orig: 32,32
+  offset: 0,0
+  index: -1
