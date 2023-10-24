@@ -49,8 +49,8 @@ public class Player {
         //物理属性
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;// 形状
-        fixtureDef.friction = 1f;
-        fixtureDef.restitution = 0f; // 回弹系数
+        fixtureDef.friction = 0.9f;
+        fixtureDef.restitution = 0.01f; // 回弹系数
 
         body.createFixture(fixtureDef);//设置自定义数据可以从这个物体获取这个数据对象
         shape.dispose();

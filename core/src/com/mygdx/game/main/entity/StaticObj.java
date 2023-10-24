@@ -3,6 +3,7 @@ package com.mygdx.game.main.entity;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
@@ -43,7 +44,12 @@ public class StaticObj {
         Body groundBody = world.createBody(groundBodyDef);
         PolygonShape groundShape = new PolygonShape();// 物体的形状，这样创建是矩形的
         groundShape.setAsBox(width, height);// 物体的宽高
-        groundBody.createFixture(groundShape, 0); // 静态物体的质量应该设为0
+
+        //物理属性
+        FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = groundShape;// 形状
+        fixtureDef.friction = 0.9f;
+        groundBody.createFixture(fixtureDef); // 静态物体的质量应该设为0
 
         groundShape.dispose();
     }

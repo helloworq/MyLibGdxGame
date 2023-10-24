@@ -165,10 +165,10 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
 
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(movingObj.getSurface(), movingObj.getPx()-movingObj.getWidth(), movingObj.getPy()-movingObj.getWidth(), movingObj.getWidth(), movingObj.getWidth(),
+        batch.draw(movingObj.getSurface(), movingObj.getPx() - movingObj.getWidth(), movingObj.getPy() - movingObj.getWidth(), movingObj.getWidth(), movingObj.getWidth(),
                 movingObj.getWidth() * 2, movingObj.getHeight() * 2, 1f, 1f
                 , MathUtils.radiansToDegrees * movingObj.getBody().getAngle());//弧度转角度
-        batch.draw(movingObj2.getSurface(), movingObj2.getPx()-movingObj2.getWidth(), movingObj2.getPy()-movingObj2.getWidth(), movingObj2.getWidth(), movingObj2.getWidth(),
+        batch.draw(movingObj2.getSurface(), movingObj2.getPx() - movingObj2.getWidth(), movingObj2.getPy() - movingObj2.getWidth(), movingObj2.getWidth(), movingObj2.getWidth(),
                 movingObj2.getWidth() * 2, movingObj2.getHeight() * 2, 1f, 1f
                 , MathUtils.radiansToDegrees * movingObj.getBody().getAngle());//弧度转角度
 
@@ -204,7 +204,8 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         if (linearVelocity.y == 0) {
             player.setJump(false);
         }
-        if (linearVelocity.x == 0) {
+        if (linearVelocity.x == 0 && !isPressing) {
+            //刚体碰撞时速度会重置为0，使用pressing判断是否是下落碰撞
             player.setWalkAnimation(player.isMoveRight() ? PlayerResources.IDLE_RIGHT : PlayerResources.IDLE_LEFT);
         }
     }
