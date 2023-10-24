@@ -165,10 +165,10 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
 
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(movingObj.getSurface(), movingObj.getPx() - movingObj.getWidth(), movingObj.getPy() - movingObj.getWidth(), movingObj.getWidth(), movingObj.getWidth(),
+        batch.draw(movingObj.getSurface(), movingObj.getPx()-movingObj.getWidth(), movingObj.getPy()-movingObj.getWidth(), movingObj.getWidth(), movingObj.getWidth(),
                 movingObj.getWidth() * 2, movingObj.getHeight() * 2, 1f, 1f
                 , MathUtils.radiansToDegrees * movingObj.getBody().getAngle());//弧度转角度
-        batch.draw(movingObj2.getSurface(), movingObj2.getPx() - movingObj2.getWidth(), movingObj2.getPy() - movingObj2.getWidth(), movingObj2.getWidth(), movingObj2.getWidth(),
+        batch.draw(movingObj2.getSurface(), movingObj2.getPx()-movingObj2.getWidth(), movingObj2.getPy()-movingObj2.getWidth(), movingObj2.getWidth(), movingObj2.getWidth(),
                 movingObj2.getWidth() * 2, movingObj2.getHeight() * 2, 1f, 1f
                 , MathUtils.radiansToDegrees * movingObj.getBody().getAngle());//弧度转角度
 
