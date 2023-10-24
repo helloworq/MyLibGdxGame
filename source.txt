@@ -1,0 +1,12 @@
+合图工具    https://free-tex-packer.com/download/
+           https://www.renderhjs.net/shoebox/
+
+Libgdx     https://libgdx.com/dev/
+个人博客     https://ccode.blog.csdn.net/article/details/50878524?spm=1001.2014.3001.5502
+           https://www.cnblogs.com/esdesign/archive/2013/05/10/3071670.html
+           https://blog.csdn.net/dyyaries/article/details/123691490
+           https://github.com/libgdx/libgdx/issues/6688
+
+游戏素材库   https://opengameart.org/art-search-advanced
+           https://kenney.nl/assets
+           https://craftpix.net/download/10987/

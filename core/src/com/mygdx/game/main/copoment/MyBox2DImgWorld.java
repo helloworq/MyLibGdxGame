@@ -4,7 +4,9 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -49,6 +51,7 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
     private KinematicObj movingObj;
     private KinematicObj movingObj2;
     private StaticObj ground;
+    Sprite sprite;
 
     @Override
     public void create() {
@@ -58,6 +61,11 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         debugRenderer = new Box2DDebugRenderer();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth() / 64f, Gdx.graphics.getHeight() / 64f);
+
+        TextureAtlas atlas;
+        atlas = new TextureAtlas(Gdx.files.internal("monster-sprites/texture.atlas"));
+        sprite = atlas.createSprite("PNG/dragon/Idle3.png");
+
 
         createTouchpad();
 
@@ -165,12 +173,12 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
 
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(movingObj.getSurface(), movingObj.getPx()-movingObj.getWidth(), movingObj.getPy()-movingObj.getWidth(), movingObj.getWidth(), movingObj.getWidth(),
+        batch.draw(movingObj.getSurface(), movingObj.getPx() - movingObj.getWidth(), movingObj.getPy() - movingObj.getWidth(), movingObj.getWidth(), movingObj.getWidth(),
                 movingObj.getWidth() * 2, movingObj.getHeight() * 2, 1f, 1f
                 , MathUtils.radiansToDegrees * movingObj.getBody().getAngle());//弧度转角度
-        batch.draw(movingObj2.getSurface(), movingObj2.getPx()-movingObj2.getWidth(), movingObj2.getPy()-movingObj2.getWidth(), movingObj2.getWidth(), movingObj2.getWidth(),
+        batch.draw(sprite, movingObj2.getPx() - movingObj2.getWidth(), movingObj2.getPy() - movingObj2.getWidth(), movingObj2.getWidth(), movingObj2.getWidth(),
                 movingObj2.getWidth() * 2, movingObj2.getHeight() * 2, 1f, 1f
-                , MathUtils.radiansToDegrees * movingObj.getBody().getAngle());//弧度转角度
+                ,0);//弧度转角度
 
         batch.draw(box.getSurface(), box.getPx() - box.getWidth(), box.getPy() - box.getHeight(), box.getWidth() * 2, box.getHeight() * 2);
         batch.draw(ground.getSurface(), ground.getPx(), ground.getPy(), ground.getWidth(), ground.getHeight());

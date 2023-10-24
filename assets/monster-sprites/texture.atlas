@@ -1,0 +1,1084 @@
+
+texture.png
+size: 947,951
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+PNG/jinn_animation/Magic_Attack23.png
+  rotate: false
+  xy: 0,0
+  size: 165,153
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Death5.png
+  rotate: false
+  xy: 0,153
+  size: 164,45
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Death4.png
+  rotate: false
+  xy: 165,0
+  size: 162,56
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Magic_Attack22.png
+  rotate: false
+  xy: 0,198
+  size: 161,148
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Idle3.png
+  rotate: false
+  xy: 165,56
+  size: 161,85
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Death1.png
+  rotate: false
+  xy: 165,141
+  size: 160,68
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Magic_Attack11.png
+  rotate: false
+  xy: 327,0
+  size: 156,141
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Death2.png
+  rotate: false
+  xy: 325,141
+  size: 155,67
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Idle2.png
+  rotate: false
+  xy: 325,208
+  size: 154,72
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Walk1.png
+  rotate: false
+  xy: 161,209
+  size: 153,70
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Death3.png
+  rotate: false
+  xy: 161,279
+  size: 150,67
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Walk2.png
+  rotate: false
+  xy: 0,346
+  size: 149,71
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Walk4.png
+  rotate: false
+  xy: 311,280
+  size: 149,72
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Walk5.png
+  rotate: false
+  xy: 0,417
+  size: 147,75
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Walk3.png
+  rotate: false
+  xy: 147,417
+  size: 142,71
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Idle1.png
+  rotate: false
+  xy: 149,346
+  size: 135,69
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Attack4.png
+  rotate: false
+  xy: 289,352
+  size: 130,106
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Attack3.png
+  rotate: false
+  xy: 483,0
+  size: 116,129
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Magic_Attack10.png
+  rotate: false
+  xy: 460,280
+  size: 128,120
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Attack2.png
+  rotate: false
+  xy: 480,141
+  size: 99,126
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Attack1.png
+  rotate: false
+  xy: 0,492
+  size: 125,114
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Attack3.png
+  rotate: false
+  xy: 147,488
+  size: 111,118
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Attack2.png
+  rotate: false
+  xy: 258,488
+  size: 116,70
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Attack4.png
+  rotate: false
+  xy: 374,458
+  size: 113,115
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Attack1.png
+  rotate: false
+  xy: 487,400
+  size: 105,87
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Attack3.png
+  rotate: false
+  xy: 487,487
+  size: 103,35
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Death5.png
+  rotate: false
+  xy: 599,0
+  size: 53,99
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/demon/Idle3.png
+  rotate: false
+  xy: 579,129
+  size: 70,97
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Attack5.png
+  rotate: false
+  xy: 487,522
+  size: 97,49
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Attack4.png
+  rotate: false
+  xy: 0,606
+  size: 96,59
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Attack3.png
+  rotate: false
+  xy: 96,606
+  size: 95,45
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Magic_Attack9.png
+  rotate: false
+  xy: 258,573
+  size: 95,89
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Death4.png
+  rotate: false
+  xy: 592,226
+  size: 53,95
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/demon/Idle2.png
+  rotate: false
+  xy: 652,0
+  size: 77,95
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Idle1.png
+  rotate: false
+  xy: 487,571
+  size: 84,94
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Death6.png
+  rotate: false
+  xy: 353,573
+  size: 92,31
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Walk3.png
+  rotate: false
+  xy: 649,99
+  size: 79,92
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Walk2.png
+  rotate: false
+  xy: 353,604
+  size: 92,50
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Idle2.png
+  rotate: false
+  xy: 588,321
+  size: 92,49
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Walk5.png
+  rotate: false
+  xy: 645,226
+  size: 83,92
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Walk4.png
+  rotate: false
+  xy: 592,370
+  size: 92,47
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/medusa/Attack5.png
+  rotate: false
+  xy: 571,571
+  size: 92,71
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/lizard/Death5.png
+  rotate: false
+  xy: 571,642
+  size: 92,23
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Attack1.png
+  rotate: false
+  xy: 584,522
+  size: 92,47
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Walk2.png
+  rotate: false
+  xy: 592,417
+  size: 79,91
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Walk3.png
+  rotate: false
+  xy: 0,665
+  size: 91,54
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Death3.png
+  rotate: false
+  xy: 91,665
+  size: 91,46
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Death4.png
+  rotate: false
+  xy: 353,654
+  size: 91,61
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Idle3.png
+  rotate: false
+  xy: 444,665
+  size: 91,51
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Attack2.png
+  rotate: false
+  xy: 535,665
+  size: 91,35
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/demon/Walk1.png
+  rotate: false
+  xy: 0,719
+  size: 81,90
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Walk1.png
+  rotate: false
+  xy: 626,665
+  size: 89,47
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Death4.png
+  rotate: false
+  xy: 535,700
+  size: 89,40
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Hurt2.png
+  rotate: false
+  xy: 624,712
+  size: 89,47
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Death2.png
+  rotate: false
+  xy: 81,759
+  size: 89,47
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Death1.png
+  rotate: false
+  xy: 91,711
+  size: 89,48
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Hurt1.png
+  rotate: false
+  xy: 170,759
+  size: 89,48
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Walk5.png
+  rotate: false
+  xy: 259,759
+  size: 89,50
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Walk6.png
+  rotate: false
+  xy: 348,715
+  size: 89,54
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Walk6.png
+  rotate: false
+  xy: 437,716
+  size: 80,89
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Idle1.png
+  rotate: false
+  xy: 180,711
+  size: 89,48
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Walk4.png
+  rotate: false
+  xy: 269,662
+  size: 72,88
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Death3.png
+  rotate: false
+  xy: 676,417
+  size: 49,88
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Idle3.png
+  rotate: false
+  xy: 684,318
+  size: 45,87
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/demon/Death5.png
+  rotate: false
+  xy: 182,662
+  size: 86,31
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/lizard/Attack2.png
+  rotate: false
+  xy: 517,759
+  size: 86,47
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Death3.png
+  rotate: false
+  xy: 729,0
+  size: 86,75
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Hurt1.png
+  rotate: false
+  xy: 729,75
+  size: 76,85
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Death1.png
+  rotate: false
+  xy: 729,160
+  size: 76,85
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Attack4.png
+  rotate: false
+  xy: 663,569
+  size: 51,84
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Idle2.png
+  rotate: false
+  xy: 419,352
+  size: 41,84
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/demon/Death6.png
+  rotate: false
+  xy: 729,245
+  size: 84,46
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Death1.png
+  rotate: false
+  xy: 713,712
+  size: 46,84
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Attack1.png
+  rotate: false
+  xy: 445,573
+  size: 38,84
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Hurt1.png
+  rotate: false
+  xy: 759,291
+  size: 46,84
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Death6.png
+  rotate: false
+  xy: 759,375
+  size: 48,84
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Attack3.png
+  rotate: false
+  xy: 725,459
+  size: 83,81
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/dragon/Fire_Attack2.png
+  rotate: false
+  xy: 603,759
+  size: 82,42
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Attack2.png
+  rotate: false
+  xy: 715,540
+  size: 81,80
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Hurt2.png
+  rotate: false
+  xy: 759,620
+  size: 46,81
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Death2.png
+  rotate: false
+  xy: 759,701
+  size: 46,81
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/demon/Death2.png
+  rotate: false
+  xy: 0,809
+  size: 81,74
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/demon/Hurt2.png
+  rotate: false
+  xy: 81,809
+  size: 81,74
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/medusa/Attack4.png
+  rotate: false
+  xy: 348,769
+  size: 81,63
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Stone5.png
+  rotate: false
+  xy: 162,832
+  size: 81,48
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Stone3.png
+  rotate: false
+  xy: 429,805
+  size: 79,63
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Walk3.png
+  rotate: false
+  xy: 243,832
+  size: 79,37
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Walk1.png
+  rotate: false
+  xy: 649,191
+  size: 79,35
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/dragon/Fire_Attack3.png
+  rotate: false
+  xy: 322,832
+  size: 79,47
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Idle3.png
+  rotate: false
+  xy: 508,806
+  size: 79,38
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Idle1.png
+  rotate: false
+  xy: 603,801
+  size: 39,78
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Idle2.png
+  rotate: false
+  xy: 508,844
+  size: 78,36
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Idle1.png
+  rotate: false
+  xy: 642,801
+  size: 78,35
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Death2.png
+  rotate: false
+  xy: 642,836
+  size: 78,38
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Walk4.png
+  rotate: false
+  xy: 720,796
+  size: 78,36
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Walk2.png
+  rotate: false
+  xy: 720,832
+  size: 78,36
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Stone2.png
+  rotate: false
+  xy: 815,0
+  size: 78,71
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Stone1.png
+  rotate: false
+  xy: 815,71
+  size: 78,71
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Stone4.png
+  rotate: false
+  xy: 813,142
+  size: 77,52
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Death1.png
+  rotate: false
+  xy: 813,194
+  size: 77,35
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Flight2.png
+  rotate: false
+  xy: 796,540
+  size: 47,77
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Flight3.png
+  rotate: false
+  xy: 805,291
+  size: 52,75
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/dragon/Fire_Attack4.png
+  rotate: false
+  xy: 813,229
+  size: 75,54
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Flight1.png
+  rotate: false
+  xy: 715,620
+  size: 42,74
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Death4.png
+  rotate: false
+  xy: 808,366
+  size: 74,35
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Stone6.png
+  rotate: false
+  xy: 808,401
+  size: 74,38
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Flight4.png
+  rotate: false
+  xy: 843,439
+  size: 40,73
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Attack6.png
+  rotate: false
+  xy: 805,617
+  size: 72,65
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Death3.png
+  rotate: false
+  xy: 808,512
+  size: 72,26
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Attack1.png
+  rotate: false
+  xy: 805,682
+  size: 72,35
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/dragon/Fire_Attack5.png
+  rotate: false
+  xy: 805,717
+  size: 71,59
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Magic_Attack8.png
+  rotate: false
+  xy: 805,776
+  size: 70,70
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Magic_Attack7.png
+  rotate: false
+  xy: 0,883
+  size: 68,68
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/medusa/Death4.png
+  rotate: false
+  xy: 191,606
+  size: 67,41
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Idle1.png
+  rotate: false
+  xy: 68,883
+  size: 66,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Attack1.png
+  rotate: false
+  xy: 134,883
+  size: 66,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Death5.png
+  rotate: false
+  xy: 162,807
+  size: 65,24
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Magic_Attack6.png
+  rotate: false
+  xy: 200,880
+  size: 61,65
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/medusa/Death6.png
+  rotate: false
+  xy: 798,846
+  size: 65,34
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Idle3.png
+  rotate: false
+  xy: 261,869
+  size: 61,64
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Walk3.png
+  rotate: false
+  xy: 843,538
+  size: 49,63
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Stone7.png
+  rotate: false
+  xy: 419,436
+  size: 63,22
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Walk2.png
+  rotate: false
+  xy: 322,880
+  size: 52,62
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Idle2.png
+  rotate: false
+  xy: 374,880
+  size: 58,62
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Walk4.png
+  rotate: false
+  xy: 432,880
+  size: 61,62
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Attack3.png
+  rotate: false
+  xy: 493,880
+  size: 52,61
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Death3.png
+  rotate: false
+  xy: 720,868
+  size: 61,49
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Death1.png
+  rotate: false
+  xy: 545,880
+  size: 53,61
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Hurt1.png
+  rotate: false
+  xy: 781,880
+  size: 53,61
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Attack2.png
+  rotate: false
+  xy: 834,880
+  size: 57,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Walk1.png
+  rotate: false
+  xy: 598,879
+  size: 57,60
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Hurt2.png
+  rotate: false
+  xy: 655,874
+  size: 54,59
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Death2.png
+  rotate: false
+  xy: 893,0
+  size: 54,59
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/dragon/Fire_Attack6.png
+  rotate: false
+  xy: 893,59
+  size: 52,56
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/medusa/Stone8.png
+  rotate: false
+  xy: 258,558
+  size: 56,15
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Magic_Attack1.png
+  rotate: false
+  xy: 96,651
+  size: 54,11
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Magic_Attack5.png
+  rotate: false
+  xy: 893,115
+  size: 53,49
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Magic_Attack2.png
+  rotate: false
+  xy: 880,512
+  size: 40,25
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Magic_Attack3.png
+  rotate: false
+  xy: 676,505
+  size: 39,34
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/jinn_animation/Magic_Attack4.png
+  rotate: false
+  xy: 808,439
+  size: 35,39
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Fire_Attack3.png
+  rotate: false
+  xy: 493,941
+  size: 35,10
+  orig: 64,64
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Fire_Attack7.png
+  rotate: false
+  xy: 517,716
+  size: 18,34
+  orig: 64,64
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Fire_Attack2.png
+  rotate: false
+  xy: 269,750
+  size: 34,9
+  orig: 64,64
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Fire_Attack1.png
+  rotate: false
+  xy: 725,405
+  size: 34,9
+  orig: 64,64
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Fire_Attack8.png
+  rotate: false
+  xy: 587,806
+  size: 16,32
+  orig: 64,64
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Fire_Attack6.png
+  rotate: false
+  xy: 863,846
+  size: 19,32
+  orig: 64,64
+  offset: 0,0
+  index: -1
+PNG/dragon/Fire_Attack1.png
+  rotate: false
+  xy: 191,647
+  size: 27,15
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Fire_Attack5.png
+  rotate: false
+  xy: 227,809
+  size: 17,23
+  orig: 64,64
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Fire_Attack9.png
+  rotate: false
+  xy: 341,662
+  size: 12,18
+  orig: 64,64
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Fire_Attack4.png
+  rotate: false
+  xy: 479,267
+  size: 17,13
+  orig: 64,64
+  offset: 0,0
+  index: -1
+PNG/dragon/Hurt1.png
+  rotate: false
+  xy: 165,141
+  size: 160,68
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/dragon/Hurt2.png
+  rotate: false
+  xy: 325,141
+  size: 155,67
+  orig: 256,256
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Hurt1.png
+  rotate: false
+  xy: 813,194
+  size: 77,35
+  orig: 128,128
+  offset: 0,0
+  index: -1
+PNG/small_dragon/Hurt2.png
+  rotate: false
+  xy: 642,836
+  size: 78,38
+  orig: 128,128
+  offset: 0,0
+  index: -1
