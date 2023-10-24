@@ -62,9 +62,6 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth() / 64f, Gdx.graphics.getHeight() / 64f);
 
-        TextureAtlas atlas;
-        atlas = new TextureAtlas(Gdx.files.internal("monster-sprites/texture.atlas"));
-        sprite = atlas.createSprite("PNG/dragon/Idle3.png");
 
 
         createTouchpad();

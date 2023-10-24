@@ -1,8 +1,13 @@
 package com.mygdx.game.resources.player;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.mygdx.game.util.AnimationUtil;
+
+import java.util.Map;
 
 /**
  * Target PNG ->  player/warpsara-nohelmet-anim-sheet-alpha.png
@@ -132,5 +137,17 @@ public class PlayerResources {
             }
         }
         return new Animation<>(1f / (targetColumn + 1), walkFrames);
+    }
+
+    /**
+     * 某一个系列的png动画集合全部在此方法分离
+     *
+     * @return
+     */
+    private static Animation<TextureRegion> test() {
+        TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("assassin-mage-viking/texture.atlas"));
+        Map<String, TextureAtlas.AtlasRegion> map = AnimationUtil.list2Map(atlas.getRegions());
+
+        return new Animation<TextureRegion>(0.1f, AnimationUtil.getRegionsByName(map, "PNG/Knight/Run/run"));
     }
 }
