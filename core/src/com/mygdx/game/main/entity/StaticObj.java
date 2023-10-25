@@ -3,6 +3,8 @@ package com.mygdx.game.main.entity;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Filter;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
@@ -49,7 +51,12 @@ public class StaticObj {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = groundShape;// 形状
         fixtureDef.friction = 0.9f;
-        groundBody.createFixture(fixtureDef); // 静态物体的质量应该设为0
+        Fixture fixture =groundBody.createFixture(fixtureDef); // 静态物体的质量应该设为0
+
+        Filter filter = new Filter();
+        filter.categoryBits = 2;
+        filter.maskBits = 4;
+        fixture.setFilterData(filter);
 
         groundShape.dispose();
     }

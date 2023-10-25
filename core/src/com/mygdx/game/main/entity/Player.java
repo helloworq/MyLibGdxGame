@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Filter;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
@@ -52,7 +54,12 @@ public class Player {
         fixtureDef.friction = 0.9f;
         fixtureDef.restitution = 0.01f; // 回弹系数
 
-        body.createFixture(fixtureDef);//设置自定义数据可以从这个物体获取这个数据对象
+        Fixture fixture =body.createFixture(fixtureDef);//设置自定义数据可以从这个物体获取这个数据对象
+        Filter filter = new Filter();
+        filter.categoryBits = 8;
+        filter.maskBits = 2;
+        fixture.setFilterData(filter);
+
         shape.dispose();
     }
 

@@ -4,12 +4,16 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -49,6 +53,14 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
     private KinematicObj movingObj;
     private KinematicObj movingObj2;
     private StaticObj ground;
+    Sprite sprite;
+
+    PolygonShape shape = new PolygonShape();
+
+    static {
+        //预加载
+        Box2D.init();//https://github.com/libgdx/libgdx/issues/1730
+    }
 
     @Override
     public void create() {
@@ -58,6 +70,7 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         debugRenderer = new Box2DDebugRenderer();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth() / 64f, Gdx.graphics.getHeight() / 64f);
+
 
         createTouchpad();
 
@@ -165,10 +178,10 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
 
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(movingObj.getSurface(), movingObj.getPx()-movingObj.getWidth(), movingObj.getPy()-movingObj.getWidth(), movingObj.getWidth(), movingObj.getWidth(),
+        batch.draw(movingObj.getSurface(), movingObj.getPx() - movingObj.getWidth(), movingObj.getPy() - movingObj.getWidth(), movingObj.getWidth(), movingObj.getWidth(),
                 movingObj.getWidth() * 2, movingObj.getHeight() * 2, 1f, 1f
                 , MathUtils.radiansToDegrees * movingObj.getBody().getAngle());//弧度转角度
-        batch.draw(movingObj2.getSurface(), movingObj2.getPx()-movingObj2.getWidth(), movingObj2.getPy()-movingObj2.getWidth(), movingObj2.getWidth(), movingObj2.getWidth(),
+        batch.draw(movingObj2.getSurface(), movingObj2.getPx() - movingObj2.getWidth(), movingObj2.getPy() - movingObj2.getWidth(), movingObj2.getWidth(), movingObj2.getWidth(),
                 movingObj2.getWidth() * 2, movingObj2.getHeight() * 2, 1f, 1f
                 , MathUtils.radiansToDegrees * movingObj.getBody().getAngle());//弧度转角度
 
