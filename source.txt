@@ -6,6 +6,10 @@ Libgdx     https://libgdx.com/dev/
            https://www.cnblogs.com/esdesign/archive/2013/05/10/3071670.html
            https://blog.csdn.net/dyyaries/article/details/123691490
            https://github.com/libgdx/libgdx/issues/6688
+           流体模拟 https://github.com/rks1337/goo
+           水面漂浮模拟 https://github.com/jocasolo/water2d-libgdx
+           可破坏地形 http://www.quailshillstudio.com/en/blog/article/00001-destructible-terrain-libgdx-box2d-polygon-clipping-algorithm/
+
 
 游戏素材库   https://opengameart.org/art-search-advanced
            https://kenney.nl/assets

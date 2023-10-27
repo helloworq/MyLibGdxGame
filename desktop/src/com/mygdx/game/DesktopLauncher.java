@@ -5,6 +5,7 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.mygdx.game.animation.Animator;
 import com.mygdx.game.main.copoment.MyBox2DImgWorld;
 import com.mygdx.game.physics.MyBox2DWorld;
+import com.mygdx.game.sample.liquid.goo.goo.Boot;
 import com.mygdx.game.sample.water2d.dream.GameMain;
 import com.mygdx.game.sample.worms.quailshillstudio.articlepolygonclipping.PolygonClipping;
 import com.mygdx.game.touch.TouchpadTest;
@@ -16,6 +17,6 @@ public class DesktopLauncher {
 		config.setForegroundFPS(60);
 		config.setTitle("My GDX Game");
 
-		new Lwjgl3Application(new GameMain(), config);
+		new Lwjgl3Application(new Boot(), config);
 	}
 }
