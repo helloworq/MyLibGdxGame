@@ -5,8 +5,9 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.mygdx.game.animation.Animator;
 import com.mygdx.game.main.copoment.MyBox2DImgWorld;
 import com.mygdx.game.physics.MyBox2DWorld;
+import com.mygdx.game.sample.extract.liquid.GameMain;
+import com.mygdx.game.sample.extract.liquid.Play;
 import com.mygdx.game.sample.liquid.goo.goo.Boot;
-import com.mygdx.game.sample.water2d.dream.GameMain;
 import com.mygdx.game.sample.worms.quailshillstudio.articlepolygonclipping.PolygonClipping;
 import com.mygdx.game.touch.TouchpadTest;
 
@@ -18,6 +19,6 @@ public class DesktopLauncher {
 		config.setWindowedMode(1000,1000);
 
 
-		new Lwjgl3Application(new Boot(), config);
+		new Lwjgl3Application(new GameMain(), config);
 	}
 }
