@@ -56,7 +56,7 @@ public class Player {
 
         Fixture fixture =body.createFixture(fixtureDef);//设置自定义数据可以从这个物体获取这个数据对象
         Filter filter = new Filter();
-        filter.categoryBits = 8;
+        filter.categoryBits = 6;
         filter.maskBits = 2;
         fixture.setFilterData(filter);
 
