@@ -4,16 +4,9 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -22,23 +15,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.mygdx.game.main.contants.EntityEnum;
-import com.mygdx.game.main.entity.BulletObj;
 import com.mygdx.game.main.entity.KinematicObj;
 import com.mygdx.game.main.entity.StaticObj;
 import com.mygdx.game.main.entity.Player;
 import com.mygdx.game.resources.ImageResources;
 import com.mygdx.game.resources.StyleResources;
 import com.mygdx.game.resources.WorldResources;
-import com.mygdx.game.resources.player.PlayerResources;
-
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class MyBox2DImgWorld extends ApplicationAdapter {
     private SpriteBatch batch;
-    private TextureRegion img;
     private OrthographicCamera camera;
     private World world;
     private Box2DDebugRenderer debugRenderer;
@@ -53,9 +38,6 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
     private KinematicObj movingObj;
     private KinematicObj movingObj2;
     private StaticObj ground;
-    Sprite sprite;
-
-    PolygonShape shape = new PolygonShape();
 
     static {
         //预加载
@@ -65,7 +47,6 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        img = ImageResources.BAD_LOGIC;
         world = WorldResources.WORLD;
         debugRenderer = new Box2DDebugRenderer();
         camera = new OrthographicCamera();
@@ -115,15 +96,6 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
             @Override
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
                 isPressing = true;
-                if (touchpad.getKnobX() > 50) {
-                    player.setWalkAnimation(PlayerResources.RUN_RIGHT);
-                    player.setMoveRight(true);
-                    player.setMoveLeft(false);
-                } else if (touchpad.getKnobX() <= 50) {
-                    player.setWalkAnimation(PlayerResources.RUN_LEFT);
-                    player.setMoveLeft(true);
-                    player.setMoveRight(false);
-                }
             }
 
             @Override
@@ -140,23 +112,14 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         buttonJump.addListener(new ClickListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                player.setJump(true);
+                player.jump();
                 return true;
-            }
-
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                player.setJump(false);
             }
         });
         buttonShoot.addListener(new ClickListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                float direction = player.isMoveRight() ? 1f : -1f;
-                BulletObj tempObj = new BulletObj(world,
-                        player.getBody().getPosition().x + direction * 0.5f, player.getBody().getPosition().y + 0.3f, 0.1f,
-                        new Vector2(direction * 3f, 5f));
-                player.getBullets().add(tempObj.getBody());
+                player.shoot(world);
                 return true;
             }
         });
@@ -172,7 +135,6 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         camera.update();
 
         // 将绘制与相机投影绑定 关键 关键
-
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
 
@@ -184,26 +146,14 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
 
         batch.end();
 
-
-        // 获取五星的线速度
-        Vector2 linearVelocity = player.getBody().getLinearVelocity();
-        if (isPressing && player.isMoveRight() && linearVelocity.x <= 2) {
-            player.getBody().applyLinearImpulse(new Vector2(1f, 0), player.getBody().getWorldCenter(), true);
-        }
-        if (isPressing && player.isMoveLeft() && linearVelocity.x >= -2) {
-            player.getBody().applyLinearImpulse(new Vector2(-1f, 0), player.getBody().getWorldCenter(), true);
-        }
-
-        // 跳起来的逻辑，比较简单。但是时候这个演示
-        if (player.isJump() && linearVelocity.y <= 4) {
-            player.getBody().applyLinearImpulse(new Vector2(0, 4), player.getBody().getWorldCenter(), true);
-        }
-        if (linearVelocity.y == 0) {
-            player.setJump(false);
-        }
-        if (linearVelocity.x == 0 && !isPressing) {
-            //刚体碰撞时速度会重置为0，使用pressing判断是否是下落碰撞
-            player.setWalkAnimation(player.isMoveRight() ? PlayerResources.IDLE_RIGHT : PlayerResources.IDLE_LEFT);
+        if (isPressing) {
+            if (touchpad.getKnobX() > 50) {
+                player.moveRight(true);
+            } else if (touchpad.getKnobX() <= 50) {
+                player.moveLeft(true);
+            }
+        } else {
+            player.idle(false);
         }
     }
 

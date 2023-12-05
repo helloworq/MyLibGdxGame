@@ -35,6 +35,49 @@ public class Player {
     private Player() {
     }
 
+    public void moveRight(boolean isPressing) {
+        setWalkAnimation(PlayerResources.RUN_RIGHT);
+        setMoveRight(true);
+        setMoveLeft(false);
+
+        if (isPressing && moveRight && body.getLinearVelocity().x <= 2) {
+            body.applyLinearImpulse(new Vector2(1f, 0), body.getWorldCenter(), true);
+        }
+    }
+
+    public void moveLeft(boolean isPressing) {
+        setWalkAnimation(PlayerResources.RUN_LEFT);
+        setMoveLeft(true);
+        setMoveRight(false);
+
+        if (isPressing && moveLeft && body.getLinearVelocity().x >= -2) {
+            body.applyLinearImpulse(new Vector2(-1f, 0), body.getWorldCenter(), true);
+        }
+    }
+
+    public void idle(boolean isPressing) {
+        if (body.getLinearVelocity().x == 0 && !isPressing) {
+            setWalkAnimation(moveRight ? PlayerResources.IDLE_RIGHT : PlayerResources.IDLE_LEFT);
+        }
+    }
+
+    public void jump() {
+        if (body.getLinearVelocity().y <= 4) {
+            body.applyLinearImpulse(new Vector2(0, 4), body.getWorldCenter(), true);
+        }
+    }
+
+    public void shoot(World world) {
+        float direction = moveRight ? 1f : -1f;
+        BulletObj tempObj = new BulletObj(
+                world,
+                body.getPosition().x + direction * 0.5f,
+                body.getPosition().y + 0.3f,
+                0.1f,
+                new Vector2(direction * 3f, 5f));
+        bullets.add(tempObj.getBody());
+    }
+
     public void draw(SpriteBatch batch, float stateTime, World world) {
         TextureRegion curPlayerFrame = walkAnimation.getKeyFrame(stateTime, true);
         TextureRegion bulletRunAnimation = PlayerResources.BULLET_RUN.getKeyFrame(stateTime, true);
