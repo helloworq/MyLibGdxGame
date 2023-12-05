@@ -2,6 +2,7 @@ package com.mygdx.game.main.entity;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -11,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.main.contants.EntityEnum;
 import com.mygdx.game.resources.ImageResources;
 import com.mygdx.game.resources.player.PlayerResources;
 
@@ -31,6 +33,33 @@ public class Player {
     private CopyOnWriteArrayList<Body> bullets = new CopyOnWriteArrayList<>();
 
     private Player() {
+    }
+
+    public void draw(SpriteBatch batch, float stateTime, World world) {
+        TextureRegion curPlayerFrame = walkAnimation.getKeyFrame(stateTime, true);
+        TextureRegion bulletRunAnimation = PlayerResources.BULLET_RUN.getKeyFrame(stateTime, true);
+        TextureRegion bulletHitAnimation = PlayerResources.BULLET_HIT.getKeyFrame(stateTime, false);//子弹动画不循环
+
+        batch.draw(curPlayerFrame,
+                this.body.getPosition().x - 0.5f / 2,
+                this.body.getPosition().y - 0.5f / 2,
+                0,
+                0,
+                50,
+                50,
+                0.01f,
+                0.01f,
+                0);
+
+        for (Body ball : bullets) {
+            //子弹运行动画
+            batch.draw(bulletRunAnimation, ball.getPosition().x - 0.3f, ball.getPosition().y - 0.1f, 0, 0, 60, 60, 0.01f, 0.01f, 0);
+            if (EntityEnum.TRASH.equals(ball.getUserData())) {
+                batch.draw(bulletHitAnimation, ball.getPosition().x - 0.2f, ball.getPosition().y - 0.2f, 0, 0, 50, 50, 0.01f, 0.01f, 0);
+                bullets.remove(ball);
+                world.destroyBody(ball);
+            }
+        }
     }
 
     public Player(World world,
@@ -54,7 +83,7 @@ public class Player {
         fixtureDef.friction = 0.9f;
         fixtureDef.restitution = 0.01f; // 回弹系数
 
-        Fixture fixture =body.createFixture(fixtureDef);//设置自定义数据可以从这个物体获取这个数据对象
+        Fixture fixture = body.createFixture(fixtureDef);//设置自定义数据可以从这个物体获取这个数据对象
         Filter filter = new Filter();
         filter.categoryBits = 6;
         filter.maskBits = 2;

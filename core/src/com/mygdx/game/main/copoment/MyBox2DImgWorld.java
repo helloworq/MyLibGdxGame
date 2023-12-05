@@ -172,32 +172,16 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         camera.update();
 
         // 将绘制与相机投影绑定 关键 关键
-        TextureRegion playerAnimation = player.getWalkAnimation().getKeyFrame(stateTime, true);
-        TextureRegion bulletRunAnimation = PlayerResources.BULLET_RUN.getKeyFrame(stateTime, true);
-        TextureRegion bulletHitAnimation = PlayerResources.BULLET_HIT.getKeyFrame(stateTime, false);//子弹动画不循环
 
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(movingObj.getSurface(), movingObj.getPx() - movingObj.getWidth(), movingObj.getPy() - movingObj.getWidth(), movingObj.getWidth(), movingObj.getWidth(),
-                movingObj.getWidth() * 2, movingObj.getHeight() * 2, 1f, 1f
-                , MathUtils.radiansToDegrees * movingObj.getBody().getAngle());//弧度转角度
-        batch.draw(movingObj2.getSurface(), movingObj2.getPx() - movingObj2.getWidth(), movingObj2.getPy() - movingObj2.getWidth(), movingObj2.getWidth(), movingObj2.getWidth(),
-                movingObj2.getWidth() * 2, movingObj2.getHeight() * 2, 1f, 1f
-                , MathUtils.radiansToDegrees * movingObj.getBody().getAngle());//弧度转角度
 
-        batch.draw(box.getSurface(), box.getPx() - box.getWidth(), box.getPy() - box.getHeight(), box.getWidth() * 2, box.getHeight() * 2);
-        batch.draw(ground.getSurface(), ground.getPx(), ground.getPy(), ground.getWidth(), ground.getHeight());
-        batch.draw(playerAnimation, player.getBody().getPosition().x - 0.5f / 2, player.getBody().getPosition().y - 0.5f / 2, 0, 0, 50, 50, 0.01f, 0.01f, 0);
+        movingObj.draw(batch);
+        movingObj2.draw(batch);
+        box.draw(batch);
+        ground.draw(batch);
+        player.draw(batch, stateTime, world);
 
-        for (Body ball : player.getBullets()) {
-            //子弹运行动画
-            batch.draw(bulletRunAnimation, ball.getPosition().x - 0.3f, ball.getPosition().y - 0.1f, 0, 0, 60, 60, 0.01f, 0.01f, 0);
-            if (EntityEnum.TRASH.equals(ball.getUserData())) {
-                batch.draw(bulletHitAnimation, ball.getPosition().x - 0.2f, ball.getPosition().y - 0.2f, 0, 0, 50, 50, 0.01f, 0.01f, 0);
-                player.getBullets().remove(ball);
-                world.destroyBody(ball);
-            }
-        }
         batch.end();
 
 

@@ -1,5 +1,6 @@
 package com.mygdx.game.main.entity;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -23,6 +24,10 @@ public class StaticObj {
     private TextureRegion surface;
 
     private StaticObj() {
+    }
+
+    public void draw(SpriteBatch batch) {
+        batch.draw(surface, px - width, py - height, width * 2, height * 2);
     }
 
     public StaticObj(World world,
@@ -51,7 +56,7 @@ public class StaticObj {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = groundShape;// 形状
         fixtureDef.friction = 0.9f;
-        Fixture fixture =groundBody.createFixture(fixtureDef); // 静态物体的质量应该设为0
+        Fixture fixture = groundBody.createFixture(fixtureDef); // 静态物体的质量应该设为0
 
         Filter filter = new Filter();
         filter.categoryBits = 2;
@@ -68,6 +73,7 @@ public class StaticObj {
     public float getHeight() {
         return height;
     }
+
     public float getPx() {
         return px;
     }

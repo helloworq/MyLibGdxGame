@@ -1,6 +1,8 @@
 package com.mygdx.game.main.entity;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
@@ -24,6 +26,19 @@ public class KinematicObj {
 
     public TextureRegion getSurface() {
         return surface;
+    }
+
+    public void draw(SpriteBatch batch){
+        batch.draw(surface,
+                px - width,
+                py - width,
+                width,
+                width,
+                width * 2,
+                height * 2,
+                1f,
+                1f,
+                MathUtils.radiansToDegrees * body.getAngle());//弧度转角度
     }
 
     public KinematicObj(World world,
