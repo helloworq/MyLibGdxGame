@@ -2,9 +2,15 @@ package com.mygdx.game.main.copoment;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -38,6 +44,9 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
     private KinematicObj movingObj;
     private KinematicObj movingObj2;
     private StaticObj ground;
+    private AssetManager assetManager;
+    private TiledMap map;
+    private TiledMapRenderer renderer;
 
     static {
         //预加载
@@ -50,7 +59,22 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         world = WorldResources.WORLD;
         debugRenderer = new Box2DDebugRenderer();
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, Gdx.graphics.getWidth() / 64f, Gdx.graphics.getHeight() / 64f);
+        //camera.setToOrtho(false, Gdx.graphics.getWidth() / 64f, Gdx.graphics.getHeight() / 64f);
+
+
+        float w = Gdx.graphics.getWidth();
+        float h = Gdx.graphics.getHeight();
+
+        camera.setToOrtho(false, (w / h) * 10, 10);
+        camera.zoom = 2;
+        camera.update();
+
+        assetManager = new AssetManager();
+        assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
+        assetManager.load("maps/isometric_grass_and_water.tmx", TiledMap.class);
+        assetManager.finishLoading();
+        map = assetManager.get("maps/isometric_grass_and_water.tmx");
+        renderer = new IsometricTiledMapRenderer(map, 1f / 64f);
 
 
         createTouchpad();
@@ -73,6 +97,9 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         stage.draw();
         // 给Box2D世界里的物体绘制轮廓，让我们看得更清楚，正式游戏需要注释掉这个渲染
         debugRenderer.render(world, camera.combined);
+
+        renderer.setView(camera);
+        renderer.render();
 
         // 更新世界里的关系 这个要放在绘制之后，最好放最后面
         world.step(1 / 60f, 6, 2);
