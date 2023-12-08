@@ -41,6 +41,15 @@ public class ResourcesUtil {
         return result;
     }
 
+    private static boolean isNumber(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     /**
      * 将给定的图层集合，提取出同名不同索引全部序列
      *
@@ -49,12 +58,12 @@ public class ResourcesUtil {
      */
     public static Array<TextureAtlas.AtlasRegion> getRegionsByName(Map<String, TextureAtlas.AtlasRegion> regionMap, final String name) {
         Array<TextureAtlas.AtlasRegion> result = new Array<>();
-        int index = 0;
-        TextureAtlas.AtlasRegion temp;
-
         Set<String> keySet = regionMap.keySet();
         for (String key : keySet) {
-            if (key.startsWith(name)){
+            if (key.startsWith(name)
+                    && key.replace(name, "").charAt(0) == '-'
+                    && isNumber(key.replace(name, "").replace("-", "").substring(0, 1))
+            ) {
                 result.add(regionMap.get(key));
             }
         }
@@ -62,22 +71,13 @@ public class ResourcesUtil {
         result.sort(new Comparator<TextureAtlas.AtlasRegion>() {
             @Override
             public int compare(TextureAtlas.AtlasRegion o1, TextureAtlas.AtlasRegion o2) {
-                String nameO1 = o1.name;
-                String nameO2 = o2.name;
-                for (int i = 0; i < nameO1.length(); i++) {
-
-
-                }
-
-                return 0;
+                return o1.name.compareToIgnoreCase(o2.name);
             }
         });
 
-//        while ((temp = regionMap.get(name + "-0" + index)) != null) {
-//            result.add(temp);
-//            index++;
-//        }
-
+        for (TextureAtlas.AtlasRegion r : result) {
+            System.out.print(r.name + "   ");
+        }
         return result;
     }
 }
