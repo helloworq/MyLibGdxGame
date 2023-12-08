@@ -31,16 +31,15 @@ public class AnimationTests extends ApplicationAdapter {
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
 
-        animation = ResourcesUtil.getAnimationByName("adventure/texture.atlas","adventurer-run");
+        animation = ResourcesUtil.getAnimationByName("adventure/texture.atlas",
+                "adventurer-bow");
     }
 
     @Override
     public void render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stateTime = stateTime + Gdx.graphics.getDeltaTime(); // Accumulate elapsed animation time
-
         debugRenderer.render(world, camera.combined);
-
         TextureRegion curPlayerFrame = animation.getKeyFrame(stateTime, true);
 
         batch.begin();
@@ -48,6 +47,7 @@ public class AnimationTests extends ApplicationAdapter {
         batch.draw(curPlayerFrame, 0, 0);
 
         batch.end();
+
 
 
 
