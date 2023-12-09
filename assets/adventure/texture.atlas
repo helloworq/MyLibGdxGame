@@ -452,28 +452,28 @@ adventurer-idle-03
   orig: 50,37
   offset: 0,0
   index: -1
-adventurer-idle-2-00
+adventurer-idle2-00
   rotate: false
   xy: 535,555
   size: 50,37
   orig: 50,37
   offset: 0,0
   index: -1
-adventurer-idle-2-01
+adventurer-idle2-01
   rotate: false
   xy: 585,0
   size: 50,37
   orig: 50,37
   offset: 0,0
   index: -1
-adventurer-idle-2-02
+adventurer-idle2-02
   rotate: false
   xy: 585,37
   size: 50,37
   orig: 50,37
   offset: 0,0
   index: -1
-adventurer-idle-2-03
+adventurer-idle2-03
   rotate: false
   xy: 585,74
   size: 50,37

@@ -15,17 +15,16 @@ import java.util.stream.Collectors;
 
 public class ResourcesUtil {
 
-
     /**
      * 由TexturePacker工具打包成单张图的Assets再次根据name进行合并，合并成单个动作的动画集合
      *
      * @return
      */
-    public static Animation<TextureRegion> getAnimationByName(String filePath, String animationName) {
+    public static Animation<TextureRegion> getAnimationByName(String filePath, String animationName, boolean flip) {
         TextureAtlas atlas = new TextureAtlas(Gdx.files.internal(filePath));
         Map<String, TextureAtlas.AtlasRegion> map = list2Map(atlas.getRegions());
 
-        return new Animation<TextureRegion>(0.1f, getRegionsByName(map, animationName));
+        return new Animation<TextureRegion>(0.1f, getRegionsByName(map, animationName, flip));
 //        TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("assassin-mage-viking/texture.atlas"));
 //        Map<String, TextureAtlas.AtlasRegion> map = list2Map(atlas.getRegions());
 //
@@ -33,7 +32,7 @@ public class ResourcesUtil {
     }
 
 
-    public static Map<String, TextureAtlas.AtlasRegion> list2Map(Array<TextureAtlas.AtlasRegion> regionArray) {
+    private static Map<String, TextureAtlas.AtlasRegion> list2Map(Array<TextureAtlas.AtlasRegion> regionArray) {
         Map<String, TextureAtlas.AtlasRegion> result = new HashMap<>();
         for (TextureAtlas.AtlasRegion region : regionArray) {
             result.put(region.name, region);
@@ -41,14 +40,6 @@ public class ResourcesUtil {
         return result;
     }
 
-    private static boolean isNumber(String s) {
-        try {
-            Integer.parseInt(s);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
 
     /**
      * 将给定的图层集合，提取出同名不同索引全部序列
@@ -56,15 +47,20 @@ public class ResourcesUtil {
      * @param regionMap
      * @return
      */
-    public static Array<TextureAtlas.AtlasRegion> getRegionsByName(Map<String, TextureAtlas.AtlasRegion> regionMap, final String name) {
+    private static Array<TextureAtlas.AtlasRegion> getRegionsByName(Map<String, TextureAtlas.AtlasRegion> regionMap,
+                                                                    final String name,
+                                                                    boolean flip) {
         Array<TextureAtlas.AtlasRegion> result = new Array<>();
         Set<String> keySet = regionMap.keySet();
         for (String key : keySet) {
             if (key.startsWith(name)
                     && key.replace(name, "").charAt(0) == '-'
-                    && isNumber(key.replace(name, "").replace("-", "").substring(0, 1))
-            ) {
-                result.add(regionMap.get(key));
+                    && Character.isDigit(key.replace(name + "-", "").charAt(0))) {
+                TextureAtlas.AtlasRegion cur = regionMap.get(key);
+                if (flip) {
+                    cur.flip(true, false);
+                }
+                result.add(cur);
             }
         }
 
@@ -75,9 +71,9 @@ public class ResourcesUtil {
             }
         });
 
-        for (TextureAtlas.AtlasRegion r : result) {
-            System.out.print(r.name + "   ");
-        }
+//        for (TextureAtlas.AtlasRegion r : result) {
+//            System.out.print(r.name + "   ");
+//        }
         return result;
     }
 }

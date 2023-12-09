@@ -2,14 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.mygdx.game.animation.Animator;
-import com.mygdx.game.main.copoment.MyBox2DImgWorld;
-import com.mygdx.game.physics.MyBox2DWorld;
-import com.mygdx.game.sample.liquid.goo.goo.Boot;
-import com.mygdx.game.sample.water2d.dream.GameMain;
-import com.mygdx.game.sample.worms.quailshillstudio.articlepolygonclipping.PolygonClipping;
-import com.mygdx.game.test.AnimationTests;
-import com.mygdx.game.touch.TouchpadTest;
+import com.mygdx.game.test.animation.AnimationTests;
 
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
 public class DesktopLauncher {
