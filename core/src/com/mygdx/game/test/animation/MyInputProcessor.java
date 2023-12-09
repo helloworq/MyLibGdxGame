@@ -1,7 +1,7 @@
 package com.mygdx.game.test.animation;
 
 import com.badlogic.gdx.InputProcessor;
-import com.mygdx.game.resources.player.AdventurePlayerResources;
+import com.mygdx.game.test.hero.AdventurePlayerResources;
 
 public class MyInputProcessor implements InputProcessor {
 

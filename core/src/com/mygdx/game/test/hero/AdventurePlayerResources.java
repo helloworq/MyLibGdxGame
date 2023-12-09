@@ -1,4 +1,4 @@
-package com.mygdx.game.resources.player;
+package com.mygdx.game.test.hero;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;

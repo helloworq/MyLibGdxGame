@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.resources.WorldResources;
-import com.mygdx.game.resources.player.AdventurePlayerResources;
+import com.mygdx.game.test.hero.AdventurePlayerResources;
 
 public class AnimationTests extends ApplicationAdapter {
 

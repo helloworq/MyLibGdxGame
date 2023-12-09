@@ -1,11 +1,6 @@
 package com.mygdx.game.test.hero;
 
 import com.badlogic.gdx.InputProcessor;
-import com.mygdx.game.resources.player.AdventurePlayerResources;
-import com.mygdx.game.resources.player.Hero;
-import com.mygdx.game.resources.player.HeroState;
-import com.mygdx.game.resources.player.HeroStateHandler;
-import com.mygdx.game.test.animation.AnimationTests;
 
 public class MyInputProcessor implements InputProcessor {
 

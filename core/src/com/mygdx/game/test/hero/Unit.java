@@ -1,7 +1,4 @@
-package com.mygdx.game.resources.player;
-
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+package com.mygdx.game.test.hero;
 
 /**
  * 所有基本单位的基类，定义最基本的属性和方法
