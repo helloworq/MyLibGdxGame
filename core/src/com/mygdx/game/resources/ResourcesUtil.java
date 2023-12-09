@@ -15,20 +15,22 @@ import java.util.stream.Collectors;
 
 public class ResourcesUtil {
 
+    public static final boolean isAnimationFinished(Animation<TextureRegion> frames) {
+
+
+        return false;
+    }
+
     /**
      * 由TexturePacker工具打包成单张图的Assets再次根据name进行合并，合并成单个动作的动画集合
      *
      * @return
      */
     public static Animation<TextureRegion> getAnimationByName(String filePath, String animationName, boolean flip) {
-        TextureAtlas atlas = new TextureAtlas(Gdx.files.internal(filePath));
-        Map<String, TextureAtlas.AtlasRegion> map = list2Map(atlas.getRegions());
+        TextureAtlas                          atlas = new TextureAtlas(Gdx.files.internal(filePath));
+        Map<String, TextureAtlas.AtlasRegion> map   = list2Map(atlas.getRegions());
 
-        return new Animation<TextureRegion>(0.1f, getRegionsByName(map, animationName, flip));
-//        TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("assassin-mage-viking/texture.atlas"));
-//        Map<String, TextureAtlas.AtlasRegion> map = list2Map(atlas.getRegions());
-//
-//        return new Animation<TextureRegion>(0.1f, getRegionsByName(map, "PNG/Knight/Run/run"));
+        return new Animation<TextureRegion>(0.2f, getRegionsByName(map, animationName, flip));
     }
 
 
@@ -51,7 +53,7 @@ public class ResourcesUtil {
                                                                     final String name,
                                                                     boolean flip) {
         Array<TextureAtlas.AtlasRegion> result = new Array<>();
-        Set<String> keySet = regionMap.keySet();
+        Set<String>                     keySet = regionMap.keySet();
         for (String key : keySet) {
             if (key.startsWith(name)
                     && key.replace(name, "").charAt(0) == '-'

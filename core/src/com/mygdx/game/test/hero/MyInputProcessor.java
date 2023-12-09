@@ -2,14 +2,17 @@ package com.mygdx.game.test.hero;
 
 import com.badlogic.gdx.InputProcessor;
 import com.mygdx.game.resources.player.AdventurePlayerResources;
+import com.mygdx.game.resources.player.Hero;
+import com.mygdx.game.resources.player.HeroState;
+import com.mygdx.game.resources.player.HeroStateHandler;
 import com.mygdx.game.test.animation.AnimationTests;
 
 public class MyInputProcessor implements InputProcessor {
 
-    HeroTests tests;
+    HeroStateHandler heroStateHandler;
 
-    public MyInputProcessor(HeroTests tests) {
-        this.tests = tests;
+    public MyInputProcessor(HeroStateHandler heroStateHandler) {
+        this.heroStateHandler = heroStateHandler;
     }
 
     @Override
@@ -24,21 +27,7 @@ public class MyInputProcessor implements InputProcessor {
 
     @Override
     public boolean keyTyped(char character) {
-        if (character == 'a') {
-            tests.animation = AdventurePlayerResources.RUN_LEFT;
-        } else if (character == 'd') {
-            tests.animation = AdventurePlayerResources.RUN_RIGHT;
-        } else if (character == 'w') {
-            tests.animation = AdventurePlayerResources.JUMP_RIGHT;
-        } else if (character == 's') {
-            tests.animation = AdventurePlayerResources.SLIDE_RIGHT;
-        } else if (character == 'j') {
-            tests.animation = AdventurePlayerResources.ATTACK_DOWN_RIGHT;
-        } else if (character == 'k') {
-            tests.animation = AdventurePlayerResources.ATTACK_HORIZONTAL_RIGHT;
-        } else if (character == 'l') {
-            tests.animation = AdventurePlayerResources.ATTACK_UP_RIGHT;
-        }
+        heroStateHandler.updateByKeyCode(character);
         return true;
     }
 

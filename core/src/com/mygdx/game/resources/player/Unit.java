@@ -1,6 +1,5 @@
 package com.mygdx.game.resources.player;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
@@ -8,24 +7,30 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
  * 所有基本单位的基类，定义最基本的属性和方法
  */
 public abstract class Unit {
-    private float x;//x坐标
-    private float y;//y坐标
-    private boolean towardsLeft;//朝向左边
-    private boolean towardsRight;//朝向右边
-    private boolean floating;//是否悬浮空中
-    private boolean isAttacking;//是否在攻击状态
-    private Animation<TextureRegion> surfaceAnimation;//纹理动画
+    private float     x;//x坐标
+    private float     y;//y坐标
+    private boolean   towardsLeft;//朝向左边
+    private boolean   towardsRight;//朝向右边
+    private boolean   floating;//是否悬浮空中
+    private boolean   isAttacking;//是否在攻击状态
+    private HeroState state;//角色状态
 
-    public TextureRegion getSurface(float stateTime, boolean loop) {
-        return surfaceAnimation.getKeyFrame(stateTime, loop);
+    public float getStateTime() {
+        return stateTime;
     }
 
-    public Animation<TextureRegion> getSurfaceAnimation() {
-        return surfaceAnimation;
+    public void setStateTime(float stateTime) {
+        this.stateTime = stateTime;
     }
 
-    public void setSurfaceAnimation(Animation<TextureRegion> surfaceAnimation) {
-        this.surfaceAnimation = surfaceAnimation;
+    private float stateTime;
+
+    public HeroState getState() {
+        return state;
+    }
+
+    public void setState(HeroState state) {
+        this.state = state;
     }
 
     public float getX() {
