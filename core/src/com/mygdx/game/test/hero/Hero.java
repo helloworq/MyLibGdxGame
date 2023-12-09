@@ -19,6 +19,13 @@ public class Hero extends Unit {
     public TextureRegion getSurface(boolean loop, HeroStateHandler heroStateHandler) {
         setStateTime(getStateTime() + Gdx.graphics.getDeltaTime());
         Animation<TextureRegion> current = getState().textureRegion;
+        if (HeroState.RUN_RIGHT.equals(getState())) {
+            setX(getX() + 0.3f);
+        }
+        if (HeroState.RUN_LEFT.equals(getState())) {
+            setX(getX() - 0.3f);
+        }
+
         if (current.isAnimationFinished(getStateTime())) {
             heroStateHandler.updateByAnimationComplete(true);
             setStateTime(0f);
