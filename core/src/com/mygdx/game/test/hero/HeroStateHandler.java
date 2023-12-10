@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
  */
 public class HeroStateHandler {
     private final Hero hero;
+    private int  count = 0;
 
     public HeroStateHandler(Hero hero) {
         this.hero = hero;
@@ -29,6 +30,10 @@ public class HeroStateHandler {
     }
 
     private void update(Character keyCode, boolean animationComplete, boolean isAttacked) {
+        if (count>60) {
+            hero.setStateTime(0f);//强制结束之前动画时需要重新累计帧时间
+            count = 0;
+        }
         switch (hero.getState()) {
             case IDLE_RIGHT: {
                 if (null != keyCode) {
@@ -46,8 +51,7 @@ public class HeroStateHandler {
                         hero.getBody().setLinearVelocity(hero.getSpeedX(), hero.getBody().getLinearVelocity().y);
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_RIGHT);
-                    } else break;
-                    hero.setStateTime(0f);//强制结束之前动画时需要重新累计帧时间
+                    } else break;//强制结束之前动画时需要重新累计帧时间
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_RIGHT);
@@ -71,7 +75,6 @@ public class HeroStateHandler {
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_LEFT);
                     } else break;
-                    hero.setStateTime(0f);
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_LEFT);
@@ -95,7 +98,6 @@ public class HeroStateHandler {
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_LEFT);
                     } else break;
-                    hero.setStateTime(0f);
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_LEFT);
@@ -117,9 +119,9 @@ public class HeroStateHandler {
                         hero.getBody().setLinearVelocity(hero.getSpeedX(), hero.getBody().getLinearVelocity().y);
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_RIGHT);
-                    } else break;
-                    hero.setStateTime(0f);//强制结束之前动画时需要重新累计帧时间
+                    } else break;//强制结束之前动画时需要重新累计帧时间
                 }
+                count = count + 1;
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_RIGHT);
                 }
@@ -140,7 +142,6 @@ public class HeroStateHandler {
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_LEFT);
                     } else break;
-                    hero.setStateTime(0f);
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_LEFT);
@@ -161,7 +162,6 @@ public class HeroStateHandler {
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_RIGHT);
                     } else break;
-                    hero.setStateTime(0f);
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_RIGHT);
@@ -182,7 +182,6 @@ public class HeroStateHandler {
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_DOWN_RIGHT);
                     } else break;
-                    hero.setStateTime(0f);
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_RIGHT);
@@ -204,7 +203,6 @@ public class HeroStateHandler {
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_DOWN_LEFT);
                     } else break;
-                    hero.setStateTime(0f);
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_LEFT);
@@ -224,9 +222,7 @@ public class HeroStateHandler {
                         hero.setState(HeroState.RUN_RIGHT);
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_UP_RIGHT);
-                        hero.setStateTime(0f);
                     } else break;
-                    hero.setStateTime(0f);
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_RIGHT);
@@ -247,9 +243,7 @@ public class HeroStateHandler {
                         hero.setState(HeroState.RUN_RIGHT);
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_UP_LEFT);
-                        hero.setStateTime(0f);
                     } else break;
-                    hero.setStateTime(0f);
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_LEFT);
@@ -270,7 +264,6 @@ public class HeroStateHandler {
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_RIGHT);
                     } else break;
-                    hero.setStateTime(0f);
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_RIGHT);
@@ -292,7 +285,6 @@ public class HeroStateHandler {
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_LEFT);
                     } else break;
-                    hero.setStateTime(0f);
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_LEFT);
@@ -304,6 +296,7 @@ public class HeroStateHandler {
                     //如果是键盘事件
                     if ('w' == keyCode) {
                         hero.setState(HeroState.JUMP_RIGHT);
+                        hero.getBody().applyLinearImpulse(new Vector2(0f, 5f), hero.getBody().getWorldCenter(), true);
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
                     } else if ('s' == keyCode) {
@@ -313,7 +306,6 @@ public class HeroStateHandler {
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_RIGHT);
                     } else break;
-                    hero.setStateTime(0f);
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_RIGHT);
@@ -335,7 +327,6 @@ public class HeroStateHandler {
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_LEFT);
                     } else break;
-                    hero.setStateTime(0f);
                 }
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_LEFT);

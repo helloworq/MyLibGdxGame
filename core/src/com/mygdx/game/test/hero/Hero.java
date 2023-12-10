@@ -53,7 +53,7 @@ public class Hero extends Unit {
         );
     }
 
-    public TextureRegion getSurface(boolean loop, HeroStateHandler heroStateHandler) {
+    private TextureRegion getSurface(boolean loop, HeroStateHandler heroStateHandler) {
         setStateTime(getStateTime() + Gdx.graphics.getDeltaTime());
         Animation<TextureRegion> current = getState().textureRegion;
 
@@ -61,6 +61,8 @@ public class Hero extends Unit {
             heroStateHandler.updateByAnimationComplete(true);
             setStateTime(0f);
         }
-        return current.getKeyFrame(getStateTime());
+        TextureRegion r = current.getKeyFrame(getStateTime());
+        //System.out.println("->" + r + "  " + getStateTime());
+        return r;
     }
 }
