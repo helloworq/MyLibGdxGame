@@ -11,6 +11,9 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Json;
+import com.mygdx.game.resources.Box2dUtil;
+import com.mygdx.game.resources.GlobalConstant;
 import com.mygdx.game.resources.WorldResources;
 
 public class HeroTests extends ApplicationAdapter {
@@ -27,22 +30,22 @@ public class HeroTests extends ApplicationAdapter {
 
     @Override
     public void create() {
-        float w = Gdx.graphics.getWidth();
-        float h = Gdx.graphics.getHeight();
-
         batch = new SpriteBatch();
         world = WorldResources.WORLD;
         debugRenderer = new Box2DDebugRenderer();
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, 32,32);//地图尺寸32*32
+        camera.setToOrtho(false, 32, 32);//地图尺寸32*32
         camera.update();
 
 
-        hero = new Hero();
+        hero = new Hero(world);
         heroStateHandler = new HeroStateHandler(hero);
         Gdx.input.setInputProcessor(new MyInputProcessor(heroStateHandler));
 
         map = new TmxMapLoader().load("maps/tests/maptests2.tmx");
+
+        Box2dUtil.buildStaticBody(map.getLayers().get(1).getObjects(), world);
+
         renderer = new OrthogonalTiledMapRenderer(map, 1 / 32f);//单个图库像素尺寸32px
     }
 
@@ -57,7 +60,7 @@ public class HeroTests extends ApplicationAdapter {
 
 
         batch.begin();
-        batch.draw(hero.getSurface(false, heroStateHandler), hero.getX(), hero.getY());
+        hero.draw(batch);
         batch.end();
 
 

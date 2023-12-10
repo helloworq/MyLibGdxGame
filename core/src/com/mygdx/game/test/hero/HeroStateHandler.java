@@ -1,5 +1,7 @@
 package com.mygdx.game.test.hero;
 
+import com.badlogic.gdx.math.Vector2;
+
 /**
  * 状态机-所有状态均在此处理
  * 更改状态的情况
@@ -33,12 +35,15 @@ public class HeroStateHandler {
                     //如果是键盘事件
                     if ('w' == keyCode) {
                         hero.setState(HeroState.JUMP_RIGHT);
+                        hero.getBody().applyLinearImpulse(new Vector2(0f, 5f), hero.getBody().getWorldCenter(), true);
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
+                        hero.getBody().setLinearVelocity(-hero.getSpeedX(), hero.getBody().getLinearVelocity().y);
                     } else if ('s' == keyCode) {
                         hero.setState(HeroState.SLIDE_RIGHT);
                     } else if ('d' == keyCode) {
                         hero.setState(HeroState.RUN_RIGHT);
+                        hero.getBody().setLinearVelocity(hero.getSpeedX(), hero.getBody().getLinearVelocity().y);
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_RIGHT);
                     } else break;
@@ -54,12 +59,15 @@ public class HeroStateHandler {
                     //如果是键盘事件
                     if ('w' == keyCode) {
                         hero.setState(HeroState.JUMP_LEFT);
+                        hero.getBody().applyLinearImpulse(new Vector2(0f, 5f), hero.getBody().getWorldCenter(), true);
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
+                        hero.getBody().setLinearVelocity(-hero.getSpeedX(), hero.getBody().getLinearVelocity().y);
                     } else if ('s' == keyCode) {
                         hero.setState(HeroState.SLIDE_LEFT);
                     } else if ('d' == keyCode) {
                         hero.setState(HeroState.RUN_RIGHT);
+                        hero.getBody().setLinearVelocity(hero.getSpeedX(), hero.getBody().getLinearVelocity().y);
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_LEFT);
                     } else break;
@@ -75,12 +83,15 @@ public class HeroStateHandler {
                     //如果是键盘事件
                     if ('w' == keyCode) {
                         hero.setState(HeroState.JUMP_LEFT);
+                        hero.getBody().applyLinearImpulse(new Vector2(0f, 5f), hero.getBody().getWorldCenter(), true);
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
+                        hero.getBody().setLinearVelocity(-hero.getSpeedX(), hero.getBody().getLinearVelocity().y);
                     } else if ('s' == keyCode) {
                         hero.setState(HeroState.SLIDE_LEFT);
                     } else if ('d' == keyCode) {
                         hero.setState(HeroState.RUN_RIGHT);
+                        hero.getBody().setLinearVelocity(hero.getSpeedX(), hero.getBody().getLinearVelocity().y);
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_LEFT);
                     } else break;
@@ -98,10 +109,12 @@ public class HeroStateHandler {
                         hero.setState(HeroState.JUMP_RIGHT);
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
+                        hero.getBody().setLinearVelocity(-hero.getSpeedX(), hero.getBody().getLinearVelocity().y);
                     } else if ('s' == keyCode) {
                         hero.setState(HeroState.SLIDE_RIGHT);
                     } else if ('d' == keyCode) {
                         hero.setState(HeroState.RUN_RIGHT);
+                        hero.getBody().setLinearVelocity(hero.getSpeedX(), hero.getBody().getLinearVelocity().y);
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_RIGHT);
                     } else break;
@@ -117,6 +130,7 @@ public class HeroStateHandler {
                     //如果是键盘事件
                     if ('w' == keyCode) {
                         hero.setState(HeroState.JUMP_LEFT);
+                        hero.getBody().applyLinearImpulse(new Vector2(0f, 5f), hero.getBody().getWorldCenter(), true);
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
                     } else if ('s' == keyCode) {
@@ -180,6 +194,7 @@ public class HeroStateHandler {
                     //如果是键盘事件
                     if ('w' == keyCode) {
                         hero.setState(HeroState.JUMP_LEFT);
+                        hero.getBody().applyLinearImpulse(new Vector2(0f, 5f), hero.getBody().getWorldCenter(), true);
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
                     } else if ('s' == keyCode) {
@@ -223,6 +238,7 @@ public class HeroStateHandler {
                     //如果是键盘事件
                     if ('w' == keyCode) {
                         hero.setState(HeroState.JUMP_LEFT);
+                        hero.getBody().applyLinearImpulse(new Vector2(0f, 5f), hero.getBody().getWorldCenter(), true);
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
                     } else if ('s' == keyCode) {
@@ -266,6 +282,7 @@ public class HeroStateHandler {
                     //如果是键盘事件
                     if ('w' == keyCode) {
                         hero.setState(HeroState.JUMP_LEFT);
+                        hero.getBody().applyLinearImpulse(new Vector2(0f, 5f), hero.getBody().getWorldCenter(), true);
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
                     } else if ('s' == keyCode) {
@@ -308,6 +325,7 @@ public class HeroStateHandler {
                     //如果是键盘事件
                     if ('w' == keyCode) {
                         hero.setState(HeroState.JUMP_LEFT);
+                        hero.getBody().applyLinearImpulse(new Vector2(0f, 5f), hero.getBody().getWorldCenter(), true);
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
                     } else if ('s' == keyCode) {

@@ -4,22 +4,18 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.util.AnimationUtil;
 
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ResourcesUtil {
-
-    public static final boolean isAnimationFinished(Animation<TextureRegion> frames) {
-
-
-        return false;
-    }
 
     /**
      * 由TexturePacker工具打包成单张图的Assets再次根据name进行合并，合并成单个动作的动画集合
@@ -72,10 +68,6 @@ public class ResourcesUtil {
                 return o1.name.compareToIgnoreCase(o2.name);
             }
         });
-
-//        for (TextureAtlas.AtlasRegion r : result) {
-//            System.out.print(r.name + "   ");
-//        }
         return result;
     }
 }

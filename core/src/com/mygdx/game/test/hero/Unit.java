@@ -1,5 +1,7 @@
 package com.mygdx.game.test.hero;
 
+import com.badlogic.gdx.physics.box2d.Body;
+
 /**
  * 所有基本单位的基类，定义最基本的属性和方法
  */
@@ -11,6 +13,26 @@ public abstract class Unit {
     private boolean   floating;//是否悬浮空中
     private boolean   isAttacking;//是否在攻击状态
     private HeroState state;//角色状态
+
+    public float getSpeedX() {
+        return speedX;
+    }
+
+    public void setSpeedX(float speedX) {
+        this.speedX = speedX;
+    }
+
+    private float speedX;//角色跑步速度
+
+    public Body getBody() {
+        return body;
+    }
+
+    public void setBody(Body body) {
+        this.body = body;
+    }
+
+    private Body body;//box2d对象
 
     public float getStateTime() {
         return stateTime;
