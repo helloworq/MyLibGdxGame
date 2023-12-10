@@ -30,7 +30,7 @@ public class ResourcesUtil {
         TextureAtlas                          atlas = new TextureAtlas(Gdx.files.internal(filePath));
         Map<String, TextureAtlas.AtlasRegion> map   = list2Map(atlas.getRegions());
 
-        return new Animation<TextureRegion>(0.2f, getRegionsByName(map, animationName, flip));
+        return new Animation<TextureRegion>(0.1f, getRegionsByName(map, animationName, flip));
     }
 
 

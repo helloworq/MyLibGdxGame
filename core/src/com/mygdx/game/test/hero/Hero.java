@@ -20,10 +20,10 @@ public class Hero extends Unit {
         setStateTime(getStateTime() + Gdx.graphics.getDeltaTime());
         Animation<TextureRegion> current = getState().textureRegion;
         if (HeroState.RUN_RIGHT.equals(getState())) {
-            setX(getX() + 0.3f);
+            setX(getX() + 0.4f);
         }
         if (HeroState.RUN_LEFT.equals(getState())) {
-            setX(getX() - 0.3f);
+            setX(getX() - 0.4f);
         }
 
         if (current.isAnimationFinished(getStateTime())) {

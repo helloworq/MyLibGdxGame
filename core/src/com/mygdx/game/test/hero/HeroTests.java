@@ -34,7 +34,7 @@ public class HeroTests extends ApplicationAdapter {
         world = WorldResources.WORLD;
         debugRenderer = new Box2DDebugRenderer();
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, (w / h) * 10, 10);
+        camera.setToOrtho(false, 32,32);//地图尺寸32*32
         camera.update();
 
 
@@ -43,7 +43,7 @@ public class HeroTests extends ApplicationAdapter {
         Gdx.input.setInputProcessor(new MyInputProcessor(heroStateHandler));
 
         map = new TmxMapLoader().load("maps/tests/maptests2.tmx");
-        renderer = new OrthogonalTiledMapRenderer(map, 1 / 64f);
+        renderer = new OrthogonalTiledMapRenderer(map, 1 / 32f);//单个图库像素尺寸32px
     }
 
     @Override

@@ -162,7 +162,7 @@ public class HeroStateHandler {
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
                     } else if ('s' == keyCode) {
-                        hero.setState(HeroState.SLIDE_LEFT);
+                        hero.setState(HeroState.SLIDE_RIGHT);
                     } else if ('d' == keyCode) {
                         hero.setState(HeroState.RUN_RIGHT);
                     } else if ('j' == keyCode) {
@@ -204,7 +204,7 @@ public class HeroStateHandler {
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
                     } else if ('s' == keyCode) {
-                        hero.setState(HeroState.SLIDE_LEFT);
+                        hero.setState(HeroState.SLIDE_RIGHT);
                     } else if ('d' == keyCode) {
                         hero.setState(HeroState.RUN_RIGHT);
                     } else if ('j' == keyCode) {
@@ -248,7 +248,7 @@ public class HeroStateHandler {
                     } else if ('a' == keyCode) {
                         hero.setState(HeroState.RUN_LEFT);
                     } else if ('s' == keyCode) {
-                        hero.setState(HeroState.SLIDE_LEFT);
+                        hero.setState(HeroState.SLIDE_RIGHT);
                     } else if ('d' == keyCode) {
                         hero.setState(HeroState.RUN_RIGHT);
                     } else if ('j' == keyCode) {
