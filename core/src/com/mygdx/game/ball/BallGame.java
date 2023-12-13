@@ -57,12 +57,12 @@ public class BallGame extends ApplicationAdapter {
 
             @Override
             public boolean keyTyped(char character) {
-                attack(bx,by,building.getRotation());
+                //attack(bx,by,building.getRotation());
                 return true;
             }
         });
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 999; i++) {
             balls.add(new Ball(
                     r.nextInt(Gdx.graphics.getWidth()),
                     r.nextInt(Gdx.graphics.getHeight()),
@@ -92,15 +92,15 @@ public class BallGame extends ApplicationAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         shape.begin(ShapeRenderer.ShapeType.Line);
 
-//        for (Ball ball : balls) {
-//            for (Ball bullet : bullets) {
-//                double distance = Math.sqrt(Math.pow(bullet.x - ball.x, 2) + Math.pow(bullet.y - ball.y, 2));
-//                if (distance < (ball.size + bullet.size)) {
-//                    bullets.remove(bullet);
-//                    balls.remove(ball);
-//                }
-//            }
-//        }
+        for (Ball ball : balls) {
+            for (Ball bullet : bullets) {
+                double distance = Math.sqrt(Math.pow(bullet.x - ball.x, 2) + Math.pow(bullet.y - ball.y, 2));
+                if (distance < (ball.size + bullet.size)) {
+                    bullets.remove(bullet);
+                    balls.remove(ball);
+                }
+            }
+        }
 
         for (Ball ball : balls) {
             shape.setColor(ball.color);
@@ -117,13 +117,13 @@ public class BallGame extends ApplicationAdapter {
 
         shape.setColor(Color.GOLD);
         for (Ball ball : balls) {
-            double distance = Math.sqrt(Math.pow(x - bx, 2) + Math.pow(y - by, 2));
+            double distance = Math.sqrt(Math.pow(ball.x - bx, 2) + Math.pow(ball.y - by, 2));
             if (distance < (ball.size + 100)) {
                 shape.setColor(Color.BROWN);
-                float d = (float) ((Math.atan2(y - by, x - bx)) * (180 / Math.PI));
+                float d = (float) ((Math.atan2(ball.y - by, ball.x - bx)) * (180 / Math.PI));
                 building.setRotation(d - fixDeg);
 
-                //attack(bx, by, d - 45f);
+                attack(bx, by, d - fixDeg);
                 break;
             }
         }
