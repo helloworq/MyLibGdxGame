@@ -18,17 +18,18 @@ import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class BallGame extends ApplicationAdapter {
-    ShapeRenderer shape;
-    SpriteBatch batch;
-    CopyOnWriteArrayList<Ball> balls = new CopyOnWriteArrayList<>();
+    float                      fixDeg  = 45f;//普通图片有45°的倾角，在此进行补足
+    ShapeRenderer              shape;
+    SpriteBatch                batch;
+    CopyOnWriteArrayList<Ball> balls   = new CopyOnWriteArrayList<>();
     CopyOnWriteArrayList<Ball> bullets = new CopyOnWriteArrayList<>();
-    int count = 30;
-    Random r = new Random();
-    Sprite building;
-    int bx = 250;
-    int by = 200;
-    int x;
-    int y;
+    int                        count   = 30;
+    Random                     r       = new Random();
+    Sprite                     building;
+    int                        bx      = 250;
+    int                        by      = 200;
+    int                        x;
+    int                        y;
 
     @Override
     public void create() {
@@ -46,7 +47,7 @@ public class BallGame extends ApplicationAdapter {
             }
         });
 
-        for (int i = 0; i < 99; i++) {
+        for (int i = 0; i < 1; i++) {
             balls.add(new Ball(
                     r.nextInt(Gdx.graphics.getWidth()),
                     r.nextInt(Gdx.graphics.getHeight()),
@@ -57,13 +58,14 @@ public class BallGame extends ApplicationAdapter {
         }
     }
 
-    private void attack(float x, float y) {
+    private void attack(float x, float y, float deg) {
         if (count <= 0) {
+            System.out.println(deg + "  " + (int) (5 * Math.cos(deg)));
             Ball ball = new Ball(
-                    bx,by,
+                    bx, by,
                     10,
-                    5,
-                    5,
+                    5 *  (int) (5 * Math.cos(deg)),
+                    5 *  (int) (5 * Math.sin(deg)),
                     Color.BLUE);
             bullets.add(ball);
             count = 30;
@@ -73,9 +75,8 @@ public class BallGame extends ApplicationAdapter {
 
     @Override
     public void render() {
-        System.out.println(balls.size());
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        shape.begin(ShapeRenderer.ShapeType.Filled);
+        shape.begin(ShapeRenderer.ShapeType.Line);
 
         for (Ball ball : balls) {
             for (Ball bullet : bullets) {
@@ -105,10 +106,10 @@ public class BallGame extends ApplicationAdapter {
             double distance = Math.sqrt(Math.pow(ball.x - bx, 2) + Math.pow(ball.y - by, 2));
             if (distance < (ball.size + 100)) {
                 shape.setColor(Color.BROWN);
-                float d = (float) ((Math.atan2(ball.x - bx, ball.y - by)) * (180 / Math.PI));
-                building.setRotation((-(d - 45f)));
+                float d = (float) ((Math.atan2(ball.y - by, ball.x - bx)) * (180 / Math.PI));
+                building.setRotation(d - 45f);
 
-                attack(ball.x, ball.y);
+                attack(bx, by, d-45f);
                 break;
             }
         }
