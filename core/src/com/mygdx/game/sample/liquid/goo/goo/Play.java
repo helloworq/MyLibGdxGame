@@ -8,6 +8,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -126,7 +127,15 @@ public class Play implements Screen {
 				Audio.goo_sound.play();
 				return super.touchDown(x, y, pointer, button);
 			}
+//                shape.setColor(Color.RED);
+//			//float d = (float) ((Math.atan2(x - bx, y - by)) * (180 / Math.PI));
+//			float d = (float) ((Math.atan2(ball.x-x, ball.y-y)) * (180 / Math.PI));
+//
+//                System.out.println(d+"  "+(d-90)+"  "+(-d));
+//                building.setRotation(((d-90f)));
+//                break;
 
+			//building.setRotation((-(d - 45f)));
 			@Override
 			public boolean touchUp(float x, float y, int pointer, int button) {
 				spawn = false;

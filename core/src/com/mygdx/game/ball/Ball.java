@@ -1,6 +1,7 @@
 package com.mygdx.game.ball;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Ball {
@@ -9,6 +10,7 @@ public class Ball {
     int size;
     int xSpeed;
     int ySpeed;
+    Color color;
 
     public Ball(int x, int y, int size, int xSpeed, int ySpeed) {
         this.x = x;
