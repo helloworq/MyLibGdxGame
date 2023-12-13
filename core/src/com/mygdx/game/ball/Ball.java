@@ -5,14 +5,14 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Ball {
-    int x;
-    int y;
-    int size;
-    int xSpeed;
-    int ySpeed;
-    Color color;
+    int    x;
+    int    y;
+    int    size;
+    double xSpeed;
+    double ySpeed;
+    Color  color;
 
-    public Ball(int x, int y, int size, int xSpeed, int ySpeed, Color color) {
+    public Ball(int x, int y, int size, double xSpeed, double ySpeed, Color color) {
         this.x = x;
         this.y = y;
         this.size = size;
