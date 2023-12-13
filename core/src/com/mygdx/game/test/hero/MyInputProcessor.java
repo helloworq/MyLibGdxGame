@@ -2,23 +2,9 @@ package com.mygdx.game.test.hero;
 
 import com.badlogic.gdx.InputProcessor;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class MyInputProcessor implements InputProcessor {
-    private static final int PRESSED = 1;
-    private static final int RELEASED = 0;
-    private static final Map<Integer, Integer> KEY_STATUS = new HashMap<>();
-    private final HeroStateHandler heroStateHandler;
 
-    static {
-        KEY_STATUS.put(51, RELEASED);//w
-        KEY_STATUS.put(29, RELEASED);//a
-        KEY_STATUS.put(47, RELEASED);//s
-        KEY_STATUS.put(32, RELEASED);//d
-        KEY_STATUS.put(38, RELEASED);//j
-        KEY_STATUS.put(39, RELEASED);//k
-    }
+    HeroStateHandler heroStateHandler;
 
     public MyInputProcessor(HeroStateHandler heroStateHandler) {
         this.heroStateHandler = heroStateHandler;
@@ -26,20 +12,18 @@ public class MyInputProcessor implements InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
-        KEY_STATUS.put(keycode, PRESSED);
-        //heroStateHandler.updateByKeyNum(keycode);
-        return true;
+        return false;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        KEY_STATUS.put(keycode, RELEASED);
-        return true;
+        return false;
     }
 
     @Override
     public boolean keyTyped(char character) {
-        return false;
+        heroStateHandler.updateByKeyCode(character);
+        return true;
     }
 
     @Override

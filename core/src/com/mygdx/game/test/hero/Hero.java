@@ -59,8 +59,10 @@ public class Hero extends Unit {
 
         if (current.isAnimationFinished(getStateTime())) {
             heroStateHandler.updateByAnimationComplete(true);
-             setStateTime(0f);
+            setStateTime(0f);
         }
-        return current.getKeyFrame(getStateTime());
+        TextureRegion r = current.getKeyFrame(getStateTime());
+        //System.out.println("->" + r + "  " + getStateTime());
+        return r;
     }
 }
