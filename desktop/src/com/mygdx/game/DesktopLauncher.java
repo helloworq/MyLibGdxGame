@@ -13,6 +13,6 @@ public class DesktopLauncher {
 		config.setTitle("My GDX Game");
 		config.setWindowedMode(500,500);
 
-		new Lwjgl3Application(new RangeCheck(), config);
+		new Lwjgl3Application(new BallGame(), config);
 	}
 }

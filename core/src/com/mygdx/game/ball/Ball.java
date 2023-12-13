@@ -12,13 +12,15 @@ public class Ball {
     int ySpeed;
     Color color;
 
-    public Ball(int x, int y, int size, int xSpeed, int ySpeed) {
+    public Ball(int x, int y, int size, int xSpeed, int ySpeed, Color color) {
         this.x = x;
         this.y = y;
         this.size = size;
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
+        this.color = color;
     }
+
     public void update() {
         x += xSpeed;
         y += ySpeed;
@@ -29,6 +31,7 @@ public class Ball {
             ySpeed = -ySpeed;
         }
     }
+
     public void draw(ShapeRenderer shape) {
         shape.circle(x, y, size);
     }
