@@ -4,12 +4,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class RoadMap {
-    private static final int VISITED = -1;
-    private static final int WALL = 0;
-    private static final int RODE = 1;
-    int X = 5;
-    int Y = 6;
-    int[][] MAP = new int[][]{
+    static final int VISITED = -1;
+    static final int WALL = 0;
+    static final int RODE = 1;
+    static int X = 5;
+    static int Y = 6;
+    static int[][] MAP = new int[][]{
             {RODE, WALL, RODE, RODE, RODE, RODE},
             {RODE, WALL, RODE, WALL, WALL, RODE},
             {RODE, WALL, WALL, RODE, RODE, RODE},
@@ -28,18 +28,19 @@ public class RoadMap {
     }
 
     public static void main(String[] args) {
-        new RoadMap().findPath();
+        findPath();
+        //        for (Node n : nodes) {
+//            System.out.println(n.x + " " + n.y);
+//        }
     }
 
-    private void findPath() {
+    public static List<Node> findPath() {
         List<Node> nodes = new LinkedList<>();
         doFind(MAP, 0, 0, nodes);
-        for (Node n : nodes) {
-            System.out.println(n.x + " " + n.y);
-        }
+        return nodes;
     }
 
-    private List<Node> doFind(int[][] map, int startX, int startY, List<Node> nodes) {
+    private static void doFind(int[][] map, int startX, int startY, List<Node> nodes) {
         Node node = new Node(startX, startY);
         nodes.add(node);
         map[startX][startY] = VISITED;
@@ -56,6 +57,5 @@ public class RoadMap {
         } else if (y2 < Y && map[startX][y2] == RODE) {
             doFind(map, startX, y2, nodes);
         }
-        return nodes;
     }
 }
