@@ -26,7 +26,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
     int             step  = 0;
     boolean         start = false;
 
-    int                        count2   = 5;
+    int                        count2  = 5;
     int                        bx      = 150;
     int                        by      = 100;
     float                      fixDeg  = 45f;//普通图片有45°的倾角，在此进行补足
@@ -63,7 +63,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
         nodes = RoadMap.findPath();
 
         building = new Sprite(new Texture(Gdx.files.internal("tower/sword.png")));
-        building.setPosition(bx, by);
+        building.setPosition(bx - 10, by - 10);
         building.setOriginCenter();
 
         Gdx.input.setInputProcessor(new InputAdapter() {
