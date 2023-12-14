@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.ball.Ball;
+import com.mygdx.game.test.towerdefense.util.ComonUtils;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -34,18 +35,12 @@ public class RoadMapVisiable extends ApplicationAdapter {
     CopyOnWriteArrayList<Ball> bullets = new CopyOnWriteArrayList<>();
     Sprite                     building;
 
-    private static double sin(double angle) {
-        return Math.sin(angle / 180 * Math.PI);
-    }
-
-    private static double cos(double angle) {
-        return Math.cos(angle / 180 * Math.PI);
-    }
-
     private void attack(float x, float y, float deg) {
         if (count2 <= 0) {
-            System.out.println("attack!!1");
-            Ball ball = new Ball(bx, by, 10, (5f * cos(deg + fixDeg)), (5f * sin(deg + fixDeg)), Color.BLUE);
+            Ball ball = new Ball(bx, by, 10,
+                    (5f * ComonUtils.cos(deg + fixDeg)),
+                    (5f * ComonUtils.sin(deg + fixDeg)),
+                    Color.BLUE);
             bullets.add(ball);
             count2 = 1;
         }
@@ -82,8 +77,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         for (Ball ball : balls) {
             for (Ball bullet : bullets) {
-                double distance = Math.sqrt(Math.pow(bullet.x - ball.x, 2) + Math.pow(bullet.y - ball.y, 2));
-                if (distance < (ball.size + bullet.size)) {
+                if (ComonUtils.distance(bullet.x, bullet.y, ball.x, ball.y) < (ball.size + bullet.size)) {
                     bullets.remove(bullet);
                     balls.remove(ball);
                 }
@@ -126,10 +120,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
         //绘制炮塔
         shape.setColor(Color.GOLD);
         if (hero != null) {
-
-            double distance = Math.sqrt(Math.pow(hero.gameFinalPosition.x - bx, 2)
-                    + Math.pow(hero.gameFinalPosition.y - by, 2));
-            if (distance < (hero.size + 200)) {
+            if (ComonUtils.distance(hero.gameFinalPosition.x, hero.gameFinalPosition.y, bx, by) < (hero.size + 200)) {
                 shape.setColor(Color.BROWN);
                 float d = (float) ((Math.atan2(hero.gameFinalPosition.y - by, hero.gameFinalPosition.x - bx)) * (180 / Math.PI));
                 building.setRotation(d - fixDeg);

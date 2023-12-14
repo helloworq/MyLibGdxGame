@@ -1,4 +1,4 @@
-package com.mygdx.game.test.towerdefense;
+package com.mygdx.game.test.towerdefense.rangecheck;
 
 import com.badlogic.gdx.graphics.Color;
 
