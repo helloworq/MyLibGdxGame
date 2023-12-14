@@ -19,7 +19,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
     ShapeRenderer   shape;
     int             width;
     int             height;
-    int             count = 10;
+    int             count = 20;
     List<UnitTower> unitTowerList;
     List<Node>      nodes;
     UnitTower       hero;
@@ -90,17 +90,20 @@ public class RoadMapVisiable extends ApplicationAdapter {
             }
         }
 
+        //绘制子弹
         for (Ball ball : bullets) {
             shape.setColor(ball.color);
             ball.update();
             ball.draw(shape);
         }
 
+        //绘制地图
         for (UnitTower b : unitTowerList) {
             shape.setColor(b.color);
             shape.circle(b.x, b.y, b.size);
         }
 
+        //绘制怪物
         if (hero != null) {
             shape.setColor(Color.WHITE);
             shape.circle(hero.gameFinalPosition.x,
@@ -115,11 +118,12 @@ public class RoadMapVisiable extends ApplicationAdapter {
                     break;
                 }
             }
-            count = 10;
+            count = 20;
             step++;
         }
         count--;
 
+        //绘制炮塔
         shape.setColor(Color.GOLD);
         if (hero != null) {
 
