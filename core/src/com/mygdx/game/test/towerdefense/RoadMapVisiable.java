@@ -63,7 +63,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
         nodes = RoadMap.findPath();
 
         building = new Sprite(new Texture(Gdx.files.internal("tower/sword.png")));
-        building.setPosition(bx - 10, by - 10);
+        building.setPosition(bx - building.getWidth() / 2, by - building.getHeight() / 2);
         building.setOriginCenter();
 
         Gdx.input.setInputProcessor(new InputAdapter() {
