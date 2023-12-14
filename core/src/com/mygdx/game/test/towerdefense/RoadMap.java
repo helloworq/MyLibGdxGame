@@ -1,5 +1,6 @@
 package com.mygdx.game.test.towerdefense;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,26 +18,16 @@ public class RoadMap {
             {RODE, RODE, RODE, RODE, WALL, WALL}
     };
 
-    static class Node {
-        public int x;
-        public int y;
-
-        public Node(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
-
     public static void main(String[] args) {
         findPath();
-        //        for (Node n : nodes) {
-//            System.out.println(n.x + " " + n.y);
-//        }
     }
 
     public static List<Node> findPath() {
         List<Node> nodes = new LinkedList<>();
-        doFind(MAP, 0, 0, nodes);
+
+        int[][] map = deepCopy(MAP);
+
+        doFind(map, 0, 0, nodes);
         return nodes;
     }
 
@@ -57,5 +48,17 @@ public class RoadMap {
         } else if (y2 < Y && map[startX][y2] == RODE) {
             doFind(map, startX, y2, nodes);
         }
+    }
+
+    public static int[][] deepCopy(int[][] original) {
+        if (original == null) {
+            return null;
+        }
+
+        final int[][] result = new int[original.length][];
+        for (int i = 0; i < original.length; i++) {
+            result[i] = Arrays.copyOf(original[i], original[i].length);
+        }
+        return result;
     }
 }

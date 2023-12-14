@@ -5,47 +5,27 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.mygdx.game.ball.Ball;
-import com.sun.tools.javac.util.ArrayUtils;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import sun.security.util.ArrayUtil;
-
 
 public class RoadMapVisiable extends ApplicationAdapter {
     ShapeRenderer shape;
     int width;
     int height;
     int count = 60;
-    List<Ball> balls;
+    List<UnitTower> unitTowerList;
+    List<Node> nodes;
+    UnitTower hero;
+    int step = 0;
 
     @Override
     public void create() {
         shape = new ShapeRenderer();
-        balls = new ArrayList<>();
-        width = Gdx.graphics.getWidth();
-        height = Gdx.graphics.getHeight();
-        //List<RoadMap.Node> nodes = RoadMap.findPath();
-        int widthSplit = width / RoadMap.Y;
-        int heightSplit = height / RoadMap.X;
+        width = Gdx.graphics.getWidth() - 40;
+        height = Gdx.graphics.getHeight() - 40;
+        unitTowerList = RoadMapTransformer.transform(width, height);
 
-        for (int i = 0; i < RoadMap.X; i++) {
-            for (int j = 0; j < RoadMap.Y; j++) {
-                Ball ball = new Ball(
-                        heightSplit * j,
-                        widthSplit * (RoadMap.X - i),
-                        30,
-                        0,
-                        0,
-                        RoadMap.MAP[i][j] == RoadMap.RODE
-                                ? Color.GREEN
-                                : Color.RED
-                );
-                balls.add(ball);
-            }
-        }
+        nodes = RoadMap.findPath();
     }
 
     @Override
@@ -54,11 +34,29 @@ public class RoadMapVisiable extends ApplicationAdapter {
         shape.begin(ShapeRenderer.ShapeType.Filled);
 
 
-        for (Ball b : balls) {
+        for (UnitTower b : unitTowerList) {
             shape.setColor(b.color);
-            shape.circle(b.x , b.y , b.size);
+            shape.circle(b.x + 20, b.y + 20, b.size);
         }
 
+        if (hero != null) {
+            shape.setColor(Color.WHITE);
+            shape.circle(hero.gameFinalPosition.x + 20,
+                    hero.gameFinalPosition.y + 20, hero.size);
+        }
+        if (count <= 0 && step < nodes.size()) {
+            Node node = nodes.get(step);
+            for (UnitTower tower : unitTowerList) {
+                if (tower.mapOriginPosition.x == node.x &&
+                        tower.mapOriginPosition.y == node.y) {
+                    hero = tower;
+                    break;
+                }
+            }
+            count = 60;
+            step++;
+        }
+        count--;
 
         shape.end();
     }
