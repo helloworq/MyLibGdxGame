@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class RangeCheck extends ApplicationAdapter {
-    ShapeRenderer shape;
+    ShapeRenderer   shape;
     ArrayList<Unit> balls = new ArrayList<>();
-    Random r = new Random();
+    Random          r     = new Random();
 
     @Override
     public void create() {

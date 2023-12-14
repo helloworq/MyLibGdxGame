@@ -2,6 +2,7 @@ package com.mygdx.game.test.towerdefense;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -9,23 +10,33 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import java.util.List;
 
 public class RoadMapVisiable extends ApplicationAdapter {
-    ShapeRenderer shape;
-    int width;
-    int height;
-    int count = 60;
+    ShapeRenderer   shape;
+    int             width;
+    int             height;
+    int             count = 5;
     List<UnitTower> unitTowerList;
-    List<Node> nodes;
-    UnitTower hero;
-    int step = 0;
+    List<Node>      nodes;
+    UnitTower       hero;
+    int             step  = 0;
+
+    boolean start = false;
 
     @Override
     public void create() {
         shape = new ShapeRenderer();
-        width = Gdx.graphics.getWidth() - 40;
-        height = Gdx.graphics.getHeight() - 40;
+        width = Gdx.graphics.getWidth();
+        height = Gdx.graphics.getHeight();
         unitTowerList = RoadMapTransformer.transform(width, height);
 
         nodes = RoadMap.findPath();
+
+        Gdx.input.setInputProcessor(new InputAdapter() {
+            @Override
+            public boolean keyTyped(char character) {
+                start = true;
+                return true;
+            }
+        });
     }
 
     @Override
@@ -36,15 +47,15 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         for (UnitTower b : unitTowerList) {
             shape.setColor(b.color);
-            shape.circle(b.x + 20, b.y + 20, b.size);
+            shape.circle(b.x, b.y, b.size);
         }
 
         if (hero != null) {
             shape.setColor(Color.WHITE);
-            shape.circle(hero.gameFinalPosition.x + 20,
-                    hero.gameFinalPosition.y + 20, hero.size);
+            shape.circle(hero.gameFinalPosition.x,
+                    hero.gameFinalPosition.y, hero.size);
         }
-        if (count <= 0 && step < nodes.size()) {
+        if (count <= 0 && step < nodes.size() && start) {
             Node node = nodes.get(step);
             for (UnitTower tower : unitTowerList) {
                 if (tower.mapOriginPosition.x == node.x &&
@@ -53,7 +64,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
                     break;
                 }
             }
-            count = 60;
+            count = 5;
             step++;
         }
         count--;

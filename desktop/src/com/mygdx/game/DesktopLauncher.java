@@ -12,7 +12,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setTitle("My GDX Game");
-		config.setWindowedMode(500,500);
+		config.setWindowedMode(900,700);
 
 		new Lwjgl3Application(new RoadMapVisiable(), config);
 	}

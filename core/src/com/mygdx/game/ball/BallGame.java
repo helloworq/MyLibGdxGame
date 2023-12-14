@@ -31,11 +31,11 @@ public class BallGame extends ApplicationAdapter {
     int                        x;
     int                        y;
 
-    private static double sin(double angle){
+    private static double sin(double angle) {
         return Math.sin(angle / 180 * Math.PI);
     }
 
-    private static double cos(double angle){
+    private static double cos(double angle) {
         return Math.cos(angle / 180 * Math.PI);
     }
 
@@ -63,24 +63,13 @@ public class BallGame extends ApplicationAdapter {
         });
 
         for (int i = 0; i < 999; i++) {
-            balls.add(new Ball(
-                    r.nextInt(Gdx.graphics.getWidth()),
-                    r.nextInt(Gdx.graphics.getHeight()),
-                    10,
-                    r.nextInt(5) + 1f,
-                    r.nextInt(5) + 1f,
-                    Color.GREEN));
+            balls.add(new Ball(r.nextInt(Gdx.graphics.getWidth()), r.nextInt(Gdx.graphics.getHeight()), 10, r.nextInt(5) + 1f, r.nextInt(5) + 1f, Color.GREEN));
         }
     }
 
     private void attack(float x, float y, float deg) {
         if (count <= 0) {
-            Ball ball = new Ball(
-                    bx, by,
-                    10,
-                    (5f * cos(deg + fixDeg)),
-                    (5f * sin(deg + fixDeg)),
-                    Color.BLUE);
+            Ball ball = new Ball(bx, by, 10, (5f * cos(deg + fixDeg)), (5f * sin(deg + fixDeg)), Color.BLUE);
             bullets.add(ball);
             count = 10;
         }
