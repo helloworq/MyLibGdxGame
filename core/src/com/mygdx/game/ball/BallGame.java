@@ -9,11 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.input.GestureDetector;
-import com.mygdx.game.sample.liquid.goo.goo.Gesture;
-import com.mygdx.game.test.towerdefense.Unit;
 
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -23,7 +19,7 @@ public class BallGame extends ApplicationAdapter {
     SpriteBatch                batch;
     CopyOnWriteArrayList<Ball> balls   = new CopyOnWriteArrayList<>();
     CopyOnWriteArrayList<Ball> bullets = new CopyOnWriteArrayList<>();
-    int                        count   = 10;
+    int                        count   = 1;
     Random                     r       = new Random();
     Sprite                     building;
     int                        bx      = 250;
@@ -57,13 +53,18 @@ public class BallGame extends ApplicationAdapter {
 
             @Override
             public boolean keyTyped(char character) {
-                //attack(bx,by,building.getRotation());
                 return true;
             }
         });
 
         for (int i = 0; i < 999; i++) {
-            balls.add(new Ball(r.nextInt(Gdx.graphics.getWidth()), r.nextInt(Gdx.graphics.getHeight()), 10, r.nextInt(5) + 1f, r.nextInt(5) + 1f, Color.GREEN));
+            balls.add(new Ball(
+                    r.nextInt(Gdx.graphics.getWidth()),
+                    r.nextInt(Gdx.graphics.getHeight()),
+                    10,
+                    r.nextInt(5) + 1f,
+                    r.nextInt(5) + 1f,
+                    Color.GREEN));
         }
     }
 
@@ -71,7 +72,7 @@ public class BallGame extends ApplicationAdapter {
         if (count <= 0) {
             Ball ball = new Ball(bx, by, 10, (5f * cos(deg + fixDeg)), (5f * sin(deg + fixDeg)), Color.BLUE);
             bullets.add(ball);
-            count = 10;
+            count = 1;
         }
         count--;
     }
