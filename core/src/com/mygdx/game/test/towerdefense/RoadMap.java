@@ -10,13 +10,12 @@ public class RoadMap {
     int X = 5;
     int Y = 6;
     int[][] MAP = new int[][]{
-            {RODE, WALL, WALL, WALL, WALL, RODE},
-            {RODE, WALL, WALL, WALL, WALL, RODE},
+            {RODE, WALL, RODE, RODE, RODE, RODE},
+            {RODE, WALL, RODE, WALL, WALL, RODE},
             {RODE, WALL, WALL, RODE, RODE, RODE},
             {RODE, WALL, WALL, RODE, WALL, WALL},
             {RODE, RODE, RODE, RODE, WALL, WALL}
     };
-    List<Node> nodes = new LinkedList<>();
 
     static class Node {
         public int x;
@@ -29,17 +28,18 @@ public class RoadMap {
     }
 
     public static void main(String[] args) {
-        new RoadMap().run();
+        new RoadMap().findPath();
     }
 
-    private void run() {
-        findPath(MAP, 0, 0);
+    private void findPath() {
+        List<Node> nodes = new LinkedList<>();
+        doFind(MAP, 0, 0, nodes);
         for (Node n : nodes) {
             System.out.println(n.x + " " + n.y);
         }
     }
 
-    private void findPath(int[][] map, int startX, int startY) {
+    private List<Node> doFind(int[][] map, int startX, int startY, List<Node> nodes) {
         Node node = new Node(startX, startY);
         nodes.add(node);
         map[startX][startY] = VISITED;
@@ -48,13 +48,14 @@ public class RoadMap {
         int y1 = startY - 1;
         int y2 = startY + 1;
         if (x1 >= 0 && map[x1][startY] == RODE) {
-            findPath(map, x1, startY);
+            doFind(map, x1, startY, nodes);
         } else if (x2 < X && map[x2][startY] == RODE) {
-            findPath(map, x2, startY);
+            doFind(map, x2, startY, nodes);
         } else if (y1 >= 0 && map[startX][y1] == RODE) {
-            findPath(map, startX, y1);
+            doFind(map, startX, y1, nodes);
         } else if (y2 < Y && map[startX][y2] == RODE) {
-            findPath(map, startX, y2);
+            doFind(map, startX, y2, nodes);
         }
+        return nodes;
     }
 }
