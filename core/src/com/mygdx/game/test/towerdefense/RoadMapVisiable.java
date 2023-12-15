@@ -22,9 +22,10 @@ public class RoadMapVisiable extends ApplicationAdapter {
     int                        width;
     int                        height;
     int                        count   = 20;
-    List<UnitTower>            unitTowerList;
-    List<Node>                 nodes;
+    List<UnitTower>            tileMapSets;
+    List<Node>                 rodeNodeSets;
     UnitTower                  ghost;
+    UnitTower                  arrowTower;
     int                        step    = 0;
     boolean                    start   = false;
     int                        count2  = 5;
@@ -33,31 +34,30 @@ public class RoadMapVisiable extends ApplicationAdapter {
     float                      fixDeg  = 45f;//普通图片有45°的倾角，在此进行补足
     CopyOnWriteArrayList<Ball> balls   = new CopyOnWriteArrayList<>();
     CopyOnWriteArrayList<Ball> bullets = new CopyOnWriteArrayList<>();
-    UnitTower                  building;
 
-    private void attack(float x, float y, float deg) {
-        if (count2 <= 0) {
-            Ball ball = new Ball(bx, by, 10,
-                    (5f * ComonUtils.cos(deg + fixDeg)),
-                    (5f * ComonUtils.sin(deg + fixDeg)),
-                    Color.BLUE);
-            bullets.add(ball);
-            count2 = 1;
-        }
-        count2--;
-    }
+//    private void attack(float x, float y, float deg) {
+//        if (count2 <= 0) {
+//            Ball ball = new Ball(bx, by, 10,
+//                    (5f * ComonUtils.cos(deg + fixDeg)),
+//                    (5f * ComonUtils.sin(deg + fixDeg)),
+//                    Color.BLUE);
+//            bullets.add(ball);
+//            count2 = 1;
+//        }
+//        count2--;
+//    }
 
     @Override
     public void create() {
         batch = new SpriteBatch();
         shape = new ShapeRenderer();
-        width = Gdx.graphics.getWidth();
-        height = Gdx.graphics.getHeight();
-        unitTowerList = RoadMapTransformer.transform(width, height);
+        width = Gdx.graphics.getWidth() - 20;
+        height = Gdx.graphics.getHeight() - 20;
 
-        nodes = RoadMap.findPath();
+        tileMapSets = RoadMapTransformer.transform(width, height);
+        rodeNodeSets = RoadMap.findPath();
 
-        building = new UnitTower(bx, by, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png");
+        arrowTower = new UnitTower(bx, by, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png");
 
         Gdx.input.setInputProcessor(new InputAdapter() {
             @Override
@@ -72,40 +72,28 @@ public class RoadMapVisiable extends ApplicationAdapter {
     public void render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        shape.begin(ShapeRenderer.ShapeType.Line);
-
-
-        for (Ball ball : balls) {
-            for (Ball bullet : bullets) {
-                if (ComonUtils.distance(bullet.x, bullet.y, ball.x, ball.y) < (ball.size + bullet.size)) {
-                    bullets.remove(bullet);
-                    balls.remove(ball);
-                }
-            }
-        }
-
-        //绘制子弹
-        for (Ball ball : bullets) {
-            shape.setColor(ball.color);
-            ball.update();
-            ball.draw(shape);
-        }
 
         //绘制地图
-        for (UnitTower b : unitTowerList) {
+        shape.begin(ShapeRenderer.ShapeType.Line);
+        for (UnitTower b : tileMapSets) {
             shape.setColor(b.getColor());
             shape.circle(b.getX(), b.getY(), b.getTexture().getWidth());
+            //b.draw(batch);
         }
 
+        //ComonUtils.onCollision(balls, bullets);
+        batch.begin();
         //绘制怪物
         if (ghost != null) {
+           // ghost.draw(batch);
             shape.setColor(Color.WHITE);
             shape.circle(ghost.getGameFinalPosition().x,
                     ghost.getGameFinalPosition().y, ghost.getTexture().getWidth());
+
         }
-        if (count <= 0 && step < nodes.size() && start) {
-            Node node = nodes.get(step);
-            for (UnitTower tower : unitTowerList) {
+        if (count <= 0 && step < rodeNodeSets.size() && start) {
+            Node node = rodeNodeSets.get(step);
+            for (UnitTower tower : tileMapSets) {
                 if (tower.getMapOriginPosition().x == node.x &&
                         tower.getMapOriginPosition().y == node.y) {
                     ghost = tower;
@@ -118,23 +106,19 @@ public class RoadMapVisiable extends ApplicationAdapter {
         count--;
 
         //绘制炮塔
-        shape.setColor(Color.GOLD);
         if (ghost != null) {
             if (ComonUtils.distance(ghost.getGameFinalPosition().x, ghost.getGameFinalPosition().y, bx, by)
-                    < (ghost.getAttackSize() + building.getAttackSize())) {
+                    < (ghost.getAttackSize() + arrowTower.getAttackSize())) {
                 shape.setColor(Color.BROWN);
                 float d = (float) ((Math.atan2(ghost.getGameFinalPosition().y - by, ghost.getGameFinalPosition().x - bx)) * (180 / Math.PI));
-                building.setRotation(d - fixDeg);
+                arrowTower.setRotation(d - fixDeg);
 
-                attack(bx, by, d - fixDeg);
+                arrowTower.attack(d);
             }
-
-            shape.circle(bx, by, building.getAttackSize());
         }
-        batch.begin();
-        building.draw(batch);
-        batch.end();
 
+        arrowTower.draw(batch, shape);
+        batch.end();
         shape.end();
     }
 }

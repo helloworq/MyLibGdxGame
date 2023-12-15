@@ -16,13 +16,22 @@ public class RoadMapTransformer {
 
         for (int i = 0; i < RoadMap.X; i++) {
             for (int j = 0; j < RoadMap.Y; j++) {
-                UnitTower ball = new UnitTower(
-                        heightSplit * j + ballSize,
-                        widthSplit * (RoadMap.X - i) + ballSize,
-                        RoadMap.MAP[i][j] == RoadMap.RODE
-                                ? Color.SLATE
-                                : Color.BROWN, "tower/sword.png"
-                );
+                UnitTower ball;
+                if (RoadMap.MAP[i][j] == RoadMap.RODE) {
+                    ball = new UnitTower(
+                            heightSplit * j + ballSize,
+                            widthSplit * (RoadMap.X - i) + ballSize,
+                            Color.SLATE,
+                            "tower/transmutation.png"
+                    );
+                } else {
+                    ball = new UnitTower(
+                            heightSplit * j + ballSize,
+                            widthSplit * (RoadMap.X - i) + ballSize,
+                            Color.BROWN,
+                            "tower/necromancy.png"
+                    );
+                }
                 ball.setMapOriginPosition(new Node(i, j));
                 ball.setGameOriginPosition(new Node(j, RoadMap.X - i));
                 ball.setGameFinalPosition(new Node(heightSplit * j + ballSize, widthSplit * (RoadMap.X - i) + ballSize));
