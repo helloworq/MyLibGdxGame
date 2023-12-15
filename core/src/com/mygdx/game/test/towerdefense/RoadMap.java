@@ -1,16 +1,18 @@
 package com.mygdx.game.test.towerdefense;
 
+import com.mygdx.game.test.towerdefense.util.ComonUtils;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
 public class RoadMap {
-    static final int VISITED = -1;
-    static final int WALL = 0;
-    static final int RODE = 1;
-    static int X = 15;
-    static int Y = 20;
-    static int[][] MAP = new int[][]{
+    static final int     VISITED = -1;
+    static final int     WALL    = 0;
+    static final int     RODE    = 1;
+    static       int     X       = 15;
+    static       int     Y       = 20;
+    static       int[][] MAP     = new int[][]{
             {RODE, WALL, RODE, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, RODE, RODE, RODE, RODE, RODE, RODE, RODE, WALL, WALL},
             {RODE, WALL, RODE, WALL, WALL, WALL, WALL, WALL, RODE, RODE, RODE, RODE, WALL, WALL, WALL, WALL, WALL, RODE, RODE, RODE},
             {RODE, WALL, RODE, WALL, WALL, WALL, WALL, WALL, RODE, WALL, WALL, WALL, RODE, RODE, RODE, WALL, WALL, WALL, WALL, RODE},
@@ -35,7 +37,7 @@ public class RoadMap {
     public static List<Node> findPath() {
         List<Node> nodes = new LinkedList<>();
 
-        int[][] map = deepCopy(MAP);
+        int[][] map = ComonUtils.deepCopy(MAP);
 
         doFind(map, 0, 0, nodes);
         return nodes;
@@ -58,17 +60,5 @@ public class RoadMap {
         } else if (y2 < Y && map[startX][y2] == RODE) {
             doFind(map, startX, y2, nodes);
         }
-    }
-
-    public static int[][] deepCopy(int[][] original) {
-        if (original == null) {
-            return null;
-        }
-
-        final int[][] result = new int[original.length][];
-        for (int i = 0; i < original.length; i++) {
-            result[i] = Arrays.copyOf(original[i], original[i].length);
-        }
-        return result;
     }
 }
