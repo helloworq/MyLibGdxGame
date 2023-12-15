@@ -10,30 +10,30 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.ball.Ball;
+import com.mygdx.game.test.towerdefense.constant.TowerConstant;
 import com.mygdx.game.test.towerdefense.util.ComonUtils;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class RoadMapVisiable extends ApplicationAdapter {
-    SpriteBatch     batch;
-    ShapeRenderer   shape;
-    int             width;
-    int             height;
-    int             count = 20;
-    List<UnitTower> unitTowerList;
-    List<Node>      nodes;
-    UnitTower       hero;
-    int             step  = 0;
-    boolean         start = false;
-
+    SpriteBatch                batch;
+    ShapeRenderer              shape;
+    int                        width;
+    int                        height;
+    int                        count   = 20;
+    List<UnitTower>            unitTowerList;
+    List<Node>                 nodes;
+    UnitTower                  ghost;
+    int                        step    = 0;
+    boolean                    start   = false;
     int                        count2  = 5;
-    int                        bx      = 150;
-    int                        by      = 100;
+    int                        bx      = 208;
+    int                        by      = 335;
     float                      fixDeg  = 45f;//普通图片有45°的倾角，在此进行补足
     CopyOnWriteArrayList<Ball> balls   = new CopyOnWriteArrayList<>();
     CopyOnWriteArrayList<Ball> bullets = new CopyOnWriteArrayList<>();
-    Sprite                     building;
+    UnitTower                  building;
 
     private void attack(float x, float y, float deg) {
         if (count2 <= 0) {
@@ -57,9 +57,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         nodes = RoadMap.findPath();
 
-        building = new Sprite(new Texture(Gdx.files.internal("tower/sword.png")));
-        building.setPosition(bx - building.getWidth() / 2, by - building.getHeight() / 2);
-        building.setOriginCenter();
+        building = new UnitTower(bx, by, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png");
 
         Gdx.input.setInputProcessor(new InputAdapter() {
             @Override
@@ -73,7 +71,9 @@ public class RoadMapVisiable extends ApplicationAdapter {
     @Override
     public void render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         shape.begin(ShapeRenderer.ShapeType.Line);
+
 
         for (Ball ball : balls) {
             for (Ball bullet : bullets) {
@@ -93,22 +93,22 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         //绘制地图
         for (UnitTower b : unitTowerList) {
-            shape.setColor(b.color);
-            shape.circle(b.x, b.y, b.size);
+            shape.setColor(b.getColor());
+            shape.circle(b.getX(), b.getY(), b.getTexture().getWidth());
         }
 
         //绘制怪物
-        if (hero != null) {
+        if (ghost != null) {
             shape.setColor(Color.WHITE);
-            shape.circle(hero.gameFinalPosition.x,
-                    hero.gameFinalPosition.y, hero.size);
+            shape.circle(ghost.getGameFinalPosition().x,
+                    ghost.getGameFinalPosition().y, ghost.getTexture().getWidth());
         }
         if (count <= 0 && step < nodes.size() && start) {
             Node node = nodes.get(step);
             for (UnitTower tower : unitTowerList) {
-                if (tower.mapOriginPosition.x == node.x &&
-                        tower.mapOriginPosition.y == node.y) {
-                    hero = tower;
+                if (tower.getMapOriginPosition().x == node.x &&
+                        tower.getMapOriginPosition().y == node.y) {
+                    ghost = tower;
                     break;
                 }
             }
@@ -119,20 +119,22 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         //绘制炮塔
         shape.setColor(Color.GOLD);
-        if (hero != null) {
-            if (ComonUtils.distance(hero.gameFinalPosition.x, hero.gameFinalPosition.y, bx, by) < (hero.size + 200)) {
+        if (ghost != null) {
+            if (ComonUtils.distance(ghost.getGameFinalPosition().x, ghost.getGameFinalPosition().y, bx, by)
+                    < (ghost.getAttackSize() + building.getAttackSize())) {
                 shape.setColor(Color.BROWN);
-                float d = (float) ((Math.atan2(hero.gameFinalPosition.y - by, hero.gameFinalPosition.x - bx)) * (180 / Math.PI));
+                float d = (float) ((Math.atan2(ghost.getGameFinalPosition().y - by, ghost.getGameFinalPosition().x - bx)) * (180 / Math.PI));
                 building.setRotation(d - fixDeg);
 
                 attack(bx, by, d - fixDeg);
             }
 
-            shape.circle(bx, by, 200);
-            batch.begin();
-            building.draw(batch);
-            batch.end();
+            shape.circle(bx, by, building.getAttackSize());
         }
+        batch.begin();
+        building.draw(batch);
+        batch.end();
+
         shape.end();
     }
 }
