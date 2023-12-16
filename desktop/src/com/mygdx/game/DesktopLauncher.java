@@ -2,6 +2,8 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
+import com.mygdx.game.test.towerdefense.BloodTester;
+import com.mygdx.game.test.towerdefense.PixmapTester;
 import com.mygdx.game.test.towerdefense.RoadMapVisiable;
 
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
@@ -12,6 +14,6 @@ public class DesktopLauncher {
 		config.setTitle("My GDX Game");
 		config.setWindowedMode(1300,1000);
 
-		new Lwjgl3Application(new RoadMapVisiable(), config);
+		new Lwjgl3Application(new PixmapTester(), config);
 	}
 }
