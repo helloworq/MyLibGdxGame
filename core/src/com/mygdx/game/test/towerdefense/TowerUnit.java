@@ -6,8 +6,6 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.mygdx.game.ball.Ball;
-import com.mygdx.game.test.towerdefense.util.Bullet;
 import com.mygdx.game.test.towerdefense.util.ComonUtils;
 
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -20,9 +18,9 @@ public class TowerUnit extends Sprite {
     private Color                        color;
     private Node                         mapOriginPosition;//自定义地图中二维数组地图的位置数据
     private Node                         gameOriginPosition;//游戏中的位置数据（没有和地图长宽相乘的数据）
-    private Node                         gameFinalPosition;//游戏中的位置数据
-    private CopyOnWriteArrayList<Bullet> bullets = new CopyOnWriteArrayList<>();
-    private float                        cd;
+    private Node                             gameFinalPosition;//游戏中的位置数据
+    private CopyOnWriteArrayList<BulletUnit> bulletUnits = new CopyOnWriteArrayList<>();
+    private float                            cd;
     private Pixmap                       attackArea;
 
     public TowerUnit(float x, float y, Color color, String texturePath) {
@@ -52,29 +50,29 @@ public class TowerUnit extends Sprite {
         batch.draw(bgTexture, (-attackSize / 2f + getX()), (-attackSize / 2f + getY()));
 
         //绘制子弹
-        for (Bullet ball : bullets) {
+        for (BulletUnit ball : bulletUnits) {
             batch.draw(ball.getTexture(), ball.getX(), ball.getY());
             ball.update();
         }
     }
 
     public void attack(float deg) {
-        Bullet ball = new Bullet(
+        BulletUnit ball = new BulletUnit(
                 (int) getX(),
                 (int) getY(),
                 (10f * ComonUtils.cos(deg)),
                 (10f * ComonUtils.sin(deg)),
                 "tower/scourge.png");
-        bullets.add(ball);
+        bulletUnits.add(ball);
     }
 
     //getter setter
-    public CopyOnWriteArrayList<Bullet> getBullets() {
-        return bullets;
+    public CopyOnWriteArrayList<BulletUnit> getBullets() {
+        return bulletUnits;
     }
 
-    public void setBullets(CopyOnWriteArrayList<Bullet> bullets) {
-        this.bullets = bullets;
+    public void setBullets(CopyOnWriteArrayList<BulletUnit> bulletUnits) {
+        this.bulletUnits = bulletUnits;
     }
 
     public int getAttackSize() {

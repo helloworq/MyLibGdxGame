@@ -29,7 +29,6 @@ public class RoadMapVisiable extends ApplicationAdapter {
     int             bx     = 208;
     int             by     = 335;
     float           fixDeg = 45f;//普通图片有45°的倾角，在此进行补足
-    Pixmap          pixmap32;
 
     @Override
     public void create() {
@@ -49,10 +48,6 @@ public class RoadMapVisiable extends ApplicationAdapter {
                 return true;
             }
         });
-
-        pixmap32 = new Pixmap(32, 32, Pixmap.Format.RGBA8888);
-        pixmap32.setColor(Color.WHITE);
-        pixmap32.drawCircle(16, 16, 16);
     }
 
     @Override

@@ -1,14 +1,14 @@
-package com.mygdx.game.test.towerdefense.util;
+package com.mygdx.game.test.towerdefense;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
-public class Bullet extends Sprite {
+public class BulletUnit extends Sprite {
     public float xSpeed;
     public float ySpeed;
 
-    public Bullet(float x, float y, float xSpeed, float ySpeed, String texturePath) {
+    public BulletUnit(float x, float y, float xSpeed, float ySpeed, String texturePath) {
         super(new Texture(Gdx.files.internal(texturePath)));
         setPosition(x, y);
         this.xSpeed = xSpeed;
