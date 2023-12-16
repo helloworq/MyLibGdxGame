@@ -7,31 +7,40 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.mygdx.game.ball.Ball;
+import com.mygdx.game.test.towerdefense.util.Bullet;
 import com.mygdx.game.test.towerdefense.util.ComonUtils;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class UnitTower extends Sprite {
-    private int                        attackSize;
-    private Color                      color;
-    private Node                       mapOriginPosition;//自定义地图中二维数组地图的位置数据
-    private Node                       gameOriginPosition;//游戏中的位置数据（没有和地图长宽相乘的数据）
-    private Node                       gameFinalPosition;//游戏中的位置数据
-    private CopyOnWriteArrayList<Ball> bullets = new CopyOnWriteArrayList<>();
-    private float                      cd;
+/**
+ * 炮塔 怪物 地图的基类
+ */
+public class TowerUnit extends Sprite {
+    private int                          attackSize;
+    private Color                        color;
+    private Node                         mapOriginPosition;//自定义地图中二维数组地图的位置数据
+    private Node                         gameOriginPosition;//游戏中的位置数据（没有和地图长宽相乘的数据）
+    private Node                         gameFinalPosition;//游戏中的位置数据
+    private CopyOnWriteArrayList<Bullet> bullets = new CopyOnWriteArrayList<>();
+    private float                        cd;
+    private Pixmap                       attackArea;
 
-    public UnitTower(float x, float y, Color color, String texturePath) {
+    public TowerUnit(float x, float y, Color color, String texturePath) {
         super(new Texture(Gdx.files.internal(texturePath)));
         setPosition(x, y);
         this.attackSize = getTexture().getWidth();
         this.color = color;
     }
 
-    public UnitTower(float x, float y, int attackSize, Color color, String texturePath) {
+    public TowerUnit(float x, float y, int attackSize, Color color, String texturePath) {
         super(new Texture(Gdx.files.internal(texturePath)));
         setPosition(x, y);
         this.attackSize = attackSize;
         this.color = color;
+        this.attackArea = new Pixmap(attackSize, attackSize, Pixmap.Format.RGBA8888);
+
+        attackArea.setColor(Color.WHITE);
+        attackArea.drawCircle(attackSize / 2, attackSize / 2, attackSize / 2);
     }
 
     public void draw(Batch batch) {
@@ -39,39 +48,33 @@ public class UnitTower extends Sprite {
 
         //https://github.com/libgdx/libgdx/issues/1186 shaperender和spritebatch同时渲染时会冲突
         //绘制攻击范围圈
-        Pixmap attackArea = new Pixmap(attackSize, attackSize, Pixmap.Format.RGBA8888);
-        attackArea.setColor(Color.WHITE);
-        attackArea.drawCircle(attackSize / 2, attackSize / 2, attackSize / 2);
         Texture bgTexture = new Texture(attackArea);
-        batch.draw(bgTexture, getX(),getY());
+        //batch.draw(bgTexture, getX(), getY());
+        batch.draw(bgTexture, (-attackSize / 2 + getX()), (-attackSize / 2 + getY()));
 
         //绘制子弹
-        for (Ball ball : bullets) {
-            Pixmap bullet = new Pixmap(getTexture().getWidth(), getTexture().getWidth(), Pixmap.Format.RGBA8888);
-            bullet.setColor(Color.WHITE);
-            bullet.drawCircle(getTexture().getWidth() / 2, getTexture().getWidth() / 2, getTexture().getWidth() / 2);
-            Texture bulletTexture = new Texture(bullet);
-            batch.draw(bulletTexture, ball.x,ball.y);
+        for (Bullet ball : bullets) {
+            batch.draw(ball.getTexture(), ball.getX(), ball.getY());
+            ball.update();
         }
     }
 
     public void attack(float deg) {
-        Ball ball = new Ball(
+        Bullet ball = new Bullet(
                 (int) getX(),
                 (int) getY(),
-                getTexture().getWidth(),
                 (10f * ComonUtils.cos(deg)),
                 (10f * ComonUtils.sin(deg)),
-                Color.BLUE);
+                "tower/scourge.png");
         bullets.add(ball);
     }
 
     //getter setter
-    public CopyOnWriteArrayList<Ball> getBullets() {
+    public CopyOnWriteArrayList<Bullet> getBullets() {
         return bullets;
     }
 
-    public void setBullets(CopyOnWriteArrayList<Ball> bullets) {
+    public void setBullets(CopyOnWriteArrayList<Bullet> bullets) {
         this.bullets = bullets;
     }
 

@@ -24,13 +24,13 @@ public class PixmapTester extends ApplicationAdapter {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
-        Pixmap pixmap = new Pixmap(256, 256, Pixmap.Format.RGBA8888);
+        Pixmap pixmap = new Pixmap(521, 512, Pixmap.Format.RGBA8888);
         pixmap.setColor(Color.WHITE);
-        pixmap.drawCircle(128, 128, 128);
+        pixmap.drawCircle(256,256,256);
         //pixmap.fill();
 
         bgTexture = new Texture(pixmap);
-
+        pixmap.dispose();
 
         Gdx.input.setInputProcessor(new InputAdapter() {
             @Override
@@ -51,7 +51,7 @@ public class PixmapTester extends ApplicationAdapter {
 
         batch.begin();
 
-        batch.draw(bgTexture, 100, 100);
+        batch.draw(bgTexture, 0,0);
 
         batch.end();
     }

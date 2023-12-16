@@ -34,11 +34,11 @@ public class ComonUtils {
         return result;
     }
 
-    public static double sin(double angle) {
-        return Math.sin(angle / 180 * Math.PI);
+    public static float sin(double angle) {
+        return (float) Math.sin(angle / 180 * Math.PI);
     }
 
-    public static double cos(double angle) {
-        return Math.cos(angle / 180 * Math.PI);
+    public static float cos(double angle) {
+        return (float) Math.cos(angle / 180f * Math.PI);
     }
 }

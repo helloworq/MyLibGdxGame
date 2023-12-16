@@ -16,22 +16,20 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class RoadMapVisiable extends ApplicationAdapter {
-    SpriteBatch                batch;
-    int                        width;
-    int                        height;
-    int                        count   = 20;
-    List<UnitTower>            tileMapSets;
-    List<Node>                 rodeNodeSets;
-    UnitTower                  ghost;
-    UnitTower                  arrowTower;
-    int                        step    = 0;
-    boolean                    start   = false;
-    int                        count2  = 5;
-    int                        bx      = 208;
-    int                        by      = 335;
-    float                      fixDeg  = 45f;//普通图片有45°的倾角，在此进行补足
-    CopyOnWriteArrayList<Ball> balls   = new CopyOnWriteArrayList<>();
-    CopyOnWriteArrayList<Ball> bullets = new CopyOnWriteArrayList<>();
+    SpriteBatch     batch;
+    int             width;
+    int             height;
+    int             count  = 20;
+    List<TowerUnit> tileMapSets;
+    List<Node>      rodeNodeSets;
+    TowerUnit       ghost;
+    TowerUnit       arrowTower;
+    int             step   = 0;
+    boolean         start  = false;
+    int             bx     = 208;
+    int             by     = 335;
+    float           fixDeg = 45f;//普通图片有45°的倾角，在此进行补足
+    Pixmap          pixmap32;
 
     @Override
     public void create() {
@@ -42,7 +40,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
         tileMapSets = RoadMapTransformer.transform(width, height);
         rodeNodeSets = RoadMap.findPath();
 
-        arrowTower = new UnitTower(bx, by, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png");
+        arrowTower = new TowerUnit(bx, by, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png");
 
         Gdx.input.setInputProcessor(new InputAdapter() {
             @Override
@@ -51,6 +49,10 @@ public class RoadMapVisiable extends ApplicationAdapter {
                 return true;
             }
         });
+
+        pixmap32 = new Pixmap(32, 32, Pixmap.Format.RGBA8888);
+        pixmap32.setColor(Color.WHITE);
+        pixmap32.drawCircle(16, 16, 16);
     }
 
     @Override
@@ -59,31 +61,19 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         batch.begin();
         //绘制地图
-
-        for (UnitTower b : tileMapSets) {
-            Pixmap pixmap = new Pixmap(b.getTexture().getWidth(), b.getTexture().getWidth(), Pixmap.Format.RGBA8888);
-            pixmap.setColor(b.getColor());
-            pixmap.drawCircle(b.getTexture().getWidth() / 2, b.getTexture().getWidth() / 2, b.getTexture().getWidth() / 2);
-            Texture bgTexture = new Texture(pixmap);
-
-            batch.draw(bgTexture, b.getX(), b.getY());
+        for (TowerUnit b : tileMapSets) {
+            batch.draw(b.getTexture(), b.getX(), b.getY());
         }
 
         //ComonUtils.onCollision(balls, bullets);
 
         //绘制怪物
         if (ghost != null) {
-            // ghost.draw(batch);
-            Pixmap pixmap = new Pixmap(ghost.getTexture().getWidth(), ghost.getTexture().getWidth(), Pixmap.Format.RGBA8888);
-            pixmap.setColor(Color.WHITE);
-            pixmap.drawCircle(ghost.getTexture().getWidth() / 2, ghost.getTexture().getWidth() / 2, ghost.getTexture().getWidth() / 2);
-            Texture bgTexture = new Texture(pixmap);
-
-            batch.draw(bgTexture,ghost.getX(),ghost.getY());
+            batch.draw(ghost.getTexture(), ghost.getX(), ghost.getY());
         }
         if (count <= 0 && step < rodeNodeSets.size() && start) {
             Node node = rodeNodeSets.get(step);
-            for (UnitTower tower : tileMapSets) {
+            for (TowerUnit tower : tileMapSets) {
                 if (tower.getMapOriginPosition().x == node.x &&
                         tower.getMapOriginPosition().y == node.y) {
                     ghost = tower;
@@ -108,5 +98,10 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         arrowTower.draw(batch);
         batch.end();
+    }
+
+    @Override
+    public void dispose() {
+
     }
 }
