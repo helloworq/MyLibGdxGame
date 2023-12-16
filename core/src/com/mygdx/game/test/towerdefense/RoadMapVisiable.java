@@ -5,10 +5,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.ball.Ball;
 import com.mygdx.game.test.towerdefense.constant.TowerConstant;
 import com.mygdx.game.test.towerdefense.util.ComonUtils;
@@ -18,7 +17,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class RoadMapVisiable extends ApplicationAdapter {
     SpriteBatch                batch;
-    ShapeRenderer              shape;
     int                        width;
     int                        height;
     int                        count   = 20;
@@ -35,22 +33,9 @@ public class RoadMapVisiable extends ApplicationAdapter {
     CopyOnWriteArrayList<Ball> balls   = new CopyOnWriteArrayList<>();
     CopyOnWriteArrayList<Ball> bullets = new CopyOnWriteArrayList<>();
 
-//    private void attack(float x, float y, float deg) {
-//        if (count2 <= 0) {
-//            Ball ball = new Ball(bx, by, 10,
-//                    (5f * ComonUtils.cos(deg + fixDeg)),
-//                    (5f * ComonUtils.sin(deg + fixDeg)),
-//                    Color.BLUE);
-//            bullets.add(ball);
-//            count2 = 1;
-//        }
-//        count2--;
-//    }
-
     @Override
     public void create() {
         batch = new SpriteBatch();
-        shape = new ShapeRenderer();
         width = Gdx.graphics.getWidth() - 20;
         height = Gdx.graphics.getHeight() - 20;
 
@@ -72,24 +57,29 @@ public class RoadMapVisiable extends ApplicationAdapter {
     public void render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-
+        batch.begin();
         //绘制地图
-        shape.begin(ShapeRenderer.ShapeType.Line);
+
         for (UnitTower b : tileMapSets) {
-            shape.setColor(b.getColor());
-            shape.circle(b.getX(), b.getY(), b.getTexture().getWidth());
-            //b.draw(batch);
+            Pixmap pixmap = new Pixmap(b.getTexture().getWidth(), b.getTexture().getWidth(), Pixmap.Format.RGBA8888);
+            pixmap.setColor(b.getColor());
+            pixmap.drawCircle(b.getTexture().getWidth() / 2, b.getTexture().getWidth() / 2, b.getTexture().getWidth() / 2);
+            Texture bgTexture = new Texture(pixmap);
+
+            batch.draw(bgTexture, b.getX(), b.getY());
         }
 
         //ComonUtils.onCollision(balls, bullets);
-        batch.begin();
+
         //绘制怪物
         if (ghost != null) {
-           // ghost.draw(batch);
-            shape.setColor(Color.WHITE);
-            shape.circle(ghost.getGameFinalPosition().x,
-                    ghost.getGameFinalPosition().y, ghost.getTexture().getWidth());
+            // ghost.draw(batch);
+            Pixmap pixmap = new Pixmap(ghost.getTexture().getWidth(), ghost.getTexture().getWidth(), Pixmap.Format.RGBA8888);
+            pixmap.setColor(Color.WHITE);
+            pixmap.drawCircle(ghost.getTexture().getWidth() / 2, ghost.getTexture().getWidth() / 2, ghost.getTexture().getWidth() / 2);
+            Texture bgTexture = new Texture(pixmap);
 
+            batch.draw(bgTexture,ghost.getX(),ghost.getY());
         }
         if (count <= 0 && step < rodeNodeSets.size() && start) {
             Node node = rodeNodeSets.get(step);
@@ -109,7 +99,6 @@ public class RoadMapVisiable extends ApplicationAdapter {
         if (ghost != null) {
             if (ComonUtils.distance(ghost.getGameFinalPosition().x, ghost.getGameFinalPosition().y, bx, by)
                     < (ghost.getAttackSize() + arrowTower.getAttackSize())) {
-                shape.setColor(Color.BROWN);
                 float d = (float) ((Math.atan2(ghost.getGameFinalPosition().y - by, ghost.getGameFinalPosition().x - bx)) * (180 / Math.PI));
                 arrowTower.setRotation(d - fixDeg);
 
@@ -117,8 +106,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
             }
         }
 
-        arrowTower.draw(batch, shape);
+        arrowTower.draw(batch);
         batch.end();
-        shape.end();
     }
 }

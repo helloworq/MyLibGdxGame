@@ -2,11 +2,10 @@ package com.mygdx.game.test.towerdefense;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.ball.Ball;
 import com.mygdx.game.test.towerdefense.util.ComonUtils;
 
@@ -35,22 +34,25 @@ public class UnitTower extends Sprite {
         this.color = color;
     }
 
-    public void draw(Batch batch, ShapeRenderer shape) {
+    public void draw(Batch batch) {
         super.draw(batch);
 
-        //TODO https://github.com/libgdx/libgdx/issues/1186 shaperender和spritebatch同时渲染时会冲突
+        //https://github.com/libgdx/libgdx/issues/1186 shaperender和spritebatch同时渲染时会冲突
         //绘制攻击范围圈
-      //  shape.setColor(Color.GOLD);
-      //  shape.begin(ShapeRenderer.ShapeType.Line);
+        Pixmap attackArea = new Pixmap(attackSize, attackSize, Pixmap.Format.RGBA8888);
+        attackArea.setColor(Color.WHITE);
+        attackArea.drawCircle(attackSize / 2, attackSize / 2, attackSize / 2);
+        Texture bgTexture = new Texture(attackArea);
+        batch.draw(bgTexture, getX(),getY());
 
-        shape.circle(getX(), getY(), attackSize);
         //绘制子弹
         for (Ball ball : bullets) {
-            shape.setColor(ball.color);
-            ball.update();
-            ball.draw(shape);
+            Pixmap bullet = new Pixmap(getTexture().getWidth(), getTexture().getWidth(), Pixmap.Format.RGBA8888);
+            bullet.setColor(Color.WHITE);
+            bullet.drawCircle(getTexture().getWidth() / 2, getTexture().getWidth() / 2, getTexture().getWidth() / 2);
+            Texture bulletTexture = new Texture(bullet);
+            batch.draw(bulletTexture, ball.x,ball.y);
         }
-     //   shape.end();
     }
 
     public void attack(float deg) {
@@ -58,8 +60,8 @@ public class UnitTower extends Sprite {
                 (int) getX(),
                 (int) getY(),
                 getTexture().getWidth(),
-                (5f * ComonUtils.cos(deg)),
-                (5f * ComonUtils.sin(deg)),
+                (10f * ComonUtils.cos(deg)),
+                (10f * ComonUtils.sin(deg)),
                 Color.BLUE);
         bullets.add(ball);
     }
