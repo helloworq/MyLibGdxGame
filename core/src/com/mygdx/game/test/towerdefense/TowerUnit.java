@@ -49,8 +49,7 @@ public class TowerUnit extends Sprite {
         //https://github.com/libgdx/libgdx/issues/1186 shaperender和spritebatch同时渲染时会冲突
         //绘制攻击范围圈
         Texture bgTexture = new Texture(attackArea);
-        //batch.draw(bgTexture, getX(), getY());
-        batch.draw(bgTexture, (-attackSize / 2 + getX()), (-attackSize / 2 + getY()));
+        batch.draw(bgTexture, (-attackSize / 2f + getX()), (-attackSize / 2f + getY()));
 
         //绘制子弹
         for (Bullet ball : bullets) {
