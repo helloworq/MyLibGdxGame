@@ -60,17 +60,13 @@ public class RoadMapVisiable extends ApplicationAdapter {
         for (TileUnit b : tileMapSets) {
             b.draw(batch);
         }
-
-        //ComonUtils.onCollision(balls, bullets);
-
         //绘制怪物
         if (ghost != null) {
             ghost.draw(batch);
         }
-        if (count <= 0//cd
-                && step < rodeNodeSets.size()//确保不越界
-                && start//键盘事件
-        ) {
+        //ComonUtils.onCollision(balls, bullets);
+
+        if (step < rodeNodeSets.size() && start) {
             Node node = rodeNodeSets.get(step);
             for (TileUnit tower : tileMapSets) {
                 if (tower.getMapOriginPosition().x == node.x &&
@@ -83,7 +79,6 @@ public class RoadMapVisiable extends ApplicationAdapter {
             count = 5;
             step++;
         }
-
         count--;
 
         //绘制炮塔
@@ -94,8 +89,9 @@ public class RoadMapVisiable extends ApplicationAdapter {
                 arrowTower.attack(d);
             }
         }
-
         arrowTower.draw(batch);
+
+
         batch.end();
     }
 

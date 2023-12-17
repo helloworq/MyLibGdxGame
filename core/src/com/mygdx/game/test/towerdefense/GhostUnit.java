@@ -17,8 +17,9 @@ public class GhostUnit extends Sprite {
     private Node                             gameOriginPosition;//游戏中的位置数据（没有和地图长宽相乘的数据）
     private Node                             gameFinalPosition;//游戏中的位置数据
     private CopyOnWriteArrayList<BulletUnit> bulletUnits = new CopyOnWriteArrayList<>();
-    private float  cd;
-    private Pixmap attackArea;
+    private float                            cd;
+    private Pixmap                           attackArea;
+    private float                            speed       = 1f;
 
     public GhostUnit(float x, float y, Color color, String texturePath) {
         super(new Texture(Gdx.files.internal(texturePath)));
@@ -55,6 +56,10 @@ public class GhostUnit extends Sprite {
                 (10f * ComonUtils.sin(deg)),
                 "tower/scourge.png");
         bulletUnits.add(ball);
+    }
+
+    public void move() {
+
     }
 
     //getter setter
