@@ -40,12 +40,6 @@ public class GhostUnit extends Sprite {
 
     public void draw(Batch batch) {
         super.draw(batch);
-
-        //https://github.com/libgdx/libgdx/issues/1186 shaperender和spritebatch同时渲染时会冲突
-        //绘制攻击范围圈
-        Texture bgTexture = new Texture(attackArea);
-        batch.draw(bgTexture, (-attackSize / 2f + getX()), (-attackSize / 2f + getY()));
-
         //绘制子弹
         for (BulletUnit ball : bulletUnits) {
             batch.draw(ball.getTexture(), ball.getX(), ball.getY());

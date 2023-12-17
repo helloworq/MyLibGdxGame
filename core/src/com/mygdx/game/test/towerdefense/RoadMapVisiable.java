@@ -19,7 +19,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
     SpriteBatch    batch;
     int            width;
     int            height;
-    int            count  = 20;
+    int            count  = 5;
     List<TileUnit> tileMapSets;
     List<Node>     rodeNodeSets;
     GhostUnit      ghost;
@@ -58,16 +58,19 @@ public class RoadMapVisiable extends ApplicationAdapter {
         batch.begin();
         //绘制地图
         for (TileUnit b : tileMapSets) {
-            batch.draw(b.getTexture(), b.getX(), b.getY());
+            b.draw(batch);
         }
 
         //ComonUtils.onCollision(balls, bullets);
 
         //绘制怪物
         if (ghost != null) {
-            batch.draw(ghost.getTexture(), ghost.getX(), ghost.getY());
+            ghost.draw(batch);
         }
-        if (count <= 0 && step < rodeNodeSets.size() && start) {
+        if (count <= 0//cd
+                && step < rodeNodeSets.size()//确保不越界
+                && start//键盘事件
+        ) {
             Node node = rodeNodeSets.get(step);
             for (TileUnit tower : tileMapSets) {
                 if (tower.getMapOriginPosition().x == node.x &&
@@ -77,9 +80,10 @@ public class RoadMapVisiable extends ApplicationAdapter {
                     break;
                 }
             }
-            count = 20;
+            count = 5;
             step++;
         }
+
         count--;
 
         //绘制炮塔

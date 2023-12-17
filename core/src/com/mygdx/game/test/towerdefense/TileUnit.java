@@ -38,21 +38,6 @@ public class TileUnit extends Sprite {
         attackArea.drawCircle(attackSize / 2, attackSize / 2, attackSize / 2);
     }
 
-    public void draw(Batch batch) {
-        super.draw(batch);
-
-        //https://github.com/libgdx/libgdx/issues/1186 shaperender和spritebatch同时渲染时会冲突
-        //绘制攻击范围圈
-        Texture bgTexture = new Texture(attackArea);
-        batch.draw(bgTexture, (-attackSize / 2f + getX()), (-attackSize / 2f + getY()));
-
-        //绘制子弹
-        for (BulletUnit ball : bulletUnits) {
-            batch.draw(ball.getTexture(), ball.getX(), ball.getY());
-            ball.update();
-        }
-    }
-
     public void attack(float deg) {
         BulletUnit ball = new BulletUnit(
                 (int) getX(),
