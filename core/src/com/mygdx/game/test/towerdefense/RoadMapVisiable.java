@@ -16,19 +16,19 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class RoadMapVisiable extends ApplicationAdapter {
-    SpriteBatch     batch;
-    int             width;
-    int             height;
-    int             count  = 20;
-    List<TowerUnit> tileMapSets;
-    List<Node>      rodeNodeSets;
-    TowerUnit       ghost;
-    TowerUnit       arrowTower;
-    int             step   = 0;
-    boolean         start  = false;
-    int             bx     = 208;
-    int             by     = 335;
-    float           fixDeg = 45f;//普通图片有45°的倾角，在此进行补足
+    SpriteBatch    batch;
+    int            width;
+    int            height;
+    int            count  = 20;
+    List<TileUnit> tileMapSets;
+    List<Node>     rodeNodeSets;
+    GhostUnit      ghost;
+    TowerUnit      arrowTower;
+    int            step   = 0;
+    boolean        start  = false;
+    int            bx     = 208;
+    int            by     = 335;
+    float          fixDeg = 45f;//普通图片有45°的倾角，在此进行补足
 
     @Override
     public void create() {
@@ -40,6 +40,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
         rodeNodeSets = RoadMap.findPath();
 
         arrowTower = new TowerUnit(bx, by, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png");
+        ghost = new GhostUnit(0, 0, Color.WHITE, "tower/sword.png");
 
         Gdx.input.setInputProcessor(new InputAdapter() {
             @Override
@@ -56,7 +57,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         batch.begin();
         //绘制地图
-        for (TowerUnit b : tileMapSets) {
+        for (TileUnit b : tileMapSets) {
             batch.draw(b.getTexture(), b.getX(), b.getY());
         }
 
@@ -68,10 +69,11 @@ public class RoadMapVisiable extends ApplicationAdapter {
         }
         if (count <= 0 && step < rodeNodeSets.size() && start) {
             Node node = rodeNodeSets.get(step);
-            for (TowerUnit tower : tileMapSets) {
+            for (TileUnit tower : tileMapSets) {
                 if (tower.getMapOriginPosition().x == node.x &&
                         tower.getMapOriginPosition().y == node.y) {
-                    ghost = tower;
+                    ghost.setX(tower.getGameFinalPosition().x);
+                    ghost.setY(tower.getGameFinalPosition().y);
                     break;
                 }
             }
@@ -82,9 +84,8 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         //绘制炮塔
         if (ghost != null) {
-            if (ComonUtils.distance(ghost.getGameFinalPosition().x, ghost.getGameFinalPosition().y, bx, by)
-                    < (ghost.getAttackSize() + arrowTower.getAttackSize()/2f)) {
-                float d = (float) ((Math.atan2(ghost.getGameFinalPosition().y - by, ghost.getGameFinalPosition().x - bx)) * (180 / Math.PI));
+            if (ComonUtils.distance(ghost.getX(), ghost.getY(), bx, by) < (ghost.getAttackSize() + arrowTower.getAttackSize() / 2f)) {
+                float d = (float) ((Math.atan2(ghost.getY() - by, ghost.getX() - bx)) * (180 / Math.PI));
                 arrowTower.setRotation(d - fixDeg);
                 arrowTower.attack(d);
             }

@@ -8,35 +8,35 @@ import java.util.List;
 public class RoadMapTransformer {
     private static final int ballSize = 10;
 
-    public static List<TowerUnit> transform(int width, int height) {
-        List<TowerUnit> balls       = new ArrayList<>();
-        int             widthSplit  = width / (RoadMap.Y);
-        int             heightSplit = height / (RoadMap.X);
+    public static List<TileUnit> transform(int width, int height) {
+        List<TileUnit> tiles       = new ArrayList<>();
+        int            widthSplit  = width / (RoadMap.Y);
+        int            heightSplit = height / (RoadMap.X);
 
         for (int i = 0; i < RoadMap.X; i++) {
             for (int j = 0; j < RoadMap.Y; j++) {
-                TowerUnit ball;
+                TileUnit tile;
                 if (RoadMap.MAP[i][j] == RoadMap.RODE) {
-                    ball = new TowerUnit(
+                    tile = new TileUnit(
                             heightSplit * j + ballSize,
                             widthSplit * (RoadMap.X - i) + ballSize,
                             Color.SLATE,
                             "tower/transmutation.png"
                     );
                 } else {
-                    ball = new TowerUnit(
+                    tile = new TileUnit(
                             heightSplit * j + ballSize,
                             widthSplit * (RoadMap.X - i) + ballSize,
                             Color.BROWN,
                             "tower/necromancy.png"
                     );
                 }
-                ball.setMapOriginPosition(new Node(i, j));
-                ball.setGameOriginPosition(new Node(j, RoadMap.X - i));
-                ball.setGameFinalPosition(new Node(heightSplit * j + ballSize, widthSplit * (RoadMap.X - i) + ballSize));
-                balls.add(ball);
+                tile.setMapOriginPosition(new Node(i, j));
+                tile.setGameOriginPosition(new Node(j, RoadMap.X - i));
+                tile.setGameFinalPosition(new Node(heightSplit * j + ballSize, widthSplit * (RoadMap.X - i) + ballSize));
+                tiles.add(tile);
             }
         }
-        return balls;
+        return tiles;
     }
 }

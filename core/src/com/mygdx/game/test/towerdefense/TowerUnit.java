@@ -14,14 +14,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * 炮塔 怪物 地图的基类
  */
 public class TowerUnit extends Sprite {
-    private int                          attackSize;
-    private Color                        color;
-    private Node                         mapOriginPosition;//自定义地图中二维数组地图的位置数据
-    private Node                         gameOriginPosition;//游戏中的位置数据（没有和地图长宽相乘的数据）
+    private int                              attackSize;
+    private Color                            color;
+    private Node                             mapOriginPosition;//自定义地图中二维数组地图的位置数据
+    private Node                             gameOriginPosition;//游戏中的位置数据（没有和地图长宽相乘的数据）
     private Node                             gameFinalPosition;//游戏中的位置数据
     private CopyOnWriteArrayList<BulletUnit> bulletUnits = new CopyOnWriteArrayList<>();
     private float                            cd;
-    private Pixmap                       attackArea;
+    private Pixmap                           attackArea;
 
     public TowerUnit(float x, float y, Color color, String texturePath) {
         super(new Texture(Gdx.files.internal(texturePath)));
