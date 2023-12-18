@@ -14,33 +14,64 @@ public class RoadMap {
     static       int     Y       = 20;
     static       int[][] MAP     = new int[][]{
             {RODE, WALL, RODE, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, RODE, RODE, RODE, RODE, RODE, RODE, RODE, WALL, WALL},
-            {RODE, WALL, RODE, WALL, WALL, WALL, WALL, WALL, RODE, RODE, RODE, RODE, WALL, WALL, WALL, WALL, WALL, RODE, RODE, RODE},
-            {RODE, WALL, RODE, WALL, WALL, WALL, WALL, WALL, RODE, WALL, WALL, WALL, RODE, RODE, RODE, WALL, WALL, WALL, WALL, RODE},
-            {RODE, WALL, RODE, WALL, RODE, RODE, RODE, WALL, RODE, WALL, RODE, RODE, RODE, WALL, RODE, RODE, RODE, RODE, RODE, RODE},
-            {RODE, WALL, RODE, RODE, RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL},
-            {RODE, WALL, WALL, WALL, WALL, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, RODE, RODE, RODE, WALL, RODE, RODE, RODE},
-            {RODE, WALL, WALL, WALL, WALL, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, WALL, RODE, WALL, RODE, WALL, RODE},
-            {RODE, WALL, WALL, WALL, WALL, WALL, RODE, WALL, RODE, WALL, RODE, RODE, RODE, WALL, WALL, RODE, RODE, RODE, WALL, RODE},
-            {RODE, WALL, WALL, WALL, WALL, WALL, RODE, WALL, RODE, RODE, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, RODE},
-            {RODE, WALL, WALL, WALL, WALL, WALL, RODE, WALL, WALL, RODE, WALL, WALL, WALL, RODE, RODE, RODE, RODE, RODE, RODE, RODE},
-            {RODE, WALL, WALL, WALL, WALL, WALL, RODE, RODE, WALL, RODE, RODE, RODE, WALL, RODE, WALL, WALL, WALL, WALL, WALL, WALL},
-            {RODE, WALL, WALL, WALL, WALL, WALL, WALL, RODE, WALL, WALL, WALL, RODE, WALL, RODE, WALL, RODE, RODE, RODE, WALL, WALL},
-            {RODE, WALL, WALL, WALL, WALL, WALL, WALL, RODE, RODE, RODE, RODE, RODE, WALL, RODE, RODE, RODE, WALL, RODE, RODE, RODE},
+            {RODE, WALL, RODE, WALL, RODE, RODE, RODE, WALL, RODE, RODE, RODE, RODE, WALL, WALL, WALL, WALL, WALL, RODE, RODE, RODE},
+            {RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, WALL, WALL, RODE, RODE, RODE, WALL, WALL, WALL, WALL, RODE},
+            {RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, RODE, RODE, WALL, RODE, RODE, RODE, RODE, RODE, RODE},
+            {RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL},
+            {RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, RODE, RODE, RODE, WALL, RODE, RODE, RODE},
+            {RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, WALL, RODE, WALL, RODE, WALL, RODE},
+            {RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, RODE, RODE, WALL, WALL, RODE, RODE, RODE, WALL, RODE},
+            {RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, RODE, RODE, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, RODE},
+            {RODE, WALL, RODE, WALL, RODE, WALL, RODE, WALL, WALL, RODE, WALL, WALL, WALL, RODE, RODE, RODE, RODE, RODE, RODE, RODE},
+            {RODE, WALL, RODE, WALL, RODE, WALL, RODE, RODE, WALL, RODE, RODE, RODE, WALL, RODE, WALL, WALL, WALL, WALL, WALL, WALL},
+            {RODE, WALL, RODE, WALL, RODE, WALL, WALL, RODE, WALL, WALL, WALL, RODE, WALL, RODE, WALL, RODE, RODE, RODE, WALL, WALL},
+            {RODE, WALL, RODE, RODE, RODE, WALL, WALL, RODE, RODE, RODE, RODE, RODE, WALL, RODE, RODE, RODE, WALL, RODE, RODE, RODE},
             {RODE, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, RODE},
             {RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE, RODE,},
     };
 
     public static void main(String[] args) {
-        findPath();
+        findPath(null, 0);
     }
 
-    public static List<Node> findPath() {
+    public static List<Node> findPath(List<TileUnit> tileMapSets, int split) {
         List<Node> nodes = new LinkedList<>();
-
-        int[][] map = ComonUtils.deepCopy(MAP);
+        int[][]    map   = ComonUtils.deepCopy(MAP);
 
         doFind(map, 0, 0, nodes);
-        return nodes;
+
+        List<Node> detailNodes = new LinkedList<>();
+        //将map坐标转化为细粒度的像素坐标
+        TileUnit currentTile, nextTile;
+        for (int i = 0; i < nodes.size() - 1; i++) {
+            //tile node
+            currentTile = findTile(tileMapSets, nodes.get(i));
+            nextTile = findTile(tileMapSets, nodes.get(i + 1));
+            if (currentTile.getGameFinalPosition().x != nextTile.getGameFinalPosition().x) {
+                float splitWidth = (nextTile.getGameFinalPosition().x - currentTile.getGameFinalPosition().x) / split;
+                for (int j = 0; j < split; j++) {
+                    Node node = new Node(currentTile.getGameFinalPosition().x + (j * splitWidth), currentTile.getGameFinalPosition().y);
+                    detailNodes.add(node);
+                }
+            } else if (currentTile.getGameFinalPosition().y != nextTile.getGameFinalPosition().y) {
+                float splitWidth = (nextTile.getGameFinalPosition().y - currentTile.getGameFinalPosition().y) / split;
+                for (int j = 0; j < split; j++) {
+                    Node node = new Node(currentTile.getGameFinalPosition().x, currentTile.getGameFinalPosition().y + (j * splitWidth));
+                    detailNodes.add(node);
+                }
+            }
+        }
+        return detailNodes;
+    }
+
+    private static TileUnit findTile(List<TileUnit> tileMapSets, Node node) {
+        for (TileUnit tower : tileMapSets) {
+            if (tower.getMapOriginPosition().x == node.x &&
+                    tower.getMapOriginPosition().y == node.y) {
+                return tower;
+            }
+        }
+        return null;
     }
 
     //public static void transformer

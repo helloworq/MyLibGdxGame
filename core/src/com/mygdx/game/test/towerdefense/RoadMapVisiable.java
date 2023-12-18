@@ -19,7 +19,6 @@ public class RoadMapVisiable extends ApplicationAdapter {
     SpriteBatch    batch;
     int            width;
     int            height;
-    int            count  = 5;
     List<TileUnit> tileMapSets;
     List<Node>     rodeNodeSets;
     GhostUnit      ghost;
@@ -37,7 +36,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
         height = Gdx.graphics.getHeight() - 20;
 
         tileMapSets = RoadMapTransformer.transform(width, height);
-        rodeNodeSets = RoadMap.findPath();
+        rodeNodeSets = RoadMap.findPath(tileMapSets, 5);
 
         arrowTower = new TowerUnit(bx, by, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png");
         ghost = new GhostUnit(0, 0, Color.WHITE, "tower/sword.png");
@@ -68,25 +67,17 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         if (step < rodeNodeSets.size() && start) {
             Node node = rodeNodeSets.get(step);
-            for (TileUnit tower : tileMapSets) {
-                if (tower.getMapOriginPosition().x == node.x &&
-                        tower.getMapOriginPosition().y == node.y) {
-                    ghost.setX(tower.getGameFinalPosition().x);
-                    ghost.setY(tower.getGameFinalPosition().y);
-                    break;
-                }
-            }
-            count = 5;
+            ghost.setX(node.x);
+            ghost.setY(node.y);
             step++;
         }
-        count--;
 
         //绘制炮塔
         if (ghost != null) {
             if (ComonUtils.distance(ghost.getX(), ghost.getY(), bx, by) < (ghost.getAttackSize() + arrowTower.getAttackSize() / 2f)) {
                 float d = (float) ((Math.atan2(ghost.getY() - by, ghost.getX() - bx)) * (180 / Math.PI));
                 arrowTower.setRotation(d - fixDeg);
-                arrowTower.attack(d);
+                //arrowTower.attack(d);
             }
         }
         arrowTower.draw(batch);

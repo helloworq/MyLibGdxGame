@@ -1,10 +1,10 @@
 package com.mygdx.game.test.towerdefense;
 
 public class Node {
-    public int x;
-    public int y;
+    public float x;
+    public float y;
 
-    public Node(int x, int y) {
+    public Node(float x, float y) {
         this.x = x;
         this.y = y;
     }
