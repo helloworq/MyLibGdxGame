@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.mygdx.game.test.towerdefense.util.ComonUtils;
 
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GhostUnit extends Sprite {
@@ -20,6 +21,7 @@ public class GhostUnit extends Sprite {
     private float                            cd;
     private Pixmap                           attackArea;
     private float                            speed       = 1f;
+    private int                              step        = 0;
 
     public GhostUnit(float x, float y, Color color, String texturePath) {
         super(new Texture(Gdx.files.internal(texturePath)));
@@ -39,6 +41,13 @@ public class GhostUnit extends Sprite {
         attackArea.drawCircle(attackSize / 2, attackSize / 2, attackSize / 2);
     }
 
+    public void move(List<Node> rodeNodeSets) {
+        Node node = rodeNodeSets.get(Math.min(step, rodeNodeSets.size() - 1));
+        setX(node.x);
+        setY(node.y);
+        step++;
+    }
+
     public void draw(Batch batch) {
         super.draw(batch);
         //绘制子弹
@@ -56,10 +65,6 @@ public class GhostUnit extends Sprite {
                 (10f * ComonUtils.sin(deg)),
                 "tower/scourge.png");
         bulletUnits.add(ball);
-    }
-
-    public void move() {
-
     }
 
     //getter setter

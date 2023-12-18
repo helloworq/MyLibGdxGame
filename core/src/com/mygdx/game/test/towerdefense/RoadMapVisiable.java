@@ -59,30 +59,22 @@ public class RoadMapVisiable extends ApplicationAdapter {
         for (TileUnit b : tileMapSets) {
             b.draw(batch);
         }
-        //绘制怪物
-        if (ghost != null) {
-            ghost.draw(batch);
-        }
-        //ComonUtils.onCollision(balls, bullets);
 
+        //ComonUtils.onCollision(balls, bullets);
+        //绘制怪物
         if (step < rodeNodeSets.size() && start) {
-            Node node = rodeNodeSets.get(step);
-            ghost.setX(node.x);
-            ghost.setY(node.y);
-            step++;
+            ghost.move(rodeNodeSets);
+            ghost.draw(batch);
         }
 
         //绘制炮塔
-        if (ghost != null) {
-            if (ComonUtils.distance(ghost.getX(), ghost.getY(), bx, by) < (ghost.getAttackSize() + arrowTower.getAttackSize() / 2f)) {
-                float d = (float) ((Math.atan2(ghost.getY() - by, ghost.getX() - bx)) * (180 / Math.PI));
-                arrowTower.setRotation(d - fixDeg);
-                //arrowTower.attack(d);
-            }
+        if (ComonUtils.distance(ghost.getX(), ghost.getY(), bx, by) < (ghost.getAttackSize() + arrowTower.getAttackSize() / 2f)) {
+            float d = (float) ((Math.atan2(ghost.getY() - by, ghost.getX() - bx)) * (180 / Math.PI));
+            arrowTower.setRotation(d - fixDeg);
+            arrowTower.attack(d);
         }
+
         arrowTower.draw(batch);
-
-
         batch.end();
     }
 

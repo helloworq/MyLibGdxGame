@@ -60,8 +60,8 @@ public class TowerUnit extends Sprite {
         BulletUnit ball = new BulletUnit(
                 (int) getX(),
                 (int) getY(),
-                (10f * ComonUtils.cos(deg)),
-                (10f * ComonUtils.sin(deg)),
+                (20f * ComonUtils.cos(deg)),
+                (20f * ComonUtils.sin(deg)),
                 "tower/scourge.png");
         bulletUnits.add(ball);
     }
