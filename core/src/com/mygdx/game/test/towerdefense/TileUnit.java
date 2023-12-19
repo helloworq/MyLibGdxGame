@@ -38,6 +38,10 @@ public class TileUnit extends Sprite {
         attackArea.drawCircle(attackSize / 2, attackSize / 2, attackSize / 2);
     }
 
+    public void onClick() {
+
+    }
+
     public void attack(float deg) {
         BulletUnit ball = new BulletUnit(
                 (int) getX(),

@@ -43,11 +43,16 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         Gdx.input.setInputProcessor(new InputAdapter() {
             @Override
-            public boolean keyTyped(char character) {
-                start = true;
+            public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+                //start = true;
+                touchDownEvent(screenX, screenY, tileMapSets);
                 return true;
             }
         });
+    }
+
+    private void touchDownEvent(int x, int y, List<TileUnit> tileMapSets) {
+        System.out.println(x + "  " + y + "  " + (Gdx.graphics.getHeight() - y));
     }
 
     @Override
