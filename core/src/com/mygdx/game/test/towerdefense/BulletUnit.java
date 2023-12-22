@@ -15,14 +15,17 @@ public class BulletUnit extends Sprite {
         this.ySpeed = ySpeed;
     }
 
-    public void update() {
+    public BulletUnit update() {
         setPosition(getX() + xSpeed, getY() + ySpeed);
 
         if (getX() < 0 || getX() > Gdx.graphics.getWidth()) {
-            xSpeed = -xSpeed;
+            //xSpeed = -xSpeed;
+            return this;
         }
         if (getY() < 0 || getY() > Gdx.graphics.getHeight()) {
-            ySpeed = -ySpeed;
+            //ySpeed = -ySpeed;
+            return this;
         }
+        return null;
     }
 }

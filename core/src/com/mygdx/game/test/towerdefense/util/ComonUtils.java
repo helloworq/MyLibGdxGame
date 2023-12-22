@@ -1,5 +1,6 @@
 package com.mygdx.game.test.towerdefense.util;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.mygdx.game.ball.Ball;
 
 import java.util.Arrays;
@@ -11,12 +12,13 @@ public class ComonUtils {
         return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
     }
 
-    public static void onCollision(CopyOnWriteArrayList<Ball> a, CopyOnWriteArrayList<Ball> b) {
-        for (Ball ball : a) {
-            for (Ball bullet : b) {
-                if (ComonUtils.distance(bullet.x, bullet.y, ball.x, ball.y) < (ball.size + bullet.size)) {
-                    a.remove(bullet);
-                    b.remove(ball);
+    public static void onCollision(CopyOnWriteArrayList<? extends Sprite> a, CopyOnWriteArrayList<? extends Sprite> b) {
+        for (Sprite ball : a) {
+            for (Sprite bullet : b) {
+                if (ComonUtils.distance(bullet.getX(), bullet.getY(), ball.getX(), ball.getY())
+                        < (ball.getWidth() + bullet.getWidth())) {
+                    a.remove(ball);
+                    b.remove(bullet);
                 }
             }
         }

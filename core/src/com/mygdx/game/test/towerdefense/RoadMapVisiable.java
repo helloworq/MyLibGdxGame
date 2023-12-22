@@ -22,8 +22,6 @@ public class RoadMapVisiable extends ApplicationAdapter {
     CopyOnWriteArrayList<GhostUnit> ghosts;
     TowerUnit                       arrowTower;
     boolean                         start  = false;
-    int                             bx     = 208;
-    int                             by     = 335;
     float                           fixDeg = 45f;//普通图片有45°的倾角，在此进行补足
 
     @Override
@@ -33,9 +31,9 @@ public class RoadMapVisiable extends ApplicationAdapter {
         height = Gdx.graphics.getHeight() - 20;
 
         tileMapSets = RoadMapTransformer.transform(width, height);
-        rodeNodeSets = RoadMap.findPath(tileMapSets, 20);
+        rodeNodeSets = RoadMap.findPath(tileMapSets, 100);
 
-        arrowTower = new TowerUnit(bx, by, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png");
+        arrowTower = new TowerUnit(208f, 335f, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png");
         ghosts = new CopyOnWriteArrayList<>(Arrays.asList(new GhostUnit(0, 0, Color.WHITE, "tower/sword.png")));
 
         Gdx.input.setInputProcessor(new InputAdapter() {
@@ -50,7 +48,8 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
     private void touchDownEvent(int x, int y, List<TileUnit> tileMapSets) {
         ghosts.add(new GhostUnit(0, 0, Color.WHITE, "tower/sword.png"));
-        System.out.println(x + "  " + y + "  " + (Gdx.graphics.getHeight() - y));
+
+        //System.out.println(x + "  " + y + "  " + (Gdx.graphics.getHeight() - y));
     }
 
     @Override
@@ -63,7 +62,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
             b.draw(batch);
         }
 
-        //ComonUtils.onCollision(balls, bullets);
+        ComonUtils.onCollision(ghosts, arrowTower.getBullets());
         //绘制怪物
         if (start) {
             for (GhostUnit ghost : ghosts) {
@@ -74,10 +73,12 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         //绘制炮塔
         for (GhostUnit ghost : ghosts) {
-            if (ComonUtils.distance(ghost.getX(), ghost.getY(), bx, by) < (ghost.getAttackSize() + arrowTower.getAttackSize() / 2f)) {
-                float d = (float) ((Math.atan2(ghost.getY() - by, ghost.getX() - bx)) * (180 / Math.PI));
+            if (ComonUtils.distance(ghost.getX(), ghost.getY(), arrowTower.getX(), arrowTower.getY())
+                    < (ghost.getAttackSize() + arrowTower.getAttackSize() / 2f)) {
+                float d = (float) ((Math.atan2(ghost.getY() - arrowTower.getX(),
+                        ghost.getX() - arrowTower.getY())) * (180 / Math.PI));
                 arrowTower.setRotation(d - fixDeg);
-                //arrowTower.attack(d);
+                arrowTower.attack(d);
             }
         }
         arrowTower.draw(batch);

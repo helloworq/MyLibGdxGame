@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.mygdx.game.test.towerdefense.util.ComonUtils;
 
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -20,7 +21,8 @@ public class TowerUnit extends Sprite {
     private Node                             gameOriginPosition;//游戏中的位置数据（没有和地图长宽相乘的数据）
     private Node                             gameFinalPosition;//游戏中的位置数据
     private CopyOnWriteArrayList<BulletUnit> bulletUnits = new CopyOnWriteArrayList<>();
-    private float                            cd;
+    private float                            cd          = 1f;
+    private float                            currentTime = 0f;
     private Pixmap                           attackArea;
     private Texture                          attackAreaTexture;
 
@@ -51,20 +53,26 @@ public class TowerUnit extends Sprite {
         batch.draw(attackAreaTexture, (-attackSize / 2f + getX()), (-attackSize / 2f + getY()));
 
         //绘制子弹
-        for (BulletUnit ball : bulletUnits) {
-            batch.draw(ball.getTexture(), ball.getX(), ball.getY());
-            ball.update();
+        List<BulletUnit> toDelete = new CopyOnWriteArrayList<>();
+        for (BulletUnit bulletUnit : bulletUnits) {
+            batch.draw(bulletUnit.getTexture(), bulletUnit.getX(), bulletUnit.getY());
+            toDelete.add(bulletUnit.update());
         }
+        bulletUnits.removeAll(toDelete);
+        currentTime += Gdx.graphics.getDeltaTime();
     }
 
     public void attack(float deg) {
-        BulletUnit ball = new BulletUnit(
-                (int) getX(),
-                (int) getY(),
-                (20f * ComonUtils.cos(deg)),
-                (20f * ComonUtils.sin(deg)),
-                "tower/scourge.png");
-        bulletUnits.add(ball);
+        if (currentTime - Gdx.graphics.getDeltaTime() > cd) {
+            BulletUnit ball = new BulletUnit(
+                    (int) getX(),
+                    (int) getY(),
+                    (5f * ComonUtils.cos(deg)),
+                    (5f * ComonUtils.sin(deg)),
+                    "tower/scourge.png");
+            bulletUnits.add(ball);
+            currentTime = 0f;
+        }
     }
 
     //getter setter
