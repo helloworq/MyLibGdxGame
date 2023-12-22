@@ -22,6 +22,7 @@ public class TowerUnit extends Sprite {
     private CopyOnWriteArrayList<BulletUnit> bulletUnits = new CopyOnWriteArrayList<>();
     private float                            cd;
     private Pixmap                           attackArea;
+    private Texture                          attackAreaTexture;
 
     public TowerUnit(float x, float y, Color color, String texturePath) {
         super(new Texture(Gdx.files.internal(texturePath)));
@@ -39,6 +40,7 @@ public class TowerUnit extends Sprite {
 
         attackArea.setColor(Color.WHITE);
         attackArea.drawCircle(attackSize / 2, attackSize / 2, attackSize / 2);
+        attackAreaTexture = new Texture(attackArea);
     }
 
     public void draw(Batch batch) {
@@ -46,8 +48,7 @@ public class TowerUnit extends Sprite {
 
         //https://github.com/libgdx/libgdx/issues/1186 shaperender和spritebatch同时渲染时会冲突
         //绘制攻击范围圈
-        Texture bgTexture = new Texture(attackArea);
-        batch.draw(bgTexture, (-attackSize / 2f + getX()), (-attackSize / 2f + getY()));
+        batch.draw(attackAreaTexture, (-attackSize / 2f + getX()), (-attackSize / 2f + getY()));
 
         //绘制子弹
         for (BulletUnit ball : bulletUnits) {
