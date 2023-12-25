@@ -33,7 +33,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
         tileMapSets = RoadMapTransformer.transform(width, height);
         rodeNodeSets = RoadMap.findPath(tileMapSets, 100);
 
-        arrowTower = new TowerUnit(208f, 335f, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png");
+        arrowTower = new TowerUnit(202f, 320f, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png");
         ghosts = new CopyOnWriteArrayList<>(Arrays.asList(new GhostUnit(0, 0, Color.WHITE, "tower/sword.png")));
 
         Gdx.input.setInputProcessor(new InputAdapter() {
@@ -62,7 +62,9 @@ public class RoadMapVisiable extends ApplicationAdapter {
             b.draw(batch);
         }
 
+        //处理碰撞
         ComonUtils.onCollision(ghosts, arrowTower.getBullets());
+
         //绘制怪物
         if (start) {
             for (GhostUnit ghost : ghosts) {
@@ -75,8 +77,8 @@ public class RoadMapVisiable extends ApplicationAdapter {
         for (GhostUnit ghost : ghosts) {
             if (ComonUtils.distance(ghost.getX(), ghost.getY(), arrowTower.getX(), arrowTower.getY())
                     < (ghost.getAttackSize() + arrowTower.getAttackSize() / 2f)) {
-                float d = (float) ((Math.atan2(ghost.getY() - arrowTower.getX(),
-                        ghost.getX() - arrowTower.getY())) * (180 / Math.PI));
+                float d = (float) ((Math.atan2(ghost.getY() - arrowTower.getY(),
+                        ghost.getX() - arrowTower.getX())) * (180 / Math.PI));
                 arrowTower.setRotation(d - fixDeg);
                 arrowTower.attack(d);
             }

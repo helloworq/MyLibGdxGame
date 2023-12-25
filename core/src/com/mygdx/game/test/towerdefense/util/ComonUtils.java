@@ -12,13 +12,14 @@ public class ComonUtils {
         return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
     }
 
-    public static void onCollision(CopyOnWriteArrayList<? extends Sprite> a, CopyOnWriteArrayList<? extends Sprite> b) {
-        for (Sprite ball : a) {
-            for (Sprite bullet : b) {
+    public static void onCollision(CopyOnWriteArrayList<? extends Sprite> ghosts,
+                                   CopyOnWriteArrayList<? extends Sprite> bullets) {
+        for (Sprite ball : ghosts) {
+            for (Sprite bullet : bullets) {
                 if (ComonUtils.distance(bullet.getX(), bullet.getY(), ball.getX(), ball.getY())
                         < (ball.getWidth() + bullet.getWidth())) {
-                    a.remove(ball);
-                    b.remove(bullet);
+                    ghosts.remove(ball);
+                    bullets.remove(bullet);
                 }
             }
         }
