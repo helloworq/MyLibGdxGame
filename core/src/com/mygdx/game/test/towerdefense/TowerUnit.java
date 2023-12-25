@@ -21,7 +21,7 @@ public class TowerUnit extends Sprite {
     private Node                             gameOriginPosition;//游戏中的位置数据（没有和地图长宽相乘的数据）
     private Node                             gameFinalPosition;//游戏中的位置数据
     private CopyOnWriteArrayList<BulletUnit> bulletUnits = new CopyOnWriteArrayList<>();
-    private float                            cd          = 1f;
+    private float                            cd          = 0.2f;
     private float                            currentTime = 0f;
     private Pixmap                           attackArea;
     private Texture                          attackAreaTexture;
