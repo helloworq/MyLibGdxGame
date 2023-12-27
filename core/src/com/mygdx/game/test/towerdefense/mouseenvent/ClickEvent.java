@@ -8,5 +8,5 @@ import java.util.function.Consumer;
 
 @FunctionalInterface
 public interface ClickEvent {
-    void react(int x, int y, List<Texture> textureList, SpriteBatch batch);
+    void react(int x, int y, List<Unit> textureList, SpriteBatch batch);
 }
