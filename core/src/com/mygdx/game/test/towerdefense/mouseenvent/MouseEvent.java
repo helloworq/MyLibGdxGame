@@ -50,14 +50,20 @@ public class MouseEvent extends ApplicationAdapter {
         sword = new Unit(new Texture(Gdx.files.internal("tower/sword.png")), 999);
         sword.onClick((x, y, textureList, batch) -> {
             eventChain.getRootEvent().setTexture(sword.getTexture());
+            eventChain.clear();
+            curLayer = map;
         });
         necromancy = new Unit(new Texture(Gdx.files.internal("tower/necromancy.png")), 999);
         necromancy.onClick((x, y, textureList, batch) -> {
             eventChain.getRootEvent().setTexture(necromancy.getTexture());
+            eventChain.clear();
+            curLayer = map;
         });
         scourge = new Unit(new Texture(Gdx.files.internal("tower/scourge.png")), 999);
         scourge.onClick((x, y, textureList, batch) -> {
             eventChain.getRootEvent().setTexture(scourge.getTexture());
+            eventChain.clear();
+            curLayer = map;
         });
         options = Arrays.asList(scourge, sword, necromancy);
 

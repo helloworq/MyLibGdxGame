@@ -13,6 +13,6 @@ public class DesktopLauncher {
 		config.setTitle("My GDX Game");
 		config.setWindowedMode(650,500);
 
-		new Lwjgl3Application(new RoadMapVisiable(), config);
+		new Lwjgl3Application(new MouseEvent(), config);
 	}
 }
