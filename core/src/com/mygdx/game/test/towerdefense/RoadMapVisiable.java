@@ -20,7 +20,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
     List<TileUnit>                  tileMapSets;
     List<Node>                      rodeNodeSets;
     CopyOnWriteArrayList<GhostUnit> ghosts;
-    TowerUnit                       arrowTower;
+    List<TowerUnit>                 arrowTowers;
     boolean                         start  = false;
     float                           fixDeg = 45f;//普通图片有45°的倾角，在此进行补足
 
@@ -31,10 +31,13 @@ public class RoadMapVisiable extends ApplicationAdapter {
         height = Gdx.graphics.getHeight() - 20;
 
         tileMapSets = RoadMapTransformer.transform(width, height);
-        rodeNodeSets = RoadMap.findPath(tileMapSets, 100);
+        rodeNodeSets = RoadMap.findPath(tileMapSets, 40);
 
-        arrowTower = new TowerUnit(202f, 320f, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png");
-        ghosts = new CopyOnWriteArrayList<>(Arrays.asList(new GhostUnit(0, 0, Color.WHITE, "tower/sword.png")));
+        arrowTowers = new CopyOnWriteArrayList<>(Arrays.asList(
+                new TowerUnit(202f, 320f, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png"),
+                new TowerUnit(252f, 320f, TowerConstant.NORMAL_TOWER_ATTACK_RANGE, Color.WHITE, "tower/sword.png")
+        ));
+        ghosts = new CopyOnWriteArrayList<>(Arrays.asList(new GhostUnit(0, 0, "tower/sword.png")));
 
         Gdx.input.setInputProcessor(new InputAdapter() {
             @Override
@@ -47,7 +50,7 @@ public class RoadMapVisiable extends ApplicationAdapter {
     }
 
     private void touchDownEvent(int x, int y, List<TileUnit> tileMapSets) {
-        ghosts.add(new GhostUnit(0, 0, Color.WHITE, "tower/sword.png"));
+        ghosts.add(new GhostUnit(0, 0, "tower/sword.png"));
 
         //System.out.println(x + "  " + y + "  " + (Gdx.graphics.getHeight() - y));
     }
@@ -63,7 +66,9 @@ public class RoadMapVisiable extends ApplicationAdapter {
         }
 
         //处理碰撞
-        ComonUtils.onCollision(ghosts, arrowTower.getBullets());
+        for (TowerUnit arrowTower : arrowTowers) {
+            ComonUtils.onCollision(ghosts, arrowTower.getBullets());
+        }
 
         //绘制怪物
         if (start) {
@@ -75,15 +80,20 @@ public class RoadMapVisiable extends ApplicationAdapter {
 
         //绘制炮塔
         for (GhostUnit ghost : ghosts) {
-            if (ComonUtils.distance(ghost.getX(), ghost.getY(), arrowTower.getX(), arrowTower.getY())
-                    < (ghost.getAttackSize() + arrowTower.getAttackSize() / 2f)) {
-                float d = (float) ((Math.atan2(ghost.getY() - arrowTower.getY(),
-                        ghost.getX() - arrowTower.getX())) * (180 / Math.PI));
-                arrowTower.setRotation(d - fixDeg);
-                arrowTower.attack(d);
+            for (TowerUnit arrowTower : arrowTowers) {
+                if (ComonUtils.distance(ghost.getX(), ghost.getY(), arrowTower.getX(), arrowTower.getY())
+                        < (ghost.getAttackSize() + arrowTower.getAttackSize() / 2f)) {
+                    float d = (float) ((Math.atan2(ghost.getY() - arrowTower.getY(),
+                            ghost.getX() - arrowTower.getX())) * (180 / Math.PI));
+                    arrowTower.setRotation(d - fixDeg);
+                    arrowTower.attack(d);
+                }
             }
         }
-        arrowTower.draw(batch);
+
+        for (TowerUnit arrowTower : arrowTowers) {
+            arrowTower.draw(batch);
+        }
 
         batch.end();
     }

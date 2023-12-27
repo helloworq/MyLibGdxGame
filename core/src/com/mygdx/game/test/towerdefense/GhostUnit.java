@@ -13,7 +13,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GhostUnit extends Sprite {
     private int                              attackSize;
-    private Color                            color;
     private Node                             mapOriginPosition;//自定义地图中二维数组地图的位置数据
     private Node                             gameOriginPosition;//游戏中的位置数据（没有和地图长宽相乘的数据）
     private Node                             gameFinalPosition;//游戏中的位置数据
@@ -23,18 +22,16 @@ public class GhostUnit extends Sprite {
     private float                            speed       = 1f;
     private int                              step        = 0;
 
-    public GhostUnit(float x, float y, Color color, String texturePath) {
+    public GhostUnit(float x, float y, String texturePath) {
         super(new Texture(Gdx.files.internal(texturePath)));
         setPosition(x, y);
         this.attackSize = getTexture().getWidth();
-        this.color = color;
     }
 
-    public GhostUnit(float x, float y, int attackSize, Color color, String texturePath) {
+    public GhostUnit(float x, float y, int attackSize, String texturePath) {
         super(new Texture(Gdx.files.internal(texturePath)));
         setPosition(x, y);
         this.attackSize = attackSize;
-        this.color = color;
         this.attackArea = new Pixmap(attackSize, attackSize, Pixmap.Format.RGBA8888);
 
         attackArea.setColor(Color.WHITE);
@@ -82,14 +79,6 @@ public class GhostUnit extends Sprite {
 
     public void setAttackSize(int attackSize) {
         this.attackSize = attackSize;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
     }
 
     public Node getMapOriginPosition() {
