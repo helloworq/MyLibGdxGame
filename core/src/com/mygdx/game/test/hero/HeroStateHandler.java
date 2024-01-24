@@ -171,6 +171,7 @@ public class HeroStateHandler {
             case ATTACK_HORIZONTAL_RIGHT: {
                 if (null != keyCode) {
                     //如果是键盘事件
+                    hero.setStateTime(0f);
                     if ('w' == keyCode) {
                         hero.setState(HeroState.JUMP_RIGHT);
                     } else if ('a' == keyCode) {
@@ -212,6 +213,7 @@ public class HeroStateHandler {
             case ATTACK_DOWN_RIGHT: {
                 if (null != keyCode) {
                     //如果是键盘事件
+                    hero.setStateTime(0f);
                     if ('w' == keyCode) {
                         hero.setState(HeroState.JUMP_RIGHT);
                     } else if ('a' == keyCode) {

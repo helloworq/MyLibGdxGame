@@ -13,6 +13,9 @@ public abstract class Unit {
     private boolean   floating;//是否悬浮空中
     private boolean   isAttacking;//是否在攻击状态
     private HeroState state;//角色状态
+    private float speedX;//角色跑步速度
+    private Body body;//box2d对象
+    private float stateTime;
 
     public float getSpeedX() {
         return speedX;
@@ -22,8 +25,6 @@ public abstract class Unit {
         this.speedX = speedX;
     }
 
-    private float speedX;//角色跑步速度
-
     public Body getBody() {
         return body;
     }
@@ -32,8 +33,6 @@ public abstract class Unit {
         this.body = body;
     }
 
-    private Body body;//box2d对象
-
     public float getStateTime() {
         return stateTime;
     }
@@ -41,8 +40,6 @@ public abstract class Unit {
     public void setStateTime(float stateTime) {
         this.stateTime = stateTime;
     }
-
-    private float stateTime;
 
     public HeroState getState() {
         return state;

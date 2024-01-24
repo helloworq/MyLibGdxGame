@@ -35,7 +35,7 @@ public enum HeroState {
 
     public Animation<TextureRegion> textureRegion;
 
-    private HeroState(Animation<TextureRegion> textureRegion) {
+    HeroState(Animation<TextureRegion> textureRegion) {
         this.textureRegion = textureRegion;
     }
 }
