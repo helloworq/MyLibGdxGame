@@ -11,8 +11,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import org.graalvm.compiler.core.common.util.BitMap2D;
-
 public class BloodTester extends ApplicationAdapter {
 
     private SpriteBatch        batch;

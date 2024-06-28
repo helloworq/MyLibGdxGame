@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.mygdx.game.test.hero.HeroTests;
+import com.mygdx.game.test.towerdefense.BloodTester;
 import com.mygdx.game.test.towerdefense.RoadMapVisiable;
 import com.mygdx.game.test.towerdefense.mouseenvent.MouseEvent;
 
@@ -14,6 +15,6 @@ public class DesktopLauncher {
 		config.setTitle("My GDX Game");
 		config.setWindowedMode(650,500);
 
-		new Lwjgl3Application(new HeroTests(), config);
+		new Lwjgl3Application(new RoadMapVisiable(), config);
 	}
 }

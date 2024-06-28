@@ -81,11 +81,9 @@ public class RoadMapVisiable extends ApplicationAdapter {
         //绘制炮塔
         for (GhostUnit ghost : ghosts) {
             for (TowerUnit arrowTower : arrowTowers) {
-                if (ComonUtils.distance(ghost.getX(), ghost.getY(), arrowTower.getX(), arrowTower.getY())
-                        < (ghost.getAttackSize() + arrowTower.getAttackSize() / 2f)) {
-                    float d = (float) ((Math.atan2(ghost.getY() - arrowTower.getY(),
-                            ghost.getX() - arrowTower.getX())) * (180 / Math.PI));
-                    arrowTower.setRotation(d - fixDeg);
+                if (ComonUtils.distance(ghost.getX(), ghost.getY(), arrowTower.getX(), arrowTower.getY()) < (ghost.getAttackSize() + arrowTower.getAttackSize() / 2f)) {
+                    float d = (float) ((Math.atan2(ghost.getY() - arrowTower.getY(), ghost.getX() - arrowTower.getX())) * (180 / Math.PI));
+                    //arrowTower.setRotation(d - fixDeg);
                     arrowTower.attack(d);
                 }
             }
