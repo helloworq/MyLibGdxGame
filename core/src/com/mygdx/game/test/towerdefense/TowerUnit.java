@@ -25,6 +25,7 @@ public class TowerUnit extends Sprite {
     private float                            currentTime = 0f;
     private Pixmap                           attackArea;
     private Texture                          attackAreaTexture;
+    private float                            fixDeg = 45f;//普通图片有45°的倾角，在此进行补足
 
     public TowerUnit(float x, float y, Color color, String texturePath) {
         super(new Texture(Gdx.files.internal(texturePath)));
@@ -64,7 +65,7 @@ public class TowerUnit extends Sprite {
 
     public void attack(float deg) {
         if (currentTime - Gdx.graphics.getDeltaTime() > cd) {
-            setRotation(deg-45f);
+            setRotation(deg - fixDeg);
             BulletUnit ball = new BulletUnit(
                     (int) getX(),
                     (int) getY(),
