@@ -62,7 +62,7 @@ public class Hero extends Unit {
             setStateTime(0f);
         }
         TextureRegion r = current.getKeyFrame(getStateTime());
-        //System.out.println("->" + r + "  " + getStateTime());
+
         return r;
     }
 }

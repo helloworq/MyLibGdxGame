@@ -31,7 +31,7 @@ public class HeroStateHandler {
 
     private void update(Character keyCode, boolean animationComplete, boolean isAttacked) {
         if (count>60) {
-            hero.setStateTime(0f);//强制结束之前动画时需要重新累计帧时间
+            hero.setStateTime(0.5f);//强制结束之前动画时需要重新累计帧时间
             count = 0;
         }
         switch (hero.getState()) {

@@ -49,6 +49,7 @@ public abstract class Unit {
     }
 
     public void setState(HeroState state) {
+        setStateTime(0f);
         this.state = state;
     }
 
