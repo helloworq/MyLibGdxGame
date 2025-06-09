@@ -51,6 +51,10 @@ public class HeroStateHandler {
                         hero.getBody().setLinearVelocity(hero.getSpeedX(), hero.getBody().getLinearVelocity().y);
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_RIGHT);
+                        hero.createBulletBody();
+                    }
+                    else if ('k' == keyCode) {
+                        hero.createBody();
                     } else break;//强制结束之前动画时需要重新累计帧时间
                 }
                 if (animationComplete) {

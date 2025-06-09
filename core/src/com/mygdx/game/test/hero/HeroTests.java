@@ -17,15 +17,15 @@ import com.mygdx.game.resources.GlobalConstant;
 import com.mygdx.game.resources.WorldResources;
 
 public class HeroTests extends ApplicationAdapter {
-    private SpriteBatch        batch;
+    private SpriteBatch batch;
     private OrthographicCamera camera;
-    private World              world;
+    private World world;
     private Box2DDebugRenderer debugRenderer;
     HeroStateHandler heroStateHandler;
 
     Hero hero;
 
-    private TiledMap         map;
+    private TiledMap map;
     private TiledMapRenderer renderer;
 
     @Override
@@ -34,7 +34,7 @@ public class HeroTests extends ApplicationAdapter {
         world = WorldResources.WORLD;
         debugRenderer = new Box2DDebugRenderer();
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, 32, 32);//地图尺寸32*32
+        camera.setToOrtho(false, Gdx.graphics.getWidth() / 32f, Gdx.graphics.getHeight() / 32f);//地图尺寸32*32
         camera.update();
 
 

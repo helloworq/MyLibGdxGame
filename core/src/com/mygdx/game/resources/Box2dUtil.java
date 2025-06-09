@@ -3,12 +3,7 @@ package com.mygdx.game.resources;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.MapProperties;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.Fixture;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.physics.box2d.*;
 
 public class Box2dUtil {
     public static void buildStaticBody(MapObjects mapObjects, World world) {
@@ -35,6 +30,12 @@ public class Box2dUtil {
             fixtureDef.shape = bodyShape;// 形状
             fixtureDef.friction = 0.5f;
             Fixture fixture = bodyody.createFixture(fixtureDef); // 静态物体的质量应该设为0
+
+            //设置碰撞过滤
+            Filter filter = new Filter();
+            filter.categoryBits = 0x0001;
+            filter.maskBits = 0x0002 | 0x0004;
+            fixture.setFilterData(filter);
         }
     }
 }

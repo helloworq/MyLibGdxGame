@@ -10,6 +10,15 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.mygdx.game.main.contants.EntityEnum;
 
+/**
+ * Box2D 的碰撞检测规则如下：
+ * 如果两个物体的 groupIndex 相同且为正数，它们会碰撞。
+ * 如果两个物体的 groupIndex 相同且为负数，它们不会碰撞。
+ * 如果 groupIndex 不同，则检查 categoryBits 和 maskBits：
+ * 物体 A 的 categoryBits 和物体 B 的 maskBits 进行按位与（&）操作。
+ * 物体 B 的 categoryBits 和物体 A 的 maskBits 进行按位与（&）操作。
+ * 如果两个结果都不为 0，则物体 A 和物体 B 会碰撞。
+ */
 
 /**
  * Filter是"过滤"的意思，所以FilterData可以简单的理解成用来过滤碰撞刚体(比如接下来哦我么要实现的矩形只与矩形刚体碰撞，圆形只与圆形刚体碰撞)。FilterData有3个属性：groupIndex、categoryBits和maskBits，他们的用法如下：
@@ -21,6 +30,23 @@ import com.mygdx.game.main.contants.EntityEnum;
  *
  * filterData.categoryBits指自己所属的碰撞种类
  * filterData.maskBits指与其碰撞的种类
+ *
+ * b2FixtureDef playerFixtureDef, monsterFixtureDef;
+ * playerFixtureDef.filter.categoryBits = 0x0002;
+ * monsterFixtureDef.filter.categoryBits = 0x0004;
+ * playerFixtureDef.filter.maskBits = 0x0004;
+ * monsterFixtureDef.filter.maskBits = 0x0002;
+ * 下面代码给出了指定规则下碰撞发生的条件：
+ *
+ * uint16 catA = fixtureA.filter.categoryBits;
+ * uint16 maskA = fixtureA.filter.maskBits;
+ * uint16 catB = fixtureB.filter.categoryBits;
+ * uint16 maskB = fixtureB.filter.maskBits;
+ *
+ * if ((catA & maskB) != 0 && (catB & maskA) != 0)
+ * {
+ *     // fixtures can collide
+ * }
  */
 public class WorldResources {
     public static final float GRAVITY = 9.8f;
