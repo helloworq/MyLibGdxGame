@@ -28,7 +28,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Disposable;
-import com.sun.tools.javac.util.Pair;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * Allows to create an object to simulate the behavior of water in interaction with other bodies
@@ -147,8 +147,8 @@ public class Water implements Disposable {
 			World world = body.getWorld();
 			for (Pair<Fixture, Fixture> pair : fixturePairs) {
 				
-				Fixture fixtureA = pair.fst;
-				Fixture fixtureB = pair.snd;
+				Fixture fixtureA = pair.getLeft();
+				Fixture fixtureB = pair.getRight();
 				
 				List<Vector2> clippedPolygon = new ArrayList<Vector2>();
 				if (IntersectionUtils.findIntersectionOfFixtures(fixtureA, fixtureB, clippedPolygon)) {

@@ -23,7 +23,7 @@ import com.mygdx.game.sample.liquid.bitfire.postprocessing.filters.Lens;
 /** Lens flare effect.
  * @deprecated Please use the better {@link bitfire.postprocessing.effects.LensFlare2}.
  * @author Toni Sagrista */
-public final class LensFlare extends PostProcessorEffect {
+public class LensFlare extends PostProcessorEffect {
 	private Lens lens = null;
 
 	public LensFlare (int viewportWidth, int viewportHeight) {

@@ -7,7 +7,7 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.mygdx.game.sample.water2d.dream.water.Water;
-import com.sun.tools.javac.util.Pair;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class MyContactListener implements ContactListener {
 
@@ -18,11 +18,11 @@ public class MyContactListener implements ContactListener {
 		 
 		 if(fixtureA.getBody().getUserData() instanceof Water && fixtureB.getBody().getType() == BodyType.DynamicBody){
 			 Water water = (Water) fixtureA.getBody().getUserData();
-			 water.getFixturePairs().add(new Pair<Fixture, Fixture>(fixtureA, fixtureB));
+			 water.getFixturePairs().add(Pair.of(fixtureA, fixtureB));
 		 }
 		 else if(fixtureB.getBody().getUserData() instanceof Water && fixtureA.getBody().getType() == BodyType.DynamicBody){
 			 Water water = (Water) fixtureB.getBody().getUserData();
-			 water.getFixturePairs().add(new Pair<Fixture, Fixture>(fixtureB, fixtureA));
+			 water.getFixturePairs().add(Pair.of(fixtureB, fixtureA));
 		 }
 	}
 
@@ -33,11 +33,11 @@ public class MyContactListener implements ContactListener {
 		 
 		if(fixtureA.getBody().getUserData() instanceof Water && fixtureB.getBody().getType() == BodyType.DynamicBody){
 			Water water = (Water) fixtureA.getBody().getUserData();
-			 water.getFixturePairs().remove(new Pair<Fixture, Fixture>(fixtureA, fixtureB));
+			 water.getFixturePairs().remove(Pair.of(fixtureA, fixtureB));
 		}
 		else if(fixtureB.getBody().getUserData() instanceof Water && fixtureA.getBody().getType() == BodyType.DynamicBody){
 			Water water = (Water) fixtureB.getBody().getUserData();
-			 water.getFixturePairs().add(new Pair<Fixture, Fixture>(fixtureA, fixtureB));
+			 water.getFixturePairs().add(Pair.of(fixtureA, fixtureB));
 		}
 	}
 
