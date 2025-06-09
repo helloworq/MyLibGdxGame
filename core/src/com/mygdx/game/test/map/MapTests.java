@@ -2,8 +2,6 @@ package com.mygdx.game.test.map;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -12,11 +10,11 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import com.mygdx.game.resources.WorldResources;
+import com.mygdx.game.resources.WorldListener;
 import com.mygdx.game.test.hero.AdventurePlayerResources;
 
 public class MapTests extends ApplicationAdapter {
@@ -36,7 +34,7 @@ public class MapTests extends ApplicationAdapter {
         float h = Gdx.graphics.getHeight();
 
         batch = new SpriteBatch();
-        world = WorldResources.WORLD;
+        world = new World(new Vector2(0, -9.8f), true);
         debugRenderer = new Box2DDebugRenderer();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, (w / h) * 10, 10);

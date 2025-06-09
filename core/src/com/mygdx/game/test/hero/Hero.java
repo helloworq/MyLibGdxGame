@@ -13,8 +13,6 @@ public class Hero extends Unit {
 
     public Hero(World world) {
         this.world = world;
-//        setX(5);
-//        setY(60);
         setStateTime(0f);
         setTowardsRight(true);
         setTowardsLeft(false);
@@ -60,7 +58,7 @@ public class Hero extends Unit {
         body.setLinearVelocity(5f, 0f);
         //shape定义
         Shape shape = new CircleShape();
-        shape.setRadius(1f);
+        shape.setRadius(0.2f);
         //物理属性
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;// 形状
@@ -68,7 +66,7 @@ public class Hero extends Unit {
         fixtureDef.restitution = 0f; // 回弹系数
 
         Fixture fixture = body.createFixture(fixtureDef);//设置自定义数据可以从这个物体获取这个数据对象
-        fixture.setUserData("i am thing");
+        fixture.setUserData("bullet");
         //设置碰撞过滤
         Filter filter = new Filter();
         filter.categoryBits = 0x0004;
@@ -96,7 +94,7 @@ public class Hero extends Unit {
         fixtureDef.restitution = 0f; // 回弹系数
 
         Fixture fixture = body.createFixture(fixtureDef);//设置自定义数据可以从这个物体获取这个数据对象
-        fixture.setUserData("i am ball");
+        fixture.setUserData("bullet");
 
         //设置碰撞过滤
         Filter filter = new Filter();

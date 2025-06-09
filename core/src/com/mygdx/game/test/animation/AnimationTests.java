@@ -7,9 +7,10 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import com.mygdx.game.resources.WorldResources;
+import com.mygdx.game.resources.WorldListener;
 import com.mygdx.game.test.hero.AdventurePlayerResources;
 
 public class AnimationTests extends ApplicationAdapter {
@@ -25,7 +26,7 @@ public class AnimationTests extends ApplicationAdapter {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        world = WorldResources.WORLD;
+        world = new World(new Vector2(0, -9.8f), true);
         debugRenderer = new Box2DDebugRenderer();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());

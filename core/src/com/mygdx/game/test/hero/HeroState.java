@@ -31,7 +31,8 @@ public enum HeroState {
     JUMP_RIGHT(ResourcesUtil.getAnimationByName(GlobalConstant.ADVENTRURE_PATH, "adventurer-jump", false)),
     JUMP_LEFT(ResourcesUtil.getAnimationByName(GlobalConstant.ADVENTRURE_PATH, "adventurer-jump", true)),
     SLIDE_RIGHT(ResourcesUtil.getAnimationByName(GlobalConstant.ADVENTRURE_PATH, "adventurer-slide", false)),
-    SLIDE_LEFT(ResourcesUtil.getAnimationByName(GlobalConstant.ADVENTRURE_PATH, "adventurer-slide", true));
+    SLIDE_LEFT(ResourcesUtil.getAnimationByName(GlobalConstant.ADVENTRURE_PATH, "adventurer-slide", true)),
+    DIE(ResourcesUtil.getAnimationByName(GlobalConstant.ADVENTRURE_PATH, "adventurer-die", true));
 
     public Animation<TextureRegion> textureRegion;
 

@@ -27,7 +27,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.mygdx.game.resources.ImageResources;
-import com.mygdx.game.resources.WorldResources;
+import com.mygdx.game.resources.WorldListener;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -67,7 +67,7 @@ public class MyBox2DImgWorld extends ApplicationAdapter {
         batch = new SpriteBatch();
         shape = new ShapeRenderer();
         img = ImageResources.BAD_LOGIC;
-        world = WorldResources.WORLD;
+        world = new World(new Vector2(0, -9.8f), true);
         debugRenderer = new Box2DDebugRenderer();
         walkAnimation = ImageResources.playerAnimation();
 

@@ -9,21 +9,23 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.Json;
 import com.mygdx.game.resources.Box2dUtil;
-import com.mygdx.game.resources.GlobalConstant;
-import com.mygdx.game.resources.WorldResources;
+import com.mygdx.game.resources.WorldListener;
 
 public class HeroTests extends ApplicationAdapter {
+    public static final float GRAVITY = 9.8f;
     private SpriteBatch batch;
     private OrthographicCamera camera;
     private World world;
+    private WorldListener worldListener;
     private Box2DDebugRenderer debugRenderer;
     HeroStateHandler heroStateHandler;
 
     Hero hero;
+    Enemy enemy;
 
     private TiledMap map;
     private TiledMapRenderer renderer;
@@ -31,7 +33,10 @@ public class HeroTests extends ApplicationAdapter {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        world = WorldResources.WORLD;
+        world = new World(new Vector2(0, -GRAVITY), true);
+        worldListener = new WorldListener(world);
+        world.setContactListener(worldListener);
+
         debugRenderer = new Box2DDebugRenderer();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth() / 32f, Gdx.graphics.getHeight() / 32f);//地图尺寸32*32
@@ -39,6 +44,7 @@ public class HeroTests extends ApplicationAdapter {
 
 
         hero = new Hero(world);
+        enemy = new Enemy(world);
         heroStateHandler = new HeroStateHandler(hero);
         Gdx.input.setInputProcessor(new MyInputProcessor(heroStateHandler));
 
@@ -61,9 +67,10 @@ public class HeroTests extends ApplicationAdapter {
 
         batch.begin();
         hero.draw(batch);
+        enemy.draw(batch);
         batch.end();
 
-
         world.step(1 / 60f, 6, 2);
+        worldListener.removeBodies();
     }
 }
