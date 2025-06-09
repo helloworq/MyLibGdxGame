@@ -50,7 +50,7 @@ public class HeroStateHandler {
                         hero.setState(HeroState.SLIDE_RIGHT);
                     } else if ('d' == keyCode) {
                         hero.setState(HeroState.RUN_RIGHT);
-                        hero.getBody().setLinearVelocity(hero.getSpeedX(), hero.getBody().getLinearVelocity().y);
+                        hero.getBody().setLinearVelocity(1f, 0);
                     } else if ('j' == keyCode) {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_RIGHT);
                         hero.createBulletBody();

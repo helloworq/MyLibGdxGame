@@ -47,6 +47,7 @@ public abstract class Unit {
     }
 
     public void setState(HeroState state) {
+        //todo 当运动时，长按导致动画不断在第一帧
         setStateTime(0f);
         this.state = state;
     }

@@ -122,8 +122,7 @@ public class Hero extends Unit {
             heroStateHandler.updateByAnimationComplete(true);
             setStateTime(0f);
         }
-        TextureRegion r = current.getKeyFrame(getStateTime());
 
-        return r;
+        return current.getKeyFrame(getStateTime());
     }
 }

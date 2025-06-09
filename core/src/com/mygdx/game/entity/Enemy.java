@@ -60,7 +60,6 @@ public class Enemy extends Unit {
         setStateTime(getStateTime() + Gdx.graphics.getDeltaTime());
         Animation<TextureRegion> current = HeroState.IDLE_RIGHT.textureRegion;
 
-        TextureRegion r = current.getKeyFrame(getStateTime());
-        return r;
+        return current.getKeyFrame(getStateTime());
     }
 }
