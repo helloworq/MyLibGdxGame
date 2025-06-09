@@ -1,7 +1,6 @@
 package com.mygdx.game.resources;
 
 import com.badlogic.gdx.physics.box2d.*;
-import com.mygdx.game.main.contants.EntityEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,13 +66,6 @@ public class WorldListener implements ContactListener{
                 ("bullet".equals(contact.getFixtureA().getUserData()) && "enemy".equals(contact.getFixtureB().getUserData()))) {
             bodiesToRemove.add(contact.getFixtureA().getBody());
             bodiesToRemove.add(contact.getFixtureB().getBody());
-        }
-
-        if (EntityEnum.BULLET.equals(contact.getFixtureA().getBody().getUserData())) {
-            contact.getFixtureA().getBody().setUserData(EntityEnum.TRASH);
-        }
-        if (EntityEnum.BULLET.equals(contact.getFixtureB().getBody().getUserData())) {
-            contact.getFixtureB().getBody().setUserData(EntityEnum.TRASH);
         }
     }
 
