@@ -4,7 +4,7 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.physics.box2d.*;
-import com.mygdx.game.resources.GlobalConstant;
+import com.mygdx.game.constants.GlobalConstant;
 
 public class Box2dUtil {
     public static void buildStaticBody(MapObjects mapObjects, World world) {

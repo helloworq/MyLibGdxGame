@@ -1,4 +1,4 @@
-package com.mygdx.game.hero;
+package com.mygdx.game.listener;
 
 import com.badlogic.gdx.InputProcessor;
 

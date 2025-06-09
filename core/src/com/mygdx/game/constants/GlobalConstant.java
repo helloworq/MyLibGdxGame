@@ -1,4 +1,4 @@
-package com.mygdx.game.resources;
+package com.mygdx.game.constants;
 
 public class GlobalConstant {
     public static final String ADVENTRURE_PATH = "adventure/texture.atlas";

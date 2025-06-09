@@ -1,11 +1,13 @@
-package com.mygdx.game.hero;
+package com.mygdx.game.entity;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.*;
-import com.mygdx.game.resources.GlobalConstant;
+import com.mygdx.game.resources.HeroState;
+import com.mygdx.game.listener.HeroStateHandler;
+import com.mygdx.game.constants.GlobalConstant;
 
 public class Hero extends Unit {
     public World world;

@@ -1,6 +1,8 @@
-package com.mygdx.game.hero;
+package com.mygdx.game.listener;
 
 import com.badlogic.gdx.math.Vector2;
+import com.mygdx.game.entity.Hero;
+import com.mygdx.game.resources.HeroState;
 
 /**
  * 状态机-所有状态均在此处理

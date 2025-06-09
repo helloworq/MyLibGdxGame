@@ -12,6 +12,10 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.entity.Enemy;
+import com.mygdx.game.entity.Hero;
+import com.mygdx.game.listener.HeroStateHandler;
+import com.mygdx.game.listener.MyInputProcessor;
 import com.mygdx.game.util.Box2dUtil;
 import com.mygdx.game.resources.WorldListener;
 

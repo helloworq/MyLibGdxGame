@@ -1,6 +1,7 @@
-package com.mygdx.game.hero;
+package com.mygdx.game.entity;
 
 import com.badlogic.gdx.physics.box2d.Body;
+import com.mygdx.game.resources.HeroState;
 
 /**
  * 所有基本单位的基类，定义最基本的属性和方法

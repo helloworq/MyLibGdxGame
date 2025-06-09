@@ -1,9 +1,9 @@
-package com.mygdx.game.hero;
+package com.mygdx.game.resources;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.mygdx.game.resources.GlobalConstant;
-import com.mygdx.game.resources.ResourcesUtil;
+import com.mygdx.game.constants.GlobalConstant;
+import com.mygdx.game.util.ResourcesUtil;
 
 public enum HeroState {
     IDLE_RIGHT(ResourcesUtil.getAnimationByName(GlobalConstant.ADVENTRURE_PATH, "adventurer-idle", false)),
