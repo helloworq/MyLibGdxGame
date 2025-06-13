@@ -32,10 +32,6 @@ public class HeroStateHandler {
     }
 
     private void update(Character keyCode, boolean animationComplete, boolean isAttacked) {
-        if (count>60) {
-            hero.setStateTime(0.5f);//强制结束之前动画时需要重新累计帧时间
-            count = 0;
-        }
         switch (hero.getState()) {
             case IDLE_RIGHT: {
                 if (null != keyCode) {
@@ -127,7 +123,7 @@ public class HeroStateHandler {
                         hero.setState(HeroState.ATTACK_HORIZONTAL_RIGHT);
                     } else break;//强制结束之前动画时需要重新累计帧时间
                 }
-                count = count + 1;
+
                 if (animationComplete) {
                     hero.setState(HeroState.IDLE_RIGHT);
                 }

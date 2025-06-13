@@ -58,12 +58,7 @@ public class ResourcesUtil {
             }
         }
 
-        result.sort(new Comparator<TextureAtlas.AtlasRegion>() {
-            @Override
-            public int compare(TextureAtlas.AtlasRegion o1, TextureAtlas.AtlasRegion o2) {
-                return o1.name.compareToIgnoreCase(o2.name);
-            }
-        });
+        result.sort((o1, o2) -> o1.name.compareToIgnoreCase(o2.name));
         return result;
     }
 }
